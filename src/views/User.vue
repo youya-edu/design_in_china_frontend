@@ -1,13 +1,15 @@
 <template>
   <div class="user-gallery">
-    <h2>设计师</h2>
     <div class="users">
       <div v-for="user in users" :key="user.id">
         <figure>
           <router-link
-            :to="{ name: 'UserDetail', params: { userId: user.id } }"
+            :to="{
+              name: 'UserDetail',
+              params: { userId: user.id },
+            }"
           >
-            <img :src="user.avatar" :alt="user.username" />
+            <img :src="loadAvatar(user.avatar)" :alt="user.username" />
           </router-link>
         </figure>
         <router-link :to="{ name: 'UserDetail', params: { userId: user.id } }">
@@ -50,6 +52,9 @@ export default defineComponent({
         .catch((error) => {
           console.log(error);
         });
+    },
+    loadAvatar(path) {
+      return path && require(`@/assets/avatar/${path}`);
     },
   },
 });

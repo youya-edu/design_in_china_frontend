@@ -11,7 +11,11 @@
           >
             <dt class="text-sm font-medium text-gray-500">头像</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              <img class="w-60" :src="user.avatar" alt="user.username" />
+              <img
+                class="w-60"
+                :src="loadAvatar(user.avatar)"
+                :alt="user.username"
+              />
             </dd>
           </div>
           <div
@@ -76,6 +80,9 @@ export default defineComponent({
         .catch((error) => {
           console.log(error);
         });
+    },
+    loadAvatar(path) {
+      return path && require(`@/assets/avatar/${path}`);
     },
   },
 });

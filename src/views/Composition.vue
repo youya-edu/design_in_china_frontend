@@ -1,5 +1,3 @@
 <template>
-  <div>
-    <h2>作品</h2>
-  </div>
+  <div></div>
 </template>
