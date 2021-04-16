@@ -2,12 +2,8 @@
   <div class="home"></div>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from "vue-class-component";
-// @ is an alias to /src
+<script>
+import { defineComponent } from "vue";
 
-@Options({
-  components: {},
-})
-export default class Home extends Vue {}
+export default defineComponent({});
 </script>

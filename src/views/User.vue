@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { ref, defineComponent } from "vue";
+import { defineComponent } from "vue";
 import axios from "axios";
 
 export default defineComponent({
@@ -30,10 +30,6 @@ export default defineComponent({
     return {
       users: [],
     };
-  },
-  setup() {
-    const count = ref(0);
-    return { count };
   },
   mounted() {
     this.loadUsers();
@@ -45,9 +41,7 @@ export default defineComponent({
       axios
         .get("/users", {})
         .then((response) => {
-          console.log(response);
           self.users = response.data["users"];
-          console.log(self.users);
         })
         .catch((error) => {
           console.log(error);

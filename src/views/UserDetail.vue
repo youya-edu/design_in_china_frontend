@@ -74,7 +74,6 @@ export default defineComponent({
       axios
         .get("/users/" + self.userId)
         .then((response) => {
-          console.log(response);
           self.user = response.data;
         })
         .catch((error) => {
