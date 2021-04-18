@@ -13,8 +13,8 @@
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
               <img
                 class="w-60"
-                :src="loadAvatar(user.avatar)"
-                :alt="user.username"
+                :src="loadAvatar(userDetail?.avatar)"
+                :alt="userDetail?.username"
               />
             </dd>
           </div>
@@ -23,7 +23,7 @@
           >
             <dt class="text-sm font-medium text-gray-500">用户名</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {{ user.username }}
+              {{ userDetail?.username }}
             </dd>
           </div>
           <div
@@ -31,7 +31,7 @@
           >
             <dt class="text-sm font-medium text-gray-500">邮箱</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {{ user.email }}
+              {{ userDetail?.email }}
             </dd>
           </div>
           <div
@@ -39,7 +39,7 @@
           >
             <dt class="text-sm font-medium text-gray-500">说明</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {{ user.description }}
+              {{ userDetail?.description }}
             </dd>
           </div>
         </dl>
@@ -50,7 +50,9 @@
 
 <script>
 import { defineComponent } from "vue";
-import axios from "axios";
+import { mapActions, mapGetters } from "vuex";
+import { modules } from "@/store/constants";
+import { actions, getters } from "@/store/user/constants";
 
 export default defineComponent({
   props: {
@@ -59,30 +61,17 @@ export default defineComponent({
       required: true,
     },
   },
-  data() {
-    return {
-      user: {},
-    };
-  },
   mounted() {
-    this.loadUser();
+    this.loadUserDetail(this.userId);
   },
   methods: {
-    loadUser() {
-      axios.defaults.baseURL = "http://localhost:8080";
-      const self = this;
-      axios
-        .get("/users/" + self.userId)
-        .then((response) => {
-          self.user = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
+    ...mapActions(modules.USERS, [actions.LOAD_USER_DETAIL]),
     loadAvatar(path) {
       return path && require(`@/assets/avatar/${path}`);
     },
+  },
+  computed: {
+    ...mapGetters(modules.USERS, [getters.USER_DETAIL]),
   },
 });
 </script>

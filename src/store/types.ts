@@ -9,14 +9,25 @@ export interface User {
   description: string;
 }
 
+export interface UserCollection {
+  users: User[];
+  size: number;
+}
+
 export interface loginInfo {
   email: string;
   password: string;
 }
 
+export interface JwtAuthenticationResponse {
+  jwtToken: string;
+  user: User;
+}
+
 export interface UsersState {
-  users: User[];
   currentLoginUser: User | null;
+  users: User[];
+  userDetail: User | null;
 }
 
 export interface ViewsState {

@@ -22,34 +22,23 @@
 
 <script>
 import { defineComponent } from "vue";
-import axios from "axios";
+import { mapActions, mapGetters } from "vuex";
+import { modules } from "@/store/constants";
+import { actions, getters } from "@/store/user/constants";
 
 export default defineComponent({
-  name: "User",
-  data() {
-    return {
-      users: [],
-    };
-  },
+  name: "Users",
   mounted() {
     this.loadUsers();
   },
   methods: {
-    loadUsers() {
-      axios.defaults.baseURL = "http://localhost:8080";
-      const self = this;
-      axios
-        .get("/users", {})
-        .then((response) => {
-          self.users = response.data["users"];
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
     loadAvatar(path) {
       return path && require(`@/assets/avatar/${path}`);
     },
+    ...mapActions(modules.USERS, [actions.LOAD_USERS]),
+  },
+  computed: {
+    ...mapGetters(modules.USERS, [getters.USERS]),
   },
 });
 </script>

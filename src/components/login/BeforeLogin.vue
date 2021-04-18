@@ -17,9 +17,12 @@
 <script>
 import { defineComponent } from "vue";
 import { mapMutations } from "vuex";
+import { modules } from "@/store/constants";
+import { mutations } from "@/store/view/constants";
+
 export default defineComponent({
   methods: {
-    ...mapMutations("views", ["showLoginArea"]),
+    ...mapMutations(modules.VIEWS, [mutations.SHOW_LOGIN_AREA]),
   },
 });
 </script>

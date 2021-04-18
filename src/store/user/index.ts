@@ -5,8 +5,9 @@ import actions from "./actions";
 import mutations from "./mutations";
 
 const state: UsersState = {
-  users: [],
   currentLoginUser: null,
+  users: [],
+  userDetail: null,
 };
 
 export const users: Module<UsersState, RootState> = {

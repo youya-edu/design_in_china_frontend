@@ -14,17 +14,19 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
+import { modules } from "@/store/constants";
+import { actions, getters } from "@/store/user/constants";
 
 export default defineComponent({
   methods: {
     loadAvatar(path: string) {
       return path && require(`@/assets/avatar/${path}`);
     },
-    ...mapActions("users", ["logout"]),
+    ...mapActions(modules.USERS, [actions.LOGOUT]),
   },
   computed: {
-    ...mapGetters("users", {
-      user: "currentLoginUser",
+    ...mapGetters(modules.USERS, {
+      user: getters.CURRENT_LOGIN_USER,
     }),
   },
 });

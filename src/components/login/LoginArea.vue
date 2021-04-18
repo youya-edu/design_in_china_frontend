@@ -37,6 +37,8 @@ import LoginDescription from "@/components/login/LoginDescription.vue";
 import NormalLogin from "@/components/login/NormalLogin.vue";
 import IdpLogin from "@/components/login/IdpLogin.vue";
 import { mapMutations } from "vuex";
+import { modules } from "@/store/constants";
+import { mutations } from "@/store/view/constants";
 
 export default defineComponent({
   components: {
@@ -45,7 +47,7 @@ export default defineComponent({
     IdpLogin,
   },
   methods: {
-    ...mapMutations("views", ["showLoginArea"]),
+    ...mapMutations(modules.VIEWS, [mutations.SHOW_LOGIN_AREA]),
   },
 });
 </script>

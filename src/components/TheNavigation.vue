@@ -50,6 +50,9 @@ import BeforeLogin from "@/components/login/BeforeLogin";
 import AfterLogin from "@/components/login/AfterLogin";
 import LoginArea from "@/components/login/LoginArea";
 import { mapActions, mapGetters } from "vuex";
+import { modules } from "@/store/constants";
+import { getters as viewGetters } from "@/store/view/constants";
+import { actions, getters as userGetters } from "@/store/user/constants";
 
 export default defineComponent({
   name: "TheNavigation",
@@ -85,11 +88,11 @@ export default defineComponent({
         }
       }
     },
-    ...mapActions("users", ["checkUserStatus"]),
+    ...mapActions(modules.USERS, [actions.CHECK_USER_STATUS]),
   },
   computed: {
-    ...mapGetters("users", { user: "currentLoginUser" }),
-    ...mapGetters("views", ["showLoginArea"]),
+    ...mapGetters(modules.USERS, { user: userGetters.CURRENT_LOGIN_USER }),
+    ...mapGetters(modules.VIEWS, [viewGetters.SHOW_LOGIN_AREA]),
   },
   created() {
     this.checkUserStatus();
