@@ -23,8 +23,8 @@
             </div>
           </div>
         </div>
-        <before-login v-if="user === null" />
-        <after-login v-else />
+        <o-login-before v-if="user === null" />
+        <o-login-after v-else />
       </div>
     </div>
 
@@ -41,14 +41,14 @@
       </div>
     </div>
   </nav>
-  <login-area v-if="showLoginArea" />
+  <o-login-area v-if="showLoginArea" />
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import BeforeLogin from "@/components/login/BeforeLogin";
-import AfterLogin from "@/components/login/AfterLogin";
-import LoginArea from "@/components/login/LoginArea";
+import { oLoginBefore } from "@/components/organisms/login-before";
+import { oLoginAfter } from "@/components/organisms/login-after";
+import { oLoginArea } from "@/components/organisms/login-area";
 import { mapActions, mapGetters } from "vuex";
 import { modules } from "@/store/constants";
 import { getters as viewGetters } from "@/store/view/constants";
@@ -57,9 +57,9 @@ import { actions, getters as userGetters } from "@/store/user/constants";
 export default defineComponent({
   name: "TheNavigation",
   components: {
-    BeforeLogin,
-    AfterLogin,
-    LoginArea,
+    oLoginBefore,
+    oLoginAfter,
+    oLoginArea,
   },
   data() {
     return {

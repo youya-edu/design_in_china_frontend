@@ -20,25 +20,20 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from "vue";
-import { mapActions, mapGetters } from "vuex";
-import { modules } from "@/store/constants";
-import { actions, getters } from "@/store/user/constants";
+<script lang="ts">
+import { defineComponent, PropType } from "vue";
+import { User } from "@/store/types";
 
 export default defineComponent({
   name: "Users",
-  mounted() {
-    this.loadUsers();
+  props: {
+    users: { type: Object as PropType<User>, required: true },
   },
   methods: {
-    loadAvatar(path) {
+    // TODO template不应该包含逻辑
+    loadAvatar(path: string) {
       return path && require(`@/assets/avatar/${path}`);
     },
-    ...mapActions(modules.USERS, [actions.LOAD_USERS]),
-  },
-  computed: {
-    ...mapGetters(modules.USERS, [getters.USERS]),
   },
 });
 </script>

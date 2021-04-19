@@ -48,30 +48,22 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from "vue";
-import { mapActions, mapGetters } from "vuex";
-import { modules } from "@/store/constants";
-import { actions, getters } from "@/store/user/constants";
+<script lang="ts">
+import { defineComponent, PropType } from "vue";
+import { User } from "@/store/types";
 
 export default defineComponent({
   props: {
-    userId: {
-      type: String,
+    userDetail: {
+      type: Object as PropType<User>,
       required: true,
     },
   },
-  mounted() {
-    this.loadUserDetail(this.userId);
-  },
   methods: {
-    ...mapActions(modules.USERS, [actions.LOAD_USER_DETAIL]),
-    loadAvatar(path) {
+    // TODO template不应该包含逻辑
+    loadAvatar(path: string) {
       return path && require(`@/assets/avatar/${path}`);
     },
-  },
-  computed: {
-    ...mapGetters(modules.USERS, [getters.USER_DETAIL]),
   },
 });
 </script>

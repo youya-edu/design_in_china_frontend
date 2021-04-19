@@ -1,5 +1,5 @@
 <template>
-  <the-navigation />
+  <g-the-navigation />
   <main>
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
       <router-view :key="$route.path" />
@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import TheNavigation from "@/components/TheNavigation";
+import { gTheNavigation } from "@/components/globals/the-navigation";
 export default {
   components: {
-    TheNavigation,
+    gTheNavigation,
   },
 };
 </script>
