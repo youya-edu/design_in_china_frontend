@@ -7,11 +7,11 @@ import { defineComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
 import { modules } from "@/store/constants";
 import { actions, getters } from "@/store/user/constants";
-import { tUserDetail } from "@/components/templates/user/detail";
+import { TUserDetail } from "@/components/templates/user-detail";
 
 export default defineComponent({
   components: {
-    tUserDetail,
+    TUserDetail,
   },
   props: {
     userId: {

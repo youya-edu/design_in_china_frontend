@@ -1,14 +1,13 @@
 <template>
-  <t-common-home />
+  <t-compositions />
 </template>
-
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
-import { tCommonHome } from "@/components/templates/common/home";
+import { TCompositions } from "@/components/templates/compositions";
 
 export default defineComponent({
   components: {
-    tCommonHome,
+    TCompositions,
   },
 });
 </script>

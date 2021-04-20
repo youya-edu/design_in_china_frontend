@@ -14,11 +14,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { aIconGoogle } from "@/components/atoms/icon-google";
+import { AIconGoogle } from "@/components/atoms/icon-google";
 
 export default defineComponent({
   components: {
-    aIconGoogle,
+    AIconGoogle,
   },
 });
 </script>

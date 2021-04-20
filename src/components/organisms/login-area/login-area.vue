@@ -33,18 +33,18 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { aLoginDescription } from "@/components/atoms/login-description";
-import { oLoginNormal } from "@/components/organisms/login-normal";
-import { oLoginIdp } from "@/components/organisms/login-idp";
+import { ALoginDescription } from "@/components/atoms/login-description";
+import { OLoginNormal } from "@/components/organisms/login-normal";
+import { OLoginIdp } from "@/components/organisms/login-idp";
 import { mapMutations } from "vuex";
 import { modules } from "@/store/constants";
 import { mutations } from "@/store/view/constants";
 
 export default defineComponent({
   components: {
-    aLoginDescription,
-    oLoginNormal,
-    oLoginIdp,
+    ALoginDescription,
+    OLoginNormal,
+    OLoginIdp,
   },
   methods: {
     ...mapMutations(modules.VIEWS, [mutations.SHOW_LOGIN_AREA]),

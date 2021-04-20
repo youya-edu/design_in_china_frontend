@@ -46,9 +46,9 @@
 
 <script>
 import { defineComponent } from "vue";
-import { oLoginBefore } from "@/components/organisms/login-before";
-import { oLoginAfter } from "@/components/organisms/login-after";
-import { oLoginArea } from "@/components/organisms/login-area";
+import { OLoginBefore } from "@/components/organisms/login-before";
+import { OLoginAfter } from "@/components/organisms/login-after";
+import { OLoginArea } from "@/components/organisms/login-area";
 import { mapActions, mapGetters } from "vuex";
 import { modules } from "@/store/constants";
 import { getters as viewGetters } from "@/store/view/constants";
@@ -57,9 +57,9 @@ import { actions, getters as userGetters } from "@/store/user/constants";
 export default defineComponent({
   name: "TheNavigation",
   components: {
-    oLoginBefore,
-    oLoginAfter,
-    oLoginArea,
+    OLoginBefore,
+    OLoginAfter,
+    OLoginArea,
   },
   data() {
     return {

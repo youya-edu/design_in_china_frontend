@@ -1,5 +1,5 @@
 <template>
-  <t-user-users :users="users" />
+  <t-users :users="users" />
 </template>
 
 <script>
@@ -7,11 +7,11 @@ import { defineComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
 import { modules } from "@/store/constants";
 import { actions, getters } from "@/store/user/constants";
-import { tUserUsers } from "@/components/templates/user/users";
+import { TUsers } from "@/components/templates/users";
 
 export default defineComponent({
   name: "Users",
-  components: { tUserUsers },
+  components: { TUsers },
   mounted() {
     this.loadUsers();
   },

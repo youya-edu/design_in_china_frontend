@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import { pCommonHome } from "@/components/pages/common/home";
+import { PHome } from "@/components/pages/home";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Home",
-    component: pCommonHome,
+    component: PHome,
     props: true,
   },
   {
@@ -13,7 +13,7 @@ const routes: Array<RouteRecordRaw> = [
     name: "Users",
     component: () =>
       import(
-        /* webpackChunkName: "users" */ "@/components/pages/user/users/users.vue"
+        /* webpackChunkName: "users" */ "@/components/pages/users/users.vue"
       ),
     props: true,
   },
@@ -22,7 +22,7 @@ const routes: Array<RouteRecordRaw> = [
     name: "Compositions",
     component: () =>
       import(
-        /* webpackChunkName: "compositions" */ "@/components/pages/composition/compisitions/compositions.vue"
+        /* webpackChunkName: "compositions" */ "@/components/pages/compisitions/compositions.vue"
       ),
     props: true,
   },
@@ -31,7 +31,7 @@ const routes: Array<RouteRecordRaw> = [
     name: "UserDetail",
     component: () =>
       import(
-        /* webpackChunkName: "user-detail" */ "@/components/pages/user/detail/detail.vue"
+        /* webpackChunkName: "user-detail" */ "@/components/pages/user-detail/user-detail.vue"
       ),
     props: true,
   },

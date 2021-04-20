@@ -1,1 +1,1 @@
-export { default as oLoginArea } from "@/components/organisms/login-area/login-area.vue";
+export { default as OLoginArea } from "@/components/organisms/login-area/login-area.vue";

@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import { gTheNavigation } from "@/components/globals/the-navigation";
+import { GTheNavigation } from "@/components/globals/the-navigation";
 export default {
   components: {
-    gTheNavigation,
+    GTheNavigation,
   },
 };
 </script>
