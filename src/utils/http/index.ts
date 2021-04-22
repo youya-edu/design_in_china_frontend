@@ -1,7 +1,8 @@
 import { isDevelopment } from "@/utils/env";
 import axios, { AxiosInstance } from "axios";
-import userUtils from "@/utils/user";
+import { get } from "@/utils/user";
 import keys from "@/utils/user/constants";
+import { StatusCode } from "./status-codes";
 
 axios.defaults.baseURL =
   process.env.VUE_APP_DEV_BASE_API_URL || process.env.BASE_URL;
@@ -16,7 +17,7 @@ const httpRequest: AxiosInstance = axios.create({
 
 httpRequest.interceptors.request.use(
   async (config) => {
-    const jwtToken = await userUtils.get(keys.JWT);
+    const jwtToken = await get(keys.JWT);
     if (jwtToken) {
       config.headers["Authorization"] = "Bearer " + jwtToken;
     }
@@ -28,4 +29,4 @@ httpRequest.interceptors.request.use(
   }
 );
 
-export default httpRequest;
+export { httpRequest, StatusCode };

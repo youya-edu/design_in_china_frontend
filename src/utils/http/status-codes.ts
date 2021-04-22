@@ -14,6 +14,7 @@ export enum StatusCode {
   FORBIDDEN = 403,
   NOT_FOUND = 404,
   NOT_ACCEPTABLE = 406,
+  UNPROCESSABLE_ENTITY = 422,
 
   /**
    * 5xx codes

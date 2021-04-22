@@ -4,7 +4,9 @@ import getters from "./getters";
 import mutations from "./mutations";
 
 const state: ViewsState = {
-  showLoginArea: false,
+  showAccountLogin: false,
+  showAccountSignup: false,
+  showAccountSignupSuccess: false,
 };
 
 export const views: Module<ViewsState, RootState> = {

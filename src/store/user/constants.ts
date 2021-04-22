@@ -11,7 +11,11 @@ const actions = upperSnakeToCamelStrEnum(
   "LOGOUT",
   "CHECK_USER_STATUS",
   "LOAD_USERS",
-  "LOAD_USER_DETAIL"
+  "LOAD_USER_DETAIL",
+  "SIGNUP",
+  "CHECK_EMAIL",
+  "CHECK_USERNAME",
+  "CHECK_PASSWORD"
 );
 
 const getters = upperSnakeToCamelStrEnum(

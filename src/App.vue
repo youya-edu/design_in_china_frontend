@@ -1,5 +1,5 @@
 <template>
-  <g-the-navigation />
+  <GTheNavigation />
   <main>
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
       <router-view :key="$route.path" />
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { GTheNavigation } from "@/components/globals/the-navigation";
+import { GTheNavigation } from "@/components/globals/GTheNavigation";
 export default {
   components: {
     GTheNavigation,

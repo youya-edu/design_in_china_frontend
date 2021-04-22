@@ -14,8 +14,9 @@ export interface UserCollection {
   size: number;
 }
 
-export interface loginInfo {
+export interface UserKeyInfo {
   email: string;
+  username?: string;
   password: string;
 }
 
@@ -31,5 +32,7 @@ export interface UsersState {
 }
 
 export interface ViewsState {
-  showLoginArea: boolean;
+  showAccountLogin: boolean;
+  showAccountSignup: boolean;
+  showAccountSignupSuccess: boolean;
 }
