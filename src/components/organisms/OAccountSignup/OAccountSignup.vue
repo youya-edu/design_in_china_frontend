@@ -14,8 +14,10 @@
         <OAccountSideDescription>
           <template #switch>
             <p class="flex flex-col mt-10">
-              <span>已有账号？</span>
-              <a class="cursor-pointer underline" @click="toggle">登录</a>
+              <span>{{ $t("has_account") }}</span>
+              <a class="cursor-pointer underline" @click="toggle">{{
+                $t("login")
+              }}</a>
             </p>
           </template>
         </OAccountSideDescription>
@@ -25,8 +27,8 @@
           >
             {{
               !showAccountSignupSuccess
-                ? "创建您的账号"
-                : "恭喜你，账号创建成功！"
+                ? $t("create_your_account")
+                : $t("congratulations_created_account_successfully")
             }}
           </h3>
           <div class="flex flex-col space-y-5">

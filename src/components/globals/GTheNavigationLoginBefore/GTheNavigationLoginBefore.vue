@@ -4,13 +4,13 @@
       class="focus:outline-none whitespace-nowrap text-md font-medium text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md"
       @click="showAccountLogin(true)"
     >
-      登录
+      {{ $t("login") }}
     </button>
     <button
       class="focus:outline-none ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-md font-medium text-white bg-indigo-500 hover:bg-indigo-700"
       @click="showAccountSignup(true)"
     >
-      注册
+      {{ $t("sign_up") }}
     </button>
   </div>
 </template>

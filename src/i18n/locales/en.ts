@@ -1,0 +1,23 @@
+export default {
+  avatar: "avatar",
+  composition: "composition",
+  congratulations_created_account_successfully:
+    "congratulations, created account successfully!",
+  create_your_account: "create your account",
+  description: "description",
+  design_in_china: "design in china",
+  designer: "designer",
+  email: "email",
+  forget_password: "forget password?",
+  has_account: "has account?",
+  home: "home",
+  login: "login",
+  login_google_account: "login google account",
+  login_with_other_ways: "login with other ways",
+  login_your_account: "login your account",
+  no_account: "no account?",
+  password: "password",
+  sign_up: "sign up",
+  user_info: "user info",
+  username: "username",
+};

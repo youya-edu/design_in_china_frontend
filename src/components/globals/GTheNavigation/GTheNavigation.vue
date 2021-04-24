@@ -22,7 +22,7 @@
                   class="focus:outline-none"
                   :class="[link.isActive ? linkActiveClass : linkClass]"
                 >
-                  {{ link.content }}
+                  {{ $t(link.i18nKey) }}
                 </button>
               </router-link>
             </div>
@@ -30,6 +30,7 @@
         </div>
         <GTheNavigationLoginBefore v-if="user === null" />
         <GTheNavigationLoginAfter v-else />
+        <OSelectI18n />
       </div>
     </div>
   </nav>
@@ -43,6 +44,7 @@ import { GTheNavigationLoginBefore } from "@/components/globals/GTheNavigationLo
 import { GTheNavigationLoginAfter } from "@/components/globals/GTheNavigationLoginAfter";
 import { OAccountLogin } from "@/components/organisms/OAccountLogin";
 import { OAccountSignup } from "@/components/organisms/OAccountSignup";
+import { OSelectI18n } from "@/components/organisms/OSelectI18n";
 import { mapActions, mapGetters } from "vuex";
 import { modules } from "@/store/constants";
 import { getters as viewGetters } from "@/store/view/constants";
@@ -54,13 +56,19 @@ export default defineComponent({
     GTheNavigationLoginAfter,
     OAccountLogin,
     OAccountSignup,
+    OSelectI18n,
   },
   data() {
     return {
       links: [
-        { id: 0, path: "/", content: "Home", isActive: false },
-        { id: 1, path: "/users", content: "设计师", isActive: false },
-        { id: 2, path: "/compositions", content: "作品", isActive: false },
+        { id: 0, path: "/", i18nKey: "home", isActive: false },
+        { id: 1, path: "/users", i18nKey: "designer", isActive: false },
+        {
+          id: 2,
+          path: "/compositions",
+          i18nKey: "composition",
+          isActive: false,
+        },
       ],
       linkClass:
         "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-medium",

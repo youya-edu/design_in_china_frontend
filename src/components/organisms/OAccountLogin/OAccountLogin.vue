@@ -14,8 +14,10 @@
         <OAccountSideDescription>
           <template #switch>
             <p class="flex flex-col mt-10">
-              <span>没有账号？</span>
-              <a class="cursor-pointer underline" @click="toggle">注册</a>
+              <span>{{ $t("no_account") }}</span>
+              <a class="cursor-pointer underline" @click="toggle">{{
+                $t("sign_up")
+              }}</a>
             </p>
           </template>
         </OAccountSideDescription>
@@ -23,7 +25,7 @@
           <h3
             class="text-left mr-auto my-5 text-2xl font-semibold text-gray-700"
           >
-            登录您的账号
+            {{ $t("login_your_account") }}
           </h3>
           <div class="flex flex-col space-y-5">
             <OAccountLoginForm />

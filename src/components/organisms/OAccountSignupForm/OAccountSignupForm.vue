@@ -2,26 +2,30 @@
   <div>
     <AInput
       type="email"
-      placeholder="邮箱"
+      :placeholder="$t('email')"
       v-model="userKeyInfo.email"
       :isError="!emailOK"
       @keyup="checkEmail()"
     />
     <AInput
       type="username"
-      placeholder="用户名"
+      :placeholder="$t('username')"
       v-model="userKeyInfo.username"
       :isError="!usernameOK"
       @keyup="checkUsername()"
     />
-    <AInput type="password" placeholder="密码" v-model="userKeyInfo.password" />
+    <AInput
+      type="password"
+      :placeholder="$t('password')"
+      v-model="userKeyInfo.password"
+    />
     <button
       @click="signup(userKeyInfo)"
       class="w-full px-4 py-2 mt-6 rounded-md text-lg font-semibold text-white transition-colors duration-300 shadow"
       :disabled="!allValid"
       :class="[allValid ? buttonEnabled : buttonDisabled]"
     >
-      注册
+      {{ $t("sign_up") }}
     </button>
   </div>
 </template>

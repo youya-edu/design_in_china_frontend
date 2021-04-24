@@ -1,9 +1,13 @@
 <template>
   <div>
-    <AInput type="email" placeholder="邮箱" v-model="userKeyInfo.email" />
+    <AInput
+      type="email"
+      :placeholder="$t('email')"
+      v-model="userKeyInfo.email"
+    />
     <AInput
       type="password"
-      placeholder="密码"
+      :placeholder="$t('password')"
       v-model="userKeyInfo.password"
       @keyup.enter="login(userKeyInfo)"
     />
@@ -11,7 +15,7 @@
   <div class="flex items-center justify-between">
     <div class="text-sm ml-auto">
       <a href="#" class="font-medium text-indigo-500 hover:text-indigo-700">
-        忘记密码？
+        {{ $t("forget_password") }}
       </a>
     </div>
   </div>
@@ -20,7 +24,7 @@
       @click="login(userKeyInfo)"
       class="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-gray-700 rounded-md shadow hover:bg-gray-800 focus:outline-none focus:ring-blue-200 focus:ring-4"
     >
-      登录
+      {{ $t("login") }}
     </button>
   </div>
 </template>

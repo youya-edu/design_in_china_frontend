@@ -113,7 +113,7 @@
     - \*login/
       - login.vue
       - index.js
-    - \*register/
+    - \*sign_up/
   - order/
     - \*cart/
     - \*history/
