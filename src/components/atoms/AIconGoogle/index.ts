@@ -1,1 +1,1 @@
-export { default as AIconGoogle } from "@/components/atoms/AIconGoogle/AIconGoogle.vue";
+export { default as AIconGoogle } from "./AIconGoogle.vue";

@@ -1,1 +1,1 @@
-export { default as MInputGroup } from "@/components/molecules/MInputGroup/MInputGroup.vue";
+export { default as MInputGroup } from "./MInputGroup.vue";

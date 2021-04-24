@@ -36,7 +36,7 @@ import { mapActions } from "vuex";
 import { UserKeyInfo } from "@/store/types";
 import { modules } from "@/store/constants";
 import { actions } from "@/store/user/constants";
-import { AInput } from "@/components/atoms/AInput";
+import { AInput } from "@/components/atoms";
 import { validateEmail, check } from "@/utils/user";
 import { lodash } from "@/utils/lib";
 

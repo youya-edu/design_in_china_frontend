@@ -12,14 +12,13 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { AInput } from "@/components/atoms/AInput";
-import { InputItem } from "./types";
+import { AInput, AInputType } from "@/components/atoms";
 
 export default defineComponent({
   components: { AInput },
   props: {
     inputList: {
-      type: Array as PropType<Array<InputItem>>,
+      type: Array as PropType<Array<AInputType>>,
     },
   },
 });

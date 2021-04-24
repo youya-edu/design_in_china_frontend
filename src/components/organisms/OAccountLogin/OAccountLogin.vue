@@ -39,9 +39,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { OAccountSideDescription } from "@/components/organisms/OAccountSideDescription";
-import { OAccountLoginForm } from "@/components/organisms/OAccountLoginForm";
-import { OAccountLoginIdp } from "@/components/organisms/OAccountLoginIdp";
+import {
+  OAccountSideDescription,
+  OAccountLoginForm,
+  OAccountLoginIdp,
+} from "@/components/organisms";
 import { mapMutations } from "vuex";
 import { modules } from "@/store/constants";
 import { mutations } from "@/store/view/constants";

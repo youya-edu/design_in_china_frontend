@@ -35,7 +35,7 @@ import { mapActions } from "vuex";
 import { UserKeyInfo } from "@/store/types";
 import { modules } from "@/store/constants";
 import { actions } from "@/store/user/constants";
-import { AInput } from "@/components/atoms/AInput";
+import { AInput } from "@/components/atoms";
 
 export default defineComponent({
   components: { AInput },

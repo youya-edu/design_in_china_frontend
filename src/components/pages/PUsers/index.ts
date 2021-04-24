@@ -1,1 +1,1 @@
-export { default as PUsers } from "@/components/pages/PUsers/PUsers.vue";
+export { default as PUsers } from "./PUsers.vue";

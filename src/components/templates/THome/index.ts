@@ -1,1 +1,1 @@
-export { default as THome } from "@/components/templates/THome/THome.vue";
+export { default as THome } from "./THome.vue";

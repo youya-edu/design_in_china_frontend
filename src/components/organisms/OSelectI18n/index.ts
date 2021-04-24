@@ -1,1 +1,1 @@
-export { default as OSelectI18n } from "@/components/organisms/OSelectI18n/OSelectI18n.vue";
+export { default as OSelectI18n } from "./OSelectI18n.vue";

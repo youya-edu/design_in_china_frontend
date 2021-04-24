@@ -40,11 +40,15 @@
 
 <script>
 import { defineComponent } from "vue";
-import { GTheNavigationLoginBefore } from "@/components/globals/GTheNavigationLoginBefore";
-import { GTheNavigationLoginAfter } from "@/components/globals/GTheNavigationLoginAfter";
-import { OAccountLogin } from "@/components/organisms/OAccountLogin";
-import { OAccountSignup } from "@/components/organisms/OAccountSignup";
-import { OSelectI18n } from "@/components/organisms/OSelectI18n";
+import {
+  GTheNavigationLoginBefore,
+  GTheNavigationLoginAfter,
+} from "@/components/globals";
+import {
+  OAccountLogin,
+  OAccountSignup,
+  OSelectI18n,
+} from "@/components/organisms";
 import { mapActions, mapGetters } from "vuex";
 import { modules } from "@/store/constants";
 import { getters as viewGetters } from "@/store/view/constants";

@@ -1,1 +1,1 @@
-export { default as OAccountLoginForm } from "@/components/organisms/OAccountLoginForm/OAccountLoginForm.vue";
+export { default as OAccountLoginForm } from "./OAccountLoginForm.vue";

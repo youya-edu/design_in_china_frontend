@@ -7,7 +7,7 @@ import { defineComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
 import { modules } from "@/store/constants";
 import { actions, getters } from "@/store/user/constants";
-import { TUsers } from "@/components/templates/TUsers";
+import { TUsers } from "@/components/templates";
 
 export default defineComponent({
   components: { TUsers },

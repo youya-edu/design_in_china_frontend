@@ -1,1 +1,1 @@
-export { default as OAccountSignupSuccess } from "@/components/organisms/OAccountSignupSuccess/OAccountSignupSuccess.vue";
+export { default as OAccountSignupSuccess } from "./OAccountSignupSuccess.vue";

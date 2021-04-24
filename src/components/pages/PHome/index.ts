@@ -1,1 +1,1 @@
-export { default as PHome } from "@/components/pages/PHome/PHome.vue";
+export { default as PHome } from "./PHome.vue";

@@ -1,1 +1,1 @@
-export { default as GTheNavigation } from "@/components/globals/GTheNavigation/GTheNavigation.vue";
+export { default as GTheNavigation } from "./GTheNavigation.vue";

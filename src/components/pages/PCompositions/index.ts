@@ -1,1 +1,1 @@
-export { default as PCompositions } from "@/components/pages/PCompositions/PCompositions.vue";
+export { default as PCompositions } from "./PCompositions.vue";

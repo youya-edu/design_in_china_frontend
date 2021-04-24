@@ -1,1 +1,1 @@
-export { default as TUserDetail } from "@/components/templates/TUserDetail/TUserDetail.vue";
+export { default as TUserDetail } from "./TUserDetail.vue";

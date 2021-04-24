@@ -7,13 +7,15 @@
   </main>
 </template>
 
-<script>
-import { GTheNavigation } from "@/components/globals/GTheNavigation";
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+import { GTheNavigation } from "@/components/globals";
+
+export default defineComponent({
   components: {
     GTheNavigation,
   },
-};
+});
 </script>
 
 <style lang="scss">

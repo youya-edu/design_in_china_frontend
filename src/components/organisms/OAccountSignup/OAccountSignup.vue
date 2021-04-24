@@ -44,10 +44,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { OAccountSideDescription } from "@/components/organisms/OAccountSideDescription";
-import { OAccountSignupForm } from "@/components/organisms/OAccountSignupForm";
-import { OAccountLoginIdp } from "@/components/organisms/OAccountLoginIdp";
-import { OAccountSignupSuccess } from "@/components/organisms/OAccountSignupSuccess";
+import {
+  OAccountSideDescription,
+  OAccountSignupForm,
+  OAccountLoginIdp,
+  OAccountSignupSuccess,
+} from "@/components/organisms";
 import { mapGetters, mapMutations } from "vuex";
 import { modules } from "@/store/constants";
 import { mutations, getters } from "@/store/view/constants";

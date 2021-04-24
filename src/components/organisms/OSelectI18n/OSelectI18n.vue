@@ -7,7 +7,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import localforage from "localforage";
-import { ASelect } from "@/components/atoms/ASelect";
+import { ASelect } from "@/components/atoms";
 import { locales } from "@/i18n/locales";
 
 export default defineComponent({

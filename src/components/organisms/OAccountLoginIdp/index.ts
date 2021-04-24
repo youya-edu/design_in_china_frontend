@@ -1,1 +1,1 @@
-export { default as OAccountLoginIdp } from "@/components/organisms/OAccountLoginIdp/OAccountLoginIdp.vue";
+export { default as OAccountLoginIdp } from "./OAccountLoginIdp.vue";
