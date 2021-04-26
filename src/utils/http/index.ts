@@ -1,7 +1,6 @@
 import { isDevelopment } from "@/utils/env";
 import axios, { AxiosInstance } from "axios";
-import { get } from "@/utils/user";
-import keys from "@/utils/user/constants";
+import { getJwt } from "@/utils/user";
 import { StatusCode } from "./status-codes";
 
 axios.defaults.baseURL =
@@ -17,7 +16,7 @@ const httpRequest: AxiosInstance = axios.create({
 
 httpRequest.interceptors.request.use(
   async (config) => {
-    const jwtToken = await get(keys.JWT);
+    const jwtToken = await getJwt();
     if (jwtToken) {
       config.headers["Authorization"] = "Bearer " + jwtToken;
     }

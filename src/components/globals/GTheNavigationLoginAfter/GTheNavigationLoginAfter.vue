@@ -1,12 +1,12 @@
 <template>
   <div class="flex">
     <div class="ml-4 flex items-center md:ml-6">
-      <button
-        class="image-cropper bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-        @click="logout"
-      >
-        <img class="profile-pic" :src="loadAvatar(user.avatar)" alt="avatar" />
-      </button>
+      <OAccountMenu
+        id="user-menu"
+        :username="user.username"
+        :show="showUserMenu"
+        @click="showUserMenu = !showUserMenu"
+      />
     </div>
   </div>
 </template>
@@ -16,34 +16,34 @@ import { defineComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
 import { modules } from "@/store/constants";
 import { actions, getters } from "@/store/user/constants";
+import { OAccountMenu } from "@/components/organisms";
 
 export default defineComponent({
+  components: { OAccountMenu },
+  data() {
+    return {
+      showUserMenu: false,
+    };
+  },
   methods: {
-    loadAvatar(path: string) {
-      return path && require(`@/assets/avatar/${path}`);
-    },
     ...mapActions(modules.USERS, [actions.LOGOUT]),
+    closeUserMenu(e: Event) {
+      const tgt = e.target;
+      if (this.$el !== tgt && !this.$el.contains(tgt)) {
+        this.showUserMenu = false;
+      }
+    },
   },
   computed: {
     ...mapGetters(modules.USERS, {
       user: getters.CURRENT_LOGIN_USER,
     }),
   },
+  mounted() {
+    document.addEventListener("click", this.closeUserMenu);
+  },
+  beforeUnmount() {
+    document.removeEventListener("click", this.closeUserMenu);
+  },
 });
 </script>
-
-<style lang="scss" scoped>
-.image-cropper {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 50%;
-}
-.profile-pic {
-  display: inline;
-  margin: -25% auto 0;
-  height: auto;
-  width: 100%;
-}
-</style>

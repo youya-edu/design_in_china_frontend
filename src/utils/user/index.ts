@@ -7,10 +7,10 @@ type availableTypes = User | string;
 
 async function save(
   key: keyof typeof keys,
-  result: availableTypes
+  data: availableTypes
 ): Promise<boolean> {
   try {
-    await localforage.setItem(key, result);
+    await localforage.setItem(key, data);
     return true;
   } catch (err) {
     console.error(err);
@@ -38,6 +38,30 @@ async function remove(key: keyof typeof keys): Promise<boolean> {
   }
 }
 
+async function saveUser(data: User): Promise<boolean> {
+  return await save(keys.USER, data);
+}
+
+async function getUser(): Promise<User> {
+  return (await get(keys.USER)) as User;
+}
+
+async function removeUser(): Promise<boolean> {
+  return await remove(keys.USER);
+}
+
+async function saveJwt(data: string): Promise<boolean> {
+  return await save(keys.JWT, data);
+}
+
+async function getJwt(): Promise<string> {
+  return (await get(keys.JWT)) as string;
+}
+
+async function removeJwt(): Promise<boolean> {
+  return await remove(keys.JWT);
+}
+
 async function check(path: string, userKeyInfo: UserKeyInfo): Promise<boolean> {
   const response = await httpRequest.post("/signup/".concat(path), userKeyInfo);
   return response.status != StatusCode.UNPROCESSABLE_ENTITY;
@@ -48,4 +72,18 @@ function validateEmail(email: string): boolean {
   return re.test(String(email).toLowerCase());
 }
 
-export { save, get, remove, check, validateEmail };
+function loadAvatar(path: string): string {
+  return path && require(`@/assets/avatar/${path}`);
+}
+
+export {
+  saveUser,
+  getUser,
+  removeUser,
+  saveJwt,
+  getJwt,
+  removeJwt,
+  check,
+  validateEmail,
+  loadAvatar,
+};

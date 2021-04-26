@@ -7,7 +7,7 @@ import mutations from "./mutations";
 const state: UsersState = {
   currentLoginUser: null,
   users: [],
-  userDetail: null,
+  userProfile: null,
 };
 
 export const users: Module<UsersState, RootState> = {

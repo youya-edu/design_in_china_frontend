@@ -9,3 +9,7 @@ export * from "./OAccountSignupSuccess";
 export * from "./OAccountSignup";
 
 export * from "./OSelectI18n";
+
+export * from "./OAccountMenu";
+
+export * from "./OSettingsProfile";

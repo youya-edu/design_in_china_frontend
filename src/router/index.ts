@@ -28,10 +28,19 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/users/:username",
-    name: "UserDetail",
+    name: "UserProfile",
     component: () =>
       import(
-        /* webpackChunkName: "user-detail" */ "@/components/pages/PUserDetail/PUserDetail.vue"
+        /* webpackChunkName: "user-detail" */ "@/components/pages/PUserProfile/PUserProfile.vue"
+      ),
+    props: true,
+  },
+  {
+    path: "/settings",
+    name: "Settings",
+    component: () =>
+      import(
+        /* webpackChunkName: "settings" */ "@/components/pages/PSettings/PSettings.vue"
       ),
     props: true,
   },

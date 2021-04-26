@@ -8,11 +8,17 @@ import {
   JwtAuthenticationResponse,
 } from "@/store/types";
 import { httpRequest } from "@/utils/http";
-import { get, save, remove } from "@/utils/user";
+import {
+  getUser,
+  saveUser,
+  removeUser,
+  saveJwt,
+  removeJwt,
+} from "@/utils/user";
 import { modules } from "@/store/constants";
 import { mutations } from "./constants";
 import { mutations as viewMutations } from "@/store/view/constants";
-import keys from "@/utils/user/constants";
+import { purifyData } from "@/utils";
 
 const actions: ActionTree<UsersState, RootState> = {
   login: async function ({ commit }, userKeyInfo: UserKeyInfo) {
@@ -20,8 +26,8 @@ const actions: ActionTree<UsersState, RootState> = {
       await httpRequest.post("/login", userKeyInfo)
     ).data;
     const { jwtToken, user } = response;
-    await save(keys.JWT, jwtToken);
-    await save(keys.USER, user);
+    await saveJwt(jwtToken);
+    await saveUser(user);
     commit(mutations.SET_LOGIN_USER, user);
     commit(
       modules.VIEWS.concat("/").concat(viewMutations.SHOW_ACCOUNT_LOGIN),
@@ -31,13 +37,20 @@ const actions: ActionTree<UsersState, RootState> = {
   },
 
   logout: async function ({ commit }) {
-    await remove(keys.JWT);
-    await remove(keys.USER);
+    await removeJwt();
+    await removeUser();
     commit(mutations.SET_LOGIN_USER, null);
   },
 
   checkUserStatus: async function ({ commit }) {
-    commit(mutations.SET_LOGIN_USER, await get(keys.USER));
+    const user = (await getUser()) as User;
+    if (!user) {
+      return;
+    }
+    if (!user.avatar) {
+      user.avatar = "steve-jobs.jpeg";
+    }
+    commit(mutations.SET_LOGIN_USER, user);
   },
 
   loadUsers: async function ({ commit }) {
@@ -46,9 +59,9 @@ const actions: ActionTree<UsersState, RootState> = {
     commit(mutations.SET_USERS, users);
   },
 
-  loadUserDetail: async function ({ commit }, userId: number) {
-    const userDetail: User = (await httpRequest.get("/users/" + userId)).data;
-    commit(mutations.SET_USER_DETAIL, userDetail);
+  loadUserProfile: async function ({ commit }, userId: number) {
+    const userProfile: User = (await httpRequest.get("/users/" + userId)).data;
+    commit(mutations.SET_USER_PROFILE, userProfile);
   },
 
   signup: async function ({ commit }, userKeyInfo: UserKeyInfo) {
@@ -61,6 +74,17 @@ const actions: ActionTree<UsersState, RootState> = {
         true,
         { root: true }
       );
+    } catch (err) {
+      console.error(err);
+    }
+  },
+
+  updateUser: async function ({ commit }, user: User) {
+    try {
+      const toUpdate = purifyData(user);
+      await httpRequest.put("/users", toUpdate);
+      await saveUser(toUpdate);
+      commit(mutations.SET_LOGIN_USER, toUpdate);
     } catch (err) {
       console.error(err);
     }

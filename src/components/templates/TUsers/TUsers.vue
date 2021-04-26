@@ -5,7 +5,7 @@
         <figure>
           <router-link
             :to="{
-              name: 'UserDetail',
+              name: 'UserProfile',
               params: { username: user.username },
             }"
           >
@@ -13,7 +13,7 @@
           </router-link>
         </figure>
         <router-link
-          :to="{ name: 'UserDetail', params: { username: user.username } }"
+          :to="{ name: 'UserProfile', params: { username: user.username } }"
         >
           <h2>{{ user.username }}</h2>
         </router-link>
@@ -25,6 +25,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { User } from "@/store/types";
+import { loadAvatar } from "@/utils/user";
 
 export default defineComponent({
   name: "Users",
@@ -32,10 +33,7 @@ export default defineComponent({
     users: { type: Object as PropType<User>, required: true },
   },
   methods: {
-    // TODO template不应该包含逻辑
-    loadAvatar(path: string) {
-      return path && require(`@/assets/avatar/${path}`);
-    },
+    loadAvatar,
   },
 });
 </script>

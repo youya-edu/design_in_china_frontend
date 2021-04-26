@@ -3,7 +3,7 @@ import { upperSnakeToCamelStrEnum } from "@/utils";
 const mutations = upperSnakeToCamelStrEnum(
   "SET_LOGIN_USER",
   "SET_USERS",
-  "SET_USER_DETAIL"
+  "SET_USER_PROFILE"
 );
 
 const actions = upperSnakeToCamelStrEnum(
@@ -11,17 +11,18 @@ const actions = upperSnakeToCamelStrEnum(
   "LOGOUT",
   "CHECK_USER_STATUS",
   "LOAD_USERS",
-  "LOAD_USER_DETAIL",
+  "LOAD_USER_PROFILE",
   "SIGNUP",
   "CHECK_EMAIL",
   "CHECK_USERNAME",
-  "CHECK_PASSWORD"
+  "CHECK_PASSWORD",
+  "UPDATE_USER"
 );
 
 const getters = upperSnakeToCamelStrEnum(
   "CURRENT_LOGIN_USER",
   "USERS",
-  "USER_DETAIL"
+  "USER_PROFILE"
 );
 
 export { mutations, actions, getters };

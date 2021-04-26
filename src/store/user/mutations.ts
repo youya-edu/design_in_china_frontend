@@ -8,8 +8,8 @@ const mutations: MutationTree<UsersState> = {
   setUsers(state: UsersState, users: User[]) {
     state.users = users;
   },
-  setUserDetail(state: UsersState, userDetail: User) {
-    state.userDetail = userDetail;
+  setUserProfile(state: UsersState, userProfile: User) {
+    state.userProfile = userProfile;
   },
 };
 

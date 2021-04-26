@@ -6,6 +6,7 @@
       v-model="userKeyInfo.email"
       :isError="!emailOK"
       @keyup="checkEmail()"
+      class="mb-5"
     />
     <AInput
       type="username"
@@ -13,11 +14,13 @@
       v-model="userKeyInfo.username"
       :isError="!usernameOK"
       @keyup="checkUsername()"
+      class="mb-5"
     />
     <AInput
       type="password"
       :placeholder="$t('password')"
       v-model="userKeyInfo.password"
+      class="mb-5"
     />
     <button
       @click="signup(userKeyInfo)"

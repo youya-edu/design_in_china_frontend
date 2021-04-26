@@ -3,10 +3,12 @@ export interface RootState {
 }
 
 export interface User {
+  id: number;
   username: string;
   email: string;
   avatar: string;
   description: string;
+  nickname: string;
 }
 
 export interface UserCollection {
@@ -28,7 +30,7 @@ export interface JwtAuthenticationResponse {
 export interface UsersState {
   currentLoginUser: User | null;
   users: User[];
-  userDetail: User | null;
+  userProfile: User | null;
 }
 
 export interface ViewsState {

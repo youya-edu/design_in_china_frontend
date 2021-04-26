@@ -1,5 +1,5 @@
 <template>
-  <TUserDetail :userDetail="userDetail" />
+  <TUserProfile :userProfile="userProfile" />
 </template>
 
 <script>
@@ -7,11 +7,11 @@ import { defineComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
 import { modules } from "@/store/constants";
 import { actions, getters } from "@/store/user/constants";
-import { TUserDetail } from "@/components/templates";
+import { TUserProfile } from "@/components/templates";
 
 export default defineComponent({
   components: {
-    TUserDetail,
+    TUserProfile,
   },
   props: {
     username: {
@@ -20,13 +20,13 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.loadUserDetail(this.username);
+    this.loadUserProfile(this.username);
   },
   methods: {
-    ...mapActions(modules.USERS, [actions.LOAD_USER_DETAIL]),
+    ...mapActions(modules.USERS, [actions.LOAD_USER_PROFILE]),
   },
   computed: {
-    ...mapGetters(modules.USERS, [getters.USER_DETAIL]),
+    ...mapGetters(modules.USERS, [getters.USER_PROFILE]),
   },
 });
 </script>

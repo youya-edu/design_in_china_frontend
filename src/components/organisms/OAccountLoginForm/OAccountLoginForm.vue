@@ -4,12 +4,14 @@
       type="email"
       :placeholder="$t('email')"
       v-model="userKeyInfo.email"
+      class="mb-5"
     />
     <AInput
       type="password"
       :placeholder="$t('password')"
       v-model="userKeyInfo.password"
       @keyup.enter="login(userKeyInfo)"
+      class="mb-5"
     />
   </div>
   <div class="flex items-center justify-between">

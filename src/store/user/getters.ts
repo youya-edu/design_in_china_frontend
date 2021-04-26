@@ -8,8 +8,8 @@ const getters: GetterTree<UsersState, RootState> = {
   users(state: UsersState) {
     return state.users;
   },
-  userDetail(state: UsersState) {
-    return state.userDetail;
+  userProfile(state: UsersState) {
+    return state.userProfile;
   },
 };
 

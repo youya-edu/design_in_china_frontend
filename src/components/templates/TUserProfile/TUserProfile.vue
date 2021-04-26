@@ -15,11 +15,7 @@
               {{ $t("avatar") }}
             </dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              <img
-                class="w-60"
-                :src="loadAvatar(userDetail?.avatar)"
-                :alt="userDetail?.username"
-              />
+              <img class="w-60" :src="avatar" :alt="userProfile?.username" />
             </dd>
           </div>
           <div
@@ -29,7 +25,7 @@
               {{ $t("username") }}
             </dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {{ userDetail?.username }}
+              {{ userProfile?.username }}
             </dd>
           </div>
           <div
@@ -37,7 +33,7 @@
           >
             <dt class="text-sm font-medium text-gray-500">{{ $t("email") }}</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {{ userDetail?.email }}
+              {{ userProfile?.email }}
             </dd>
           </div>
           <div
@@ -47,7 +43,7 @@
               {{ $t("description") }}
             </dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {{ userDetail?.description }}
+              {{ userProfile?.description }}
             </dd>
           </div>
         </dl>
@@ -62,14 +58,11 @@ import { User } from "@/store/types";
 
 export default defineComponent({
   props: {
-    userDetail: {
+    userProfile: {
       type: Object as PropType<User>,
     },
-  },
-  methods: {
-    // TODO template不应该包含逻辑
-    loadAvatar(path: string) {
-      return path && require(`@/assets/avatar/${path}`);
+    avatar: {
+      type: String,
     },
   },
 });
