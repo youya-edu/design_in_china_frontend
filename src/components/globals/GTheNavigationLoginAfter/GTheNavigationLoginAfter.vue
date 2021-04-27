@@ -1,13 +1,11 @@
 <template>
-  <div class="flex">
-    <div class="ml-4 flex items-center md:ml-6">
-      <OAccountMenu
-        id="user-menu"
-        :username="user.username"
-        :show="showUserMenu"
-        @click="showUserMenu = !showUserMenu"
-      />
-    </div>
+  <div class="ml-6 flex items-center">
+    <OAccountMenu
+      id="user-menu"
+      :username="user.username"
+      :show="showUserMenu"
+      @click="showUserMenu = !showUserMenu"
+    />
   </div>
 </template>
 

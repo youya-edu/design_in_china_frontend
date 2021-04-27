@@ -28,9 +28,11 @@
             </div>
           </div>
         </div>
-        <GTheNavigationLoginBefore v-if="user === null" />
-        <GTheNavigationLoginAfter v-else />
-        <OSelectI18n />
+        <div class="flex">
+          <OSelectI18n />
+          <GTheNavigationLoginBefore v-if="user === null" />
+          <GTheNavigationLoginAfter v-else />
+        </div>
       </div>
     </div>
   </nav>

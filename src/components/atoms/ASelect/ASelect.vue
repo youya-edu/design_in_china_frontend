@@ -1,5 +1,8 @@
 <template>
-  <select @change="$emit('onChange', $event.target.value)">
+  <select
+    class="w-full bg-white rounded-md shadow-sm px-2 py-2 text-left cursor-pointer focus:outline-none sm:text-sm"
+    @change="$emit('onChange', $event.target.value)"
+  >
     <option
       v-for="option in options"
       :key="`option-key-${option.value}`"

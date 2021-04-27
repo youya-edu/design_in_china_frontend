@@ -1,13 +1,13 @@
 <template>
-  <div class="md:flex items-center justify-end md:flex-1 lg:w-0">
+  <div class="flex items-center justify-around w-40">
     <button
-      class="focus:outline-none whitespace-nowrap text-md font-medium text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md"
+      class="focus:outline-none whitespace-nowrap w-20 text-md font-medium text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md"
       @click="showAccountLogin(true)"
     >
       {{ $t("login") }}
     </button>
     <button
-      class="focus:outline-none ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-md font-medium text-white bg-indigo-500 hover:bg-indigo-700"
+      class="focus:outline-none whitespace-nowrap w-20 px-4 py-2 border border-transparent rounded-md shadow-sm text-md font-medium text-white bg-indigo-500 hover:bg-indigo-700"
       @click="showAccountSignup(true)"
     >
       {{ $t("sign_up") }}

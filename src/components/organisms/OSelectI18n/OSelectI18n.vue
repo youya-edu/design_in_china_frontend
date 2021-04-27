@@ -1,5 +1,5 @@
 <template>
-  <div class="locale-changer">
+  <div class="flex">
     <ASelect :options="availableLocales" @on-change="onChange" />
   </div>
 </template>
