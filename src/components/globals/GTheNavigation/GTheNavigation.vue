@@ -15,7 +15,7 @@
               <router-link
                 v-for="link in links"
                 :key="link.id"
-                :to="link.path"
+                :to="{ name: link.path }"
                 @click="setLinkActive(link.id)"
               >
                 <button
@@ -65,11 +65,11 @@ export default defineComponent({
   data() {
     return {
       links: [
-        { id: 0, path: "/", i18nKey: "home", isActive: false },
-        { id: 1, path: "/users", i18nKey: "designer", isActive: false },
+        { id: 0, path: "Home", i18nKey: "home", isActive: false },
+        { id: 1, path: "Users", i18nKey: "designer", isActive: false },
         {
           id: 2,
-          path: "/compositions",
+          path: "Compositions",
           i18nKey: "composition",
           isActive: false,
         },
