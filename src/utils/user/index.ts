@@ -63,7 +63,7 @@ async function removeJwt(): Promise<boolean> {
 }
 
 async function check(path: string, userKeyInfo: UserKeyInfo): Promise<boolean> {
-  const response = await httpRequest.post("/signup/".concat(path), userKeyInfo);
+  const response = await httpRequest.post(`/signup/${path}`, userKeyInfo);
   return response.status != StatusCode.UNPROCESSABLE_ENTITY;
 }
 

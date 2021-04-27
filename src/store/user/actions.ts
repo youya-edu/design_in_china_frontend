@@ -29,11 +29,9 @@ const actions: ActionTree<UsersState, RootState> = {
     await saveJwt(jwtToken);
     await saveUser(user);
     commit(mutations.SET_LOGIN_USER, user);
-    commit(
-      modules.VIEWS.concat("/").concat(viewMutations.SHOW_ACCOUNT_LOGIN),
-      false,
-      { root: true }
-    );
+    commit(`${modules.VIEWS}/${viewMutations.SHOW_ACCOUNT_LOGIN}`, false, {
+      root: true,
+    });
   },
 
   logout: async function ({ commit }) {
@@ -60,7 +58,7 @@ const actions: ActionTree<UsersState, RootState> = {
   },
 
   loadUserProfile: async function ({ commit }, userId: number) {
-    const userProfile: User = (await httpRequest.get("/users/" + userId)).data;
+    const userProfile: User = (await httpRequest.get(`/users/${userId}`)).data;
     commit(mutations.SET_USER_PROFILE, userProfile);
   },
 
@@ -68,9 +66,7 @@ const actions: ActionTree<UsersState, RootState> = {
     try {
       await httpRequest.post("/users", userKeyInfo);
       commit(
-        modules.VIEWS.concat("/").concat(
-          viewMutations.SHOW_ACCOUNT_SIGNUP_SUCCESS
-        ),
+        `${modules.VIEWS}/${viewMutations.SHOW_ACCOUNT_SIGNUP_SUCCESS}`,
         true,
         { root: true }
       );

@@ -32,9 +32,9 @@ export function camelToUpperSnakeStrEnum<T extends string>(
 function upperSnakeCaseToCamelCase(s: string) {
   const temp: string = s
     .split("_")
-    .map((each) => each[0] + each.slice(1).toLowerCase())
+    .map((each) => `${each[0]}${each.slice(1).toLowerCase()}`)
     .join("");
-  return temp[0].toLowerCase() + temp.slice(1);
+  return `${temp[0].toLowerCase()}${temp.slice(1)}`;
 }
 
 function camelCaseToUpperSnakeCase(s: string) {
