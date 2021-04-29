@@ -13,3 +13,5 @@ export * from "./OSelectI18n";
 export * from "./OAccountMenu";
 
 export * from "./OSettingsProfile";
+
+export * from "./OCompositionsContainer";
