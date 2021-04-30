@@ -1,10 +1,41 @@
-# frontend
+# 前端开发指南
 
-## 前端启动
+## Merge 规则
 
-1. 用 VS Code 打开 frontend 文件夹
-2. `yarn install`
-3. `yarn run serve`（运行在 3000 端口）
+绝不可直接 push 到 main 分支上！！
+
+必须提交 PR 并有至少 1 人 review 没有问题以后方可 merge。
+
+<br>
+
+## branch 命名规则
+
+- feature/aaa
+- bugfix/bbb
+- test/ccc
+- cicd/ddd
+- doc/eee
+- other/fff
+
+采用文件目录法命名 branch，这样就可以在 UI 界面里方便的查看所有的 branch 及其层级结构。
+
+<br>
+
+## git 配置
+
+在 clone 仓库之前，务必运行以下命令！（否则非常麻烦）
+
+> `git config --global core.autocrlf true`
+
+这个命令可以消除 Windows 和 Mac/Linux 的换行符差异。结果如下，
+
+| 设定值 | checkout 时 | commit 时  |
+| ------ | ----------- | ---------- |
+| true   | LF -> CRLF  | CRLF -> LF |
+| input  | 不变        | CRLF -> LF |
+| false  | 不变        | 不变       |
+
+具体详情参照这个[链接](https://qiita.com/uggds/items/00a1974ec4f115616580)
 
 <br>
 
@@ -21,6 +52,14 @@
     "source.fixAll.eslint": true
 }
 ```
+
+<br>
+
+## 前端启动
+
+1. 用 VS Code 打开 frontend 文件夹
+2. `yarn install`
+3. `yarn run serve`（运行在 3000 端口）
 
 <br>
 
