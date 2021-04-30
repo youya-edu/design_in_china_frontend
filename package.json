@@ -8,7 +8,7 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "prepare": "cd .. && husky install frontend/.husky"
+    "prepare": "husky install .husky"
   },
   "lint-staged": {
     "**/*.{vue,ts,js,json}": [
