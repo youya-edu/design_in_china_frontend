@@ -1,17 +1,18 @@
 <template>
   <div>
-    <AInput
+    <MInputMessageLabel
       type="email"
       :placeholder="$t('email')"
       v-model="userKeyInfo.email"
-      class="mb-5"
+      :message="emailErrorMessage"
+      @keyup="checkEmail()"
     />
-    <AInput
+    <MInputMessageLabel
       type="password"
       :placeholder="$t('password')"
       v-model="userKeyInfo.password"
-      @keyup.enter="login(userKeyInfo)"
-      class="mb-5"
+      :message="loginFailedMessage"
+      @keyup.enter="tryLogin()"
     />
   </div>
   <div class="flex items-center justify-between">
@@ -23,7 +24,7 @@
   </div>
   <div>
     <button
-      @click="login(userKeyInfo)"
+      @click="tryLogin()"
       class="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-gray-700 rounded-md shadow hover:bg-gray-800 focus:outline-none focus:ring-blue-200 focus:ring-4"
     >
       {{ $t("login") }}
@@ -34,13 +35,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapActions } from "vuex";
-import { UserKeyInfo } from "@/store/types";
+import { UserKeyInfo, validateEmail } from "@/domain/user";
 import { modules } from "@/store/constants";
 import { actions } from "@/store/user/constants";
-import { AInput } from "@/components/atoms";
+import { MInputMessageLabel } from "@/components/molecules";
+import { lodash } from "@/utils/lib";
 
 export default defineComponent({
-  components: { AInput },
+  components: { MInputMessageLabel },
   data() {
     return {
       userKeyInfo: {
@@ -48,10 +50,33 @@ export default defineComponent({
         username: "",
         password: "",
       } as UserKeyInfo,
+      emailErrorMessage: {
+        type: "error",
+        show: false,
+        content: "不是有效的邮箱格式",
+      },
+      loginFailedMessage: {
+        type: "error",
+        show: false,
+        content: "邮箱不存在或密码错误",
+      },
     };
   },
   methods: {
-    ...mapActions(modules.USERS, [actions.LOGIN]),
+    ...mapActions(modules.USERS, { login: actions.LOGIN }),
+    // eslint-disable-next-line
+    checkEmail: lodash.debounce(async function (this: any) {
+      if (this.userKeyInfo.email) {
+        this.emailErrorMessage.show = !validateEmail(this.userKeyInfo.email);
+      }
+    }),
+    async tryLogin() {
+      try {
+        await this.login(this.userKeyInfo);
+      } catch (error) {
+        this.loginFailedMessage.show = true;
+      }
+    },
   },
 });
 </script>

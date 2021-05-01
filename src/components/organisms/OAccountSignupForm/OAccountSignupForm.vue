@@ -1,26 +1,25 @@
 <template>
   <div>
-    <AInput
+    <MInputMessageLabel
       type="email"
       :placeholder="$t('email')"
       v-model="userKeyInfo.email"
-      :isError="!emailOK"
       @keyup="checkEmail()"
-      class="mb-5"
+      :hasError="emailCheckResult.hasError"
+      :message="emailCheckResult.message"
     />
-    <AInput
+    <MInputMessageLabel
       type="username"
       :placeholder="$t('username')"
       v-model="userKeyInfo.username"
-      :isError="!usernameOK"
+      :hasError="usernameCheckResult.hasError"
+      :message="usernameCheckResult.message"
       @keyup="checkUsername()"
-      class="mb-5"
     />
-    <AInput
+    <MInputMessageLabel
       type="password"
       :placeholder="$t('password')"
       v-model="userKeyInfo.password"
-      class="mb-5"
     />
     <button
       @click="signup(userKeyInfo)"
@@ -36,15 +35,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapActions } from "vuex";
-import { UserKeyInfo } from "@/store/types";
+import { UserKeyInfo, validateEmail, check } from "@/domain/user";
 import { modules } from "@/store/constants";
 import { actions } from "@/store/user/constants";
-import { AInput } from "@/components/atoms";
-import { validateEmail, check } from "@/utils/user";
+import { MInputMessageLabel } from "@/components/molecules";
 import { lodash } from "@/utils/lib";
 
 export default defineComponent({
-  components: { AInput },
+  components: { MInputMessageLabel },
   data() {
     return {
       userKeyInfo: {
@@ -52,8 +50,22 @@ export default defineComponent({
         username: "",
         password: "",
       } as UserKeyInfo,
-      emailOK: false,
-      usernameOK: false,
+      emailCheckResult: {
+        hasError: false,
+        message: {
+          type: "error",
+          show: false,
+          content: "不是有效的邮箱格式",
+        },
+      },
+      usernameCheckResult: {
+        hasError: false,
+        message: {
+          type: "error",
+          show: false,
+          content: "用户名已被注册",
+        },
+      },
       buttonEnabled: "bg-gray-700 hover:bg-gray-800 focus:outline-none",
       buttonDisabled: "bg-gray-300",
     };
@@ -64,26 +76,56 @@ export default defineComponent({
     checkEmail: lodash.debounce(async function (this: any) {
       if (this.userKeyInfo.email) {
         try {
-          this.emailOK =
-            validateEmail(this.userKeyInfo.email) &&
-            (await check("check_email", this.userKeyInfo));
+          const emailFormatOk = validateEmail(this.userKeyInfo.email);
+          const emailNotExisted = await check("check_email", this.userKeyInfo);
+          if (!emailFormatOk) {
+            this.emailCheckResult.hasError = true;
+            this.emailCheckResult.message.type = "error";
+            this.emailCheckResult.message.show = true;
+            this.emailCheckResult.message.content = "不是有效的邮箱格式";
+          } else if (!emailNotExisted) {
+            this.emailCheckResult.hasError = true;
+            this.emailCheckResult.message.type = "error";
+            this.emailCheckResult.message.show = true;
+            this.emailCheckResult.message.content = "邮箱已被注册";
+          } else {
+            this.emailCheckResult.hasError = false;
+            this.emailCheckResult.message.type = "success";
+            this.emailCheckResult.message.show = true;
+            this.emailCheckResult.message.content = "邮箱可使用";
+          }
         } catch (err) {
-          this.emailOK = false;
+          console.error(err);
         }
       } else {
-        this.emailOK = false;
+        this.emailCheckResult.hasError = false;
+        this.emailCheckResult.message.show = false;
       }
     }, 300),
     // eslint-disable-next-line
     checkUsername: lodash.debounce(async function (this: any) {
       if (this.userKeyInfo.username) {
+        this.usernameCheckResult.message.show = true;
         try {
-          this.usernameOK = await check("check_username", this.userKeyInfo);
+          const usernameNotExisted = await check(
+            "check_username",
+            this.userKeyInfo
+          );
+          if (!usernameNotExisted) {
+            this.usernameCheckResult.hasError = true;
+            this.usernameCheckResult.message.type = "error";
+            this.usernameCheckResult.message.content = "用户名已被注册";
+          } else {
+            this.usernameCheckResult.hasError = false;
+            this.usernameCheckResult.message.type = "success";
+            this.usernameCheckResult.message.content = "用户名可使用";
+          }
         } catch (err) {
-          this.usernameOK = false;
+          console.error(err);
         }
       } else {
-        this.usernameOK = false;
+        this.usernameCheckResult.hasError = false;
+        this.usernameCheckResult.message.show = false;
       }
     }, 300),
   },
@@ -91,9 +133,9 @@ export default defineComponent({
     allValid(): boolean {
       return (
         this.userKeyInfo.email !== "" &&
-        this.emailOK &&
+        !this.emailCheckResult.hasError &&
         this.userKeyInfo.username !== "" &&
-        this.usernameOK
+        !this.usernameCheckResult.hasError
       );
     },
   },

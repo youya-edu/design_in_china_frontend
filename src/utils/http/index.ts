@@ -1,6 +1,6 @@
 import { isDevelopment } from "@/utils/env";
 import axios, { AxiosInstance } from "axios";
-import { getJwt } from "@/utils/user";
+import { getJwt } from "@/domain/user";
 import { StatusCode } from "./status-codes";
 import { CONTENT_TYPE, AUTHORIZATION } from "./headers";
 

@@ -1,12 +1,11 @@
 import { ActionTree } from "vuex";
+import { UsersState, RootState } from "@/store/types";
 import {
   User,
-  UsersState,
-  RootState,
   UserKeyInfo,
   UserCollection,
   JwtAuthenticationResponse,
-} from "@/store/types";
+} from "@/domain/user";
 import { httpRequest } from "@/utils/http";
 import {
   getUser,
@@ -14,7 +13,7 @@ import {
   removeUser,
   saveJwt,
   removeJwt,
-} from "@/utils/user";
+} from "@/domain/user";
 import { modules } from "@/store/constants";
 import { mutations } from "./constants";
 import { mutations as viewMutations } from "@/store/view/constants";

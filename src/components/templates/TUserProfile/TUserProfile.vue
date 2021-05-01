@@ -54,7 +54,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { User } from "@/store/types";
+import { User } from "@/domain/user";
 
 export default defineComponent({
   props: {

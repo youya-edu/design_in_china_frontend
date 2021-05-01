@@ -1,7 +1,7 @@
 import localforage from "localforage";
-import { User, UserKeyInfo } from "@/store/types";
+import { User, UserKeyInfo } from "./types";
 import keys from "./constants";
-import { httpRequest, StatusCode } from "@/utils/http";
+import { httpRequest } from "@/utils/http";
 
 type availableTypes = User | string;
 
@@ -63,8 +63,12 @@ async function removeJwt(): Promise<boolean> {
 }
 
 async function check(path: string, userKeyInfo: UserKeyInfo): Promise<boolean> {
-  const response = await httpRequest.post(`/signup/${path}`, userKeyInfo);
-  return response.status != StatusCode.UNPROCESSABLE_ENTITY;
+  try {
+    await httpRequest.post(`/signup/${path}`, userKeyInfo);
+    return true;
+  } catch (error) {
+    return false;
+  }
 }
 
 function validateEmail(email: string): boolean {
