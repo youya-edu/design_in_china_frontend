@@ -55,6 +55,34 @@
 
 <br>
 
+## 安装
+
+### 安装node
+
+下载地址：https://nodejs.org/zh-cn/download/
+
+> 也可以使用[nvm](https://github.com/coreybutler/nvm-windows)，一个node的版本管理插件。
+
+```shell
+$ node -v # 确认node安装完成
+$ npm i -g npm
+$ npm -v # 更新npm到最新版本
+```
+
+### 安装yarn
+
+```shell
+$ npm i -g yarn
+$ yarn -v # 确认yarn安装完成
+```
+
+### 安装vue cli
+
+```shell
+$ yarn global add @vue/cli
+$ vue --version # 确认vue安装完成
+```
+
 ## 前端启动
 
 1. 用 VS Code 打开 frontend 文件夹
