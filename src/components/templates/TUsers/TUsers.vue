@@ -24,8 +24,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { User } from "@/store/types";
-import { loadAvatar } from "@/utils/user";
+import { loadAvatar, User } from "@/domain/user";
 
 export default defineComponent({
   name: "Users",

@@ -47,6 +47,12 @@ function camelCaseToUpperSnakeCase(s: string) {
     .toUpperCase();
 }
 
+export function toLowerCaseStrEnum<T extends string>(
+  ...o: Array<T>
+): { [K in T]: string } {
+  return strEnum((s) => s.toLocaleLowerCase(), ...o);
+}
+
 // Vue will add proxy to some object, which is not the original one.
 // Some operations like save in IndexedDB need this function.
 // eslint-disable-next-line

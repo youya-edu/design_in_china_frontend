@@ -42,9 +42,7 @@ import {
 import { mapActions } from "vuex";
 import { modules } from "@/store/constants";
 import { actions } from "@/store/user/constants";
-import { loadAvatar } from "@/utils/user";
-import { User } from "@/store/types";
-import { getUser } from "@/utils/user";
+import { getUser, loadAvatar, User } from "@/domain/user";
 
 export default defineComponent({
   components: { MInputMessageLabel, MTextareaMessageLabel, MAvatarButtonLabel },

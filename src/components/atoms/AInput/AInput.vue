@@ -4,7 +4,7 @@
     :placeholder="placeholder"
     :value="modelValue"
     @input="$emit('update:modelValue', $event.target.value)"
-    :class="[isError ? errorClass : normalClass]"
+    :class="[hasError ? errorClass : normalClass]"
     class="appearance-none h-8 w-full rounded px-3 text-sm focus:outline-none"
   />
 </template>
@@ -24,7 +24,7 @@ export default defineComponent({
     modelValue: {
       type: String,
     },
-    isError: {
+    hasError: {
       type: Boolean,
     },
   },

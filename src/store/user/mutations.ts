@@ -1,5 +1,6 @@
 import { MutationTree } from "vuex";
-import { UsersState, User } from "@/store/types";
+import { UsersState } from "@/store/types";
+import { User } from "@/domain/user";
 
 const mutations: MutationTree<UsersState> = {
   setLoginUser(state: UsersState, user: User) {
