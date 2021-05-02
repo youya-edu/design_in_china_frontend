@@ -14,7 +14,7 @@ export interface UserCollection {
 
 export interface UserKeyInfo {
   email: string;
-  username?: string;
+  username: string;
   password: string;
 }
 
