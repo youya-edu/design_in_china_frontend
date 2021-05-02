@@ -2,6 +2,7 @@ import localforage from "localforage";
 import { User, UserKeyInfo } from "./types";
 import keys from "./constants";
 import { httpRequest } from "@/utils/http";
+import { toLowerCaseStrEnum } from "@/utils";
 
 type availableTypes = User | string;
 
@@ -62,13 +63,29 @@ async function removeJwt(): Promise<boolean> {
   return await remove(keys.JWT);
 }
 
-async function check(path: string, userKeyInfo: UserKeyInfo): Promise<boolean> {
+const CheckExistenceType = toLowerCaseStrEnum("CHECK_EMAIL", "CHECK_USERNAME");
+
+async function checkExistence(
+  path: string,
+  userKeyInfo: UserKeyInfo
+): Promise<boolean> {
   try {
     await httpRequest.post(`/signup/${path}`, userKeyInfo);
-    return true;
-  } catch (error) {
     return false;
+  } catch (error) {
+    // 若后端返回422错误，则表明已存在
+    return true;
   }
+}
+
+async function checkEmailExistence(userKeyInfo: UserKeyInfo): Promise<boolean> {
+  return await checkExistence(CheckExistenceType.CHECK_EMAIL, userKeyInfo);
+}
+
+async function checkUsernameExistence(
+  userKeyInfo: UserKeyInfo
+): Promise<boolean> {
+  return await checkExistence(CheckExistenceType.CHECK_USERNAME, userKeyInfo);
 }
 
 function validateEmail(email: string): boolean {
@@ -87,7 +104,8 @@ export {
   saveJwt,
   getJwt,
   removeJwt,
-  check,
+  checkEmailExistence,
+  checkUsernameExistence,
   validateEmail,
   loadAvatar,
 };

@@ -35,9 +35,15 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapActions } from "vuex";
-import { UserKeyInfo, validateEmail, check } from "@/domain/user";
+import {
+  UserKeyInfo,
+  validateEmail,
+  checkEmailExistence,
+  checkUsernameExistence,
+} from "@/domain/user";
 import { modules } from "@/store/constants";
 import { actions } from "@/store/user/constants";
+import { AMessageLevel } from "@/components/atoms";
 import { MInputMessageLabel } from "@/components/molecules";
 import { lodash } from "@/utils/lib";
 
@@ -53,7 +59,7 @@ export default defineComponent({
       emailCheckResult: {
         hasError: false,
         message: {
-          type: "error",
+          type: AMessageLevel.ERROR,
           show: false,
           content: "不是有效的邮箱格式",
         },
@@ -61,7 +67,7 @@ export default defineComponent({
       usernameCheckResult: {
         hasError: false,
         message: {
-          type: "error",
+          type: AMessageLevel.ERROR,
           show: false,
           content: "用户名已被注册",
         },
@@ -77,20 +83,20 @@ export default defineComponent({
       if (this.userKeyInfo.email) {
         try {
           const emailFormatOk = validateEmail(this.userKeyInfo.email);
-          const emailNotExisted = await check("check_email", this.userKeyInfo);
+          const emailExisted = await checkEmailExistence(this.userKeyInfo);
           if (!emailFormatOk) {
             this.emailCheckResult.hasError = true;
-            this.emailCheckResult.message.type = "error";
+            this.emailCheckResult.message.type = AMessageLevel.ERROR;
             this.emailCheckResult.message.show = true;
             this.emailCheckResult.message.content = "不是有效的邮箱格式";
-          } else if (!emailNotExisted) {
+          } else if (emailExisted) {
             this.emailCheckResult.hasError = true;
-            this.emailCheckResult.message.type = "error";
+            this.emailCheckResult.message.type = AMessageLevel.ERROR;
             this.emailCheckResult.message.show = true;
             this.emailCheckResult.message.content = "邮箱已被注册";
           } else {
             this.emailCheckResult.hasError = false;
-            this.emailCheckResult.message.type = "success";
+            this.emailCheckResult.message.type = AMessageLevel.SUCCESS;
             this.emailCheckResult.message.show = true;
             this.emailCheckResult.message.content = "邮箱可使用";
           }
@@ -107,17 +113,16 @@ export default defineComponent({
       if (this.userKeyInfo.username) {
         this.usernameCheckResult.message.show = true;
         try {
-          const usernameNotExisted = await check(
-            "check_username",
+          const usernameExisted = await checkUsernameExistence(
             this.userKeyInfo
           );
-          if (!usernameNotExisted) {
+          if (usernameExisted) {
             this.usernameCheckResult.hasError = true;
-            this.usernameCheckResult.message.type = "error";
+            this.usernameCheckResult.message.type = AMessageLevel.ERROR;
             this.usernameCheckResult.message.content = "用户名已被注册";
           } else {
             this.usernameCheckResult.hasError = false;
-            this.usernameCheckResult.message.type = "success";
+            this.usernameCheckResult.message.type = AMessageLevel.SUCCESS;
             this.usernameCheckResult.message.content = "用户名可使用";
           }
         } catch (err) {

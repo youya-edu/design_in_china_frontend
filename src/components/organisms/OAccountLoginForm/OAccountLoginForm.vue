@@ -38,6 +38,7 @@ import { mapActions } from "vuex";
 import { UserKeyInfo, validateEmail } from "@/domain/user";
 import { modules } from "@/store/constants";
 import { actions } from "@/store/user/constants";
+import { AMessageLevel } from "@/components/atoms";
 import { MInputMessageLabel } from "@/components/molecules";
 import { lodash } from "@/utils/lib";
 
@@ -51,12 +52,12 @@ export default defineComponent({
         password: "",
       } as UserKeyInfo,
       emailErrorMessage: {
-        type: "error",
+        type: AMessageLevel.ERROR,
         show: false,
         content: "不是有效的邮箱格式",
       },
       loginFailedMessage: {
-        type: "error",
+        type: AMessageLevel.ERROR,
         show: false,
         content: "邮箱不存在或密码错误",
       },
@@ -68,6 +69,8 @@ export default defineComponent({
     checkEmail: lodash.debounce(async function (this: any) {
       if (this.userKeyInfo.email) {
         this.emailErrorMessage.show = !validateEmail(this.userKeyInfo.email);
+      } else {
+        this.emailErrorMessage.show = false;
       }
     }),
     async tryLogin() {

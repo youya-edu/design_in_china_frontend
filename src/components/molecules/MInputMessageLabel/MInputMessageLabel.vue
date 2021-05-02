@@ -19,13 +19,12 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { AInput, AMessage } from "@/components/atoms";
-
-interface MessageType {
-  type: string;
-  show: boolean;
-  content: string;
-}
+import {
+  AInput,
+  AMessage,
+  AMessageType,
+  AMessageLevel,
+} from "@/components/atoms";
 
 export default defineComponent({
   components: { AInput, AMessage },
@@ -43,9 +42,9 @@ export default defineComponent({
       type: Boolean,
     },
     message: {
-      type: Object as PropType<MessageType>,
+      type: Object as PropType<AMessageType>,
       default: {
-        type: "info",
+        type: AMessageLevel.INFO,
         show: false,
         content: "",
       },
