@@ -1,6 +1,6 @@
 export default {
   avatar: "头像",
-  composition: "作品",
+  composition: "最新作品",
   congratulations_created_account_successfully: "恭喜你，账号创建成功！",
   create_your_account: "创建您的账号",
   description: "描述",

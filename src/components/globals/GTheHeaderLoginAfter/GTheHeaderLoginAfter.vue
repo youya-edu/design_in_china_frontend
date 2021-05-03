@@ -1,5 +1,8 @@
 <template>
-  <div class="ml-6 flex items-center">
+  <div class="ml-6 flex items-center space-x-3">
+    <AIconShoppingBag />
+    <AIconStar />
+    <AIconBell />
     <OAccountMenu
       id="user-menu"
       :username="user.username"
@@ -14,10 +17,11 @@ import { defineComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
 import { modules } from "@/store/constants";
 import { actions, getters } from "@/store/user/constants";
+import { AIconShoppingBag, AIconStar, AIconBell } from "@/components/atoms";
 import { OAccountMenu } from "@/components/organisms";
 
 export default defineComponent({
-  components: { OAccountMenu },
+  components: { AIconStar, AIconShoppingBag, AIconBell, OAccountMenu },
   data() {
     return {
       showUserMenu: false,
