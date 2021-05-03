@@ -11,7 +11,7 @@
     "prepare": "husky install .husky"
   },
   "lint-staged": {
-    "**/*.{vue,ts,js,json}": [
+    "**/*.{vue,ts,js,json,md}": [
       "yarn lint"
     ],
     "**/*.md": [
