@@ -2,8 +2,8 @@
   <nav>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-24">
-        <div class="ml-10 text-xl">DESIGN IN CHINA</div>
-        <div class="flex mr-10">
+        <div class="text-xl">DESIGN IN CHINA</div>
+        <div class="flex">
           <GTheHeaderLoginBefore v-if="user === null" />
           <GTheHeaderLoginAfter v-else />
         </div>
