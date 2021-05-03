@@ -57,11 +57,11 @@
 
 ## 安装
 
-### 安装node
+### 安装 node
 
 下载地址：https://nodejs.org/zh-cn/download/
 
-> 也可以使用[nvm](https://github.com/coreybutler/nvm-windows)，一个node的版本管理插件。
+> 也可以使用[nvm](https://github.com/coreybutler/nvm-windows)，一个 node 的版本管理插件。
 
 ```shell
 $ node -v # 确认node安装完成
@@ -69,14 +69,14 @@ $ npm i -g npm
 $ npm -v # 更新npm到最新版本
 ```
 
-### 安装yarn
+### 安装 yarn
 
 ```shell
 $ npm i -g yarn
 $ yarn -v # 确认yarn安装完成
 ```
 
-### 安装vue cli
+### 安装 vue cli
 
 ```shell
 $ yarn global add @vue/cli # 支持使用vue ui
