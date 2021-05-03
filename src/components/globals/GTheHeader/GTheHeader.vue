@@ -42,15 +42,6 @@ export default defineComponent({
     };
   },
   methods: {
-    setLinkActive(linkId) {
-      for (let link of this.links) {
-        if (link.id === linkId) {
-          link.isActive = true;
-        } else {
-          link.isActive = false;
-        }
-      }
-    },
     ...mapActions(modules.USERS, [actions.CHECK_USER_STATUS]),
   },
   computed: {

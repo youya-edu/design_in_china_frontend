@@ -42,13 +42,7 @@ export default defineComponent({
   },
   methods: {
     setLinkActive(linkId) {
-      for (let link of this.links) {
-        if (link.id === linkId) {
-          link.isActive = true;
-        } else {
-          link.isActive = false;
-        }
-      }
+      this.links.forEach((link) => (link.isActive = link.id === linkId));
     },
   },
 });
