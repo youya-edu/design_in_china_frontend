@@ -1,5 +1,6 @@
 <template>
   <GTheNavigation />
+  <GTheHeader />
   <main>
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
       <router-view :key="$route.path" v-slot="{ Component }">
@@ -13,11 +14,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { GTheNavigation } from "@/components/globals";
+import { GTheNavigation, GTheHeader } from "@/components/globals";
 
 export default defineComponent({
   components: {
     GTheNavigation,
+    GTheHeader,
   },
 });
 </script>
