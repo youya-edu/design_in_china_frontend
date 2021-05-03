@@ -79,8 +79,9 @@ $ yarn -v # 确认yarn安装完成
 ### 安装vue cli
 
 ```shell
-$ yarn global add @vue/cli
+$ yarn global add @vue/cli # 支持使用vue ui
 $ vue --version # 确认vue安装完成
+$ yarn add -D @vue/cli-service # 解决无法启动的问题
 ```
 
 ## 前端启动
@@ -88,6 +89,8 @@ $ vue --version # 确认vue安装完成
 1. 用 VS Code 打开 frontend 文件夹
 2. `yarn install`
 3. `yarn run serve`（运行在 3000 端口）
+
+### 
 
 <br>
 
