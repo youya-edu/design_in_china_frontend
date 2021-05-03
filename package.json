@@ -13,6 +13,9 @@
   "lint-staged": {
     "**/*.{vue,ts,js,json}": [
       "yarn lint"
+    ],
+    "**/*.md": [
+      "prettier --write"
     ]
   },
   "dependencies": {
