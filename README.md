@@ -90,8 +90,6 @@ $ yarn add -D @vue/cli-service # 解决无法启动的问题
 2. `yarn install`
 3. `yarn run serve`（运行在 3000 端口）
 
-### 
-
 <br>
 
 ## 组件设计
