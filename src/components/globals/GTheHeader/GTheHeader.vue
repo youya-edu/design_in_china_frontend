@@ -23,8 +23,8 @@ import {
 import { OAccountLogin, OAccountSignup } from "@/components/organisms";
 import { mapActions, mapGetters } from "vuex";
 import { modules } from "@/store/constants";
-import { getters as viewGetters } from "@/store/view/constants";
-import { actions, getters as userGetters } from "@/store/user/constants";
+import { viewGetters } from "@/store/view/constants";
+import { userActions, userGetters } from "@/store/user/constants";
 
 export default defineComponent({
   components: {
@@ -42,7 +42,7 @@ export default defineComponent({
     };
   },
   methods: {
-    ...mapActions(modules.USERS, [actions.CHECK_USER_STATUS]),
+    ...mapActions(modules.USERS, [userActions.CHECK_USER_STATUS]),
   },
   computed: {
     ...mapGetters(modules.USERS, { user: userGetters.CURRENT_LOGIN_USER }),

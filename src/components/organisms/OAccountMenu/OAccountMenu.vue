@@ -38,7 +38,7 @@ import { defineComponent } from "vue";
 import { AMenuItem, AButtonCircle } from "@/components/atoms";
 import { mapActions } from "vuex";
 import { modules } from "@/store/constants";
-import { actions } from "@/store/user/constants";
+import { userActions } from "@/store/user/constants";
 
 export default defineComponent({
   components: { AMenuItem, AButtonCircle },
@@ -51,7 +51,7 @@ export default defineComponent({
     },
   },
   methods: {
-    ...mapActions(modules.USERS, [actions.LOGOUT]),
+    ...mapActions(modules.USERS, [userActions.LOGOUT]),
   },
 });
 </script>

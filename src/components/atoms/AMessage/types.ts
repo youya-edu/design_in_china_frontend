@@ -1,6 +1,8 @@
-import { noChangeStrEnum } from "@/utils";
-
-export const AMessageLevel = noChangeStrEnum("INFO", "SUCCESS", "ERROR");
+export const AMessageLevel = Object.freeze({
+  INFO: "INFO",
+  SUCCESS: "SUCCESS",
+  ERROR: "ERROR",
+});
 
 export interface AMessageType {
   type: string;

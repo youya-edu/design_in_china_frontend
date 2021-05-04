@@ -41,7 +41,7 @@ import {
 } from "@/components/molecules";
 import { mapActions } from "vuex";
 import { modules } from "@/store/constants";
-import { actions } from "@/store/user/constants";
+import { userActions } from "@/store/user/constants";
 import { getUser, loadAvatar, User } from "@/domain/user";
 
 export default defineComponent({
@@ -53,7 +53,7 @@ export default defineComponent({
   },
   methods: {
     loadAvatar,
-    ...mapActions(modules.USERS, [actions.UPDATE_USER]),
+    ...mapActions(modules.USERS, [userActions.UPDATE_USER]),
   },
   mounted() {
     getUser().then((user) => {

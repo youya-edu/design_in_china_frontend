@@ -13,13 +13,13 @@
 import { defineComponent } from "vue";
 import { mapMutations } from "vuex";
 import { modules } from "@/store/constants";
-import { mutations } from "@/store/view/constants";
+import { viewMutations } from "@/store/view/constants";
 
 export default defineComponent({
   methods: {
     ...mapMutations(modules.VIEWS, {
-      showAccountSignup: mutations.SHOW_ACCOUNT_SIGNUP,
-      showAccountLogin: mutations.SHOW_ACCOUNT_LOGIN,
+      showAccountSignup: viewMutations.SHOW_ACCOUNT_SIGNUP,
+      showAccountLogin: viewMutations.SHOW_ACCOUNT_LOGIN,
     }),
     login() {
       this.showAccountSignup(false);

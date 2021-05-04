@@ -1,28 +1,23 @@
-import { upperSnakeToCamelStrEnum } from "@/utils";
+const userMutations = Object.freeze({
+  SET_LOGIN_USER: "setLoginUser",
+  SET_USERS: "setUsers",
+  SET_USER_PROFILE: "setUserProfile",
+});
 
-const mutations = upperSnakeToCamelStrEnum(
-  "SET_LOGIN_USER",
-  "SET_USERS",
-  "SET_USER_PROFILE"
-);
+const userActions = Object.freeze({
+  LOGIN: "login",
+  LOGOUT: "logout",
+  CHECK_USER_STATUS: "checkUserStatus",
+  LOAD_USERS: "loadUsers",
+  LOAD_USER_PROFILE: "loadUserProfile",
+  SIGNUP: "signup",
+  UPDATE_USER: "updateUser",
+});
 
-const actions = upperSnakeToCamelStrEnum(
-  "LOGIN",
-  "LOGOUT",
-  "CHECK_USER_STATUS",
-  "LOAD_USERS",
-  "LOAD_USER_PROFILE",
-  "SIGNUP",
-  "CHECK_EMAIL",
-  "CHECK_USERNAME",
-  "CHECK_PASSWORD",
-  "UPDATE_USER"
-);
+const userGetters = Object.freeze({
+  CURRENT_LOGIN_USER: "currentLoginUser",
+  USERS: "users",
+  USER_PROFILE: "userProfile",
+});
 
-const getters = upperSnakeToCamelStrEnum(
-  "CURRENT_LOGIN_USER",
-  "USERS",
-  "USER_PROFILE"
-);
-
-export { mutations, actions, getters };
+export { userMutations, userActions, userGetters };

@@ -46,7 +46,7 @@ import {
 } from "@/components/organisms";
 import { mapMutations } from "vuex";
 import { modules } from "@/store/constants";
-import { mutations } from "@/store/view/constants";
+import { viewMutations } from "@/store/view/constants";
 
 export default defineComponent({
   components: {
@@ -56,9 +56,9 @@ export default defineComponent({
   },
   methods: {
     ...mapMutations(modules.VIEWS, {
-      showAccountLogin: mutations.SHOW_ACCOUNT_LOGIN,
-      showAccountSignup: mutations.SHOW_ACCOUNT_SIGNUP,
-      showAccountSignupSuccess: mutations.SHOW_ACCOUNT_SIGNUP_SUCCESS,
+      showAccountLogin: viewMutations.SHOW_ACCOUNT_LOGIN,
+      showAccountSignup: viewMutations.SHOW_ACCOUNT_SIGNUP,
+      showAccountSignupSuccess: viewMutations.SHOW_ACCOUNT_SIGNUP_SUCCESS,
     }),
     toggle() {
       this.showAccountLogin(false);

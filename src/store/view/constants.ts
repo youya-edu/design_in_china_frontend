@@ -1,15 +1,13 @@
-import { upperSnakeToCamelStrEnum } from "@/utils";
+const viewGetters = Object.freeze({
+  SHOW_ACCOUNT_LOGIN: "showAccountLogin",
+  SHOW_ACCOUNT_SIGNUP: "showAccountSignup",
+  SHOW_ACCOUNT_SIGNUP_SUCCESS: "showAccountSignupSuccess",
+});
 
-const getters = upperSnakeToCamelStrEnum(
-  "SHOW_ACCOUNT_LOGIN",
-  "SHOW_ACCOUNT_SIGNUP",
-  "SHOW_ACCOUNT_SIGNUP_SUCCESS"
-);
+const viewMutations = Object.freeze({
+  SHOW_ACCOUNT_LOGIN: "showAccountLogin",
+  SHOW_ACCOUNT_SIGNUP: "showAccountSignup",
+  SHOW_ACCOUNT_SIGNUP_SUCCESS: "showAccountSignupSuccess",
+});
 
-const mutations = upperSnakeToCamelStrEnum(
-  "SHOW_ACCOUNT_LOGIN",
-  "SHOW_ACCOUNT_SIGNUP",
-  "SHOW_ACCOUNT_SIGNUP_SUCCESS"
-);
-
-export { getters, mutations };
+export { viewGetters, viewMutations };

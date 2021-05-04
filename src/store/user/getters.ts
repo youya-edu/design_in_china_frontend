@@ -1,14 +1,15 @@
 import { GetterTree } from "vuex";
 import { UsersState, RootState } from "@/store/types";
+import { userGetters } from "./constants";
 
 const getters: GetterTree<UsersState, RootState> = {
-  currentLoginUser(state: UsersState) {
+  [userGetters.CURRENT_LOGIN_USER](state: UsersState) {
     return state.currentLoginUser;
   },
-  users(state: UsersState) {
+  [userGetters.USERS](state: UsersState) {
     return state.users;
   },
-  userProfile(state: UsersState) {
+  [userGetters.USER_PROFILE](state: UsersState) {
     return state.userProfile;
   },
 };

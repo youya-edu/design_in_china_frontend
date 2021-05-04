@@ -52,7 +52,7 @@ import {
 } from "@/components/organisms";
 import { mapGetters, mapMutations } from "vuex";
 import { modules } from "@/store/constants";
-import { mutations, getters } from "@/store/view/constants";
+import { viewMutations, viewGetters } from "@/store/view/constants";
 
 export default defineComponent({
   components: {
@@ -68,8 +68,8 @@ export default defineComponent({
   },
   methods: {
     ...mapMutations(modules.VIEWS, {
-      showAccountSignup: mutations.SHOW_ACCOUNT_SIGNUP,
-      showAccountLogin: mutations.SHOW_ACCOUNT_LOGIN,
+      showAccountSignup: viewMutations.SHOW_ACCOUNT_SIGNUP,
+      showAccountLogin: viewMutations.SHOW_ACCOUNT_LOGIN,
     }),
     toggle() {
       this.showAccountSignup(false);
@@ -77,7 +77,7 @@ export default defineComponent({
     },
   },
   computed: {
-    ...mapGetters(modules.VIEWS, [getters.SHOW_ACCOUNT_SIGNUP_SUCCESS]),
+    ...mapGetters(modules.VIEWS, [viewGetters.SHOW_ACCOUNT_SIGNUP_SUCCESS]),
   },
 });
 </script>

@@ -2,14 +2,10 @@ import localforage from "localforage";
 import { User, UserKeyInfo } from "./types";
 import keys from "./constants";
 import { httpRequest } from "@/utils/http";
-import { toLowerCaseStrEnum } from "@/utils";
 
 type availableTypes = User | string;
 
-async function save(
-  key: keyof typeof keys,
-  data: availableTypes
-): Promise<boolean> {
+async function save(key: string, data: availableTypes): Promise<boolean> {
   try {
     await localforage.setItem(key, data);
     return true;
@@ -19,7 +15,7 @@ async function save(
   }
 }
 
-async function get(key: keyof typeof keys): Promise<availableTypes | null> {
+async function get(key: string): Promise<availableTypes | null> {
   try {
     const result: availableTypes | null = await localforage.getItem(key);
     return result;
@@ -29,7 +25,7 @@ async function get(key: keyof typeof keys): Promise<availableTypes | null> {
   return null;
 }
 
-async function remove(key: keyof typeof keys): Promise<boolean> {
+async function remove(key: string): Promise<boolean> {
   try {
     await localforage.removeItem(key);
     return true;
@@ -63,7 +59,10 @@ async function removeJwt(): Promise<boolean> {
   return await remove(keys.JWT);
 }
 
-const CheckExistenceType = toLowerCaseStrEnum("CHECK_EMAIL", "CHECK_USERNAME");
+const CheckExistenceType = Object.freeze({
+  CHECK_EMAIL: "checkEmail",
+  CHECK_USERNAME: "checkUsername",
+});
 
 async function checkExistence(
   path: string,

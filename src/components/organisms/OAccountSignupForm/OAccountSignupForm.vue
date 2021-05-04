@@ -42,7 +42,7 @@ import {
   checkUsernameExistence,
 } from "@/domain/user";
 import { modules } from "@/store/constants";
-import { actions } from "@/store/user/constants";
+import { userActions } from "@/store/user/constants";
 import { AMessageLevel } from "@/components/atoms";
 import { MInputMessageLabel } from "@/components/molecules";
 import { lodash } from "@/utils/lib";
@@ -77,7 +77,7 @@ export default defineComponent({
     };
   },
   methods: {
-    ...mapActions(modules.USERS, [actions.LOGIN, actions.SIGNUP]),
+    ...mapActions(modules.USERS, [userActions.LOGIN, userActions.SIGNUP]),
     // eslint-disable-next-line
     checkEmail: lodash.debounce(async function (this: any) {
       if (this.userKeyInfo.email) {

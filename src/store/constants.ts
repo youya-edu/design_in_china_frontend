@@ -1,5 +1,6 @@
-import { upperSnakeToCamelStrEnum } from "@/utils";
-
-const modules = upperSnakeToCamelStrEnum("USERS", "VIEWS");
+const modules = Object.freeze({
+  USERS: "users",
+  VIEWS: "views",
+});
 
 export { modules };

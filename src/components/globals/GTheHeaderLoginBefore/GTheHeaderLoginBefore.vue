@@ -18,7 +18,7 @@
 import { defineComponent } from "vue";
 import { mapMutations } from "vuex";
 import { modules } from "@/store/constants";
-import { mutations } from "@/store/view/constants";
+import { viewMutations } from "@/store/view/constants";
 import { AIconUser, AIconShoppingBag } from "@/components/atoms";
 export default defineComponent({
   components: {
@@ -33,8 +33,8 @@ export default defineComponent({
   },
   methods: {
     ...mapMutations(modules.VIEWS, [
-      mutations.SHOW_ACCOUNT_LOGIN,
-      mutations.SHOW_ACCOUNT_SIGNUP,
+      viewMutations.SHOW_ACCOUNT_LOGIN,
+      viewMutations.SHOW_ACCOUNT_SIGNUP,
     ]),
   },
 });

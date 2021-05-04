@@ -1,14 +1,18 @@
 import { MutationTree } from "vuex";
 import { ViewsState } from "@/store/types";
+import { viewMutations } from "./constants";
 
 const mutations: MutationTree<ViewsState> = {
-  showAccountLogin(state: ViewsState, show: boolean) {
+  [viewMutations.SHOW_ACCOUNT_LOGIN](state: ViewsState, show: boolean) {
     state.showAccountLogin = show;
   },
-  showAccountSignup(state: ViewsState, show: boolean) {
+  [viewMutations.SHOW_ACCOUNT_SIGNUP](state: ViewsState, show: boolean) {
     state.showAccountSignup = show;
   },
-  showAccountSignupSuccess(state: ViewsState, show: boolean) {
+  [viewMutations.SHOW_ACCOUNT_SIGNUP_SUCCESS](
+    state: ViewsState,
+    show: boolean
+  ) {
     state.showAccountSignupSuccess = show;
   },
 };
