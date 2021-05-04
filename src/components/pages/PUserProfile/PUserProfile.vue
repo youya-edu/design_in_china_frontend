@@ -5,8 +5,8 @@
 <script>
 import { defineComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
-import { modules } from "@/store/constants";
-import { userActions, userGetters } from "@/store/user/constants";
+import { ModuleTypes } from "@/store/constants";
+import { UserActions, UserGetters } from "@/store/user/constants";
 import { TUserProfile } from "@/components/templates";
 
 export default defineComponent({
@@ -23,10 +23,10 @@ export default defineComponent({
     this.loadUserProfile(this.username);
   },
   methods: {
-    ...mapActions(modules.USERS, [userActions.LOAD_USER_PROFILE]),
+    ...mapActions(ModuleTypes.USERS, [UserActions.LOAD_USER_PROFILE]),
   },
   computed: {
-    ...mapGetters(modules.USERS, [userGetters.USER_PROFILE]),
+    ...mapGetters(ModuleTypes.USERS, [UserGetters.USER_PROFILE]),
   },
 });
 </script>

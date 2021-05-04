@@ -1,6 +1,6 @@
 import localforage from "localforage";
 import { User, UserKeyInfo } from "./types";
-import keys from "./constants";
+import { IndexedDbKeys } from "./constants";
 import { httpRequest } from "@/utils/http";
 
 type availableTypes = User | string;
@@ -15,7 +15,7 @@ async function save(key: string, data: availableTypes): Promise<boolean> {
   }
 }
 
-async function get(key: string): Promise<availableTypes | null> {
+async function get(key: IndexedDbKeys): Promise<availableTypes | null> {
   try {
     const result: availableTypes | null = await localforage.getItem(key);
     return result;
@@ -25,7 +25,7 @@ async function get(key: string): Promise<availableTypes | null> {
   return null;
 }
 
-async function remove(key: string): Promise<boolean> {
+async function remove(key: IndexedDbKeys): Promise<boolean> {
   try {
     await localforage.removeItem(key);
     return true;
@@ -36,33 +36,33 @@ async function remove(key: string): Promise<boolean> {
 }
 
 async function saveUser(data: User): Promise<boolean> {
-  return await save(keys.USER, data);
+  return await save(IndexedDbKeys.USER, data);
 }
 
 async function getUser(): Promise<User> {
-  return (await get(keys.USER)) as User;
+  return (await get(IndexedDbKeys.USER)) as User;
 }
 
 async function removeUser(): Promise<boolean> {
-  return await remove(keys.USER);
+  return await remove(IndexedDbKeys.USER);
 }
 
 async function saveJwt(data: string): Promise<boolean> {
-  return await save(keys.JWT, data);
+  return await save(IndexedDbKeys.JWT, data);
 }
 
 async function getJwt(): Promise<string> {
-  return (await get(keys.JWT)) as string;
+  return (await get(IndexedDbKeys.JWT)) as string;
 }
 
 async function removeJwt(): Promise<boolean> {
-  return await remove(keys.JWT);
+  return await remove(IndexedDbKeys.JWT);
 }
 
-const CheckExistenceType = Object.freeze({
-  CHECK_EMAIL: "checkEmail",
-  CHECK_USERNAME: "checkUsername",
-});
+const enum CheckExistenceType {
+  CHECK_EMAIL = "checkEmail",
+  CHECK_USERNAME = "checkUsername",
+}
 
 async function checkExistence(
   path: string,

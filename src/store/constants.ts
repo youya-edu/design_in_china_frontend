@@ -1,6 +1,4 @@
-const modules = Object.freeze({
-  USERS: "users",
-  VIEWS: "views",
-});
-
-export { modules };
+export const enum ModuleTypes {
+  USERS = "users",
+  VIEWS = "views",
+}

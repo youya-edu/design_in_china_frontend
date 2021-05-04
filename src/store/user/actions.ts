@@ -14,33 +14,33 @@ import {
   saveJwt,
   removeJwt,
 } from "@/domain/user";
-import { modules } from "@/store/constants";
-import { userMutations } from "./constants";
-import { viewMutations } from "@/store/view/constants";
+import { ModuleTypes } from "@/store/constants";
+import { UserMutations } from "./constants";
+import { ViewMutations } from "@/store/view/constants";
 import { purifyData } from "@/utils";
-import { userActions } from "./constants";
+import { UserActions } from "./constants";
 
 const actions: ActionTree<UsersState, RootState> = {
-  [userActions.LOGIN]: async function ({ commit }, userKeyInfo: UserKeyInfo) {
+  [UserActions.LOGIN]: async function ({ commit }, userKeyInfo: UserKeyInfo) {
     const response: JwtAuthenticationResponse = (
       await httpRequest.post("/login", userKeyInfo)
     ).data;
     const { jwtToken, user } = response;
     await saveJwt(jwtToken);
     await saveUser(user);
-    commit(userMutations.SET_LOGIN_USER, user);
-    commit(`${modules.VIEWS}/${viewMutations.SHOW_ACCOUNT_LOGIN}`, false, {
+    commit(UserMutations.SET_LOGIN_USER, user);
+    commit(`${ModuleTypes.VIEWS}/${ViewMutations.SHOW_ACCOUNT_LOGIN}`, false, {
       root: true,
     });
   },
 
-  [userActions.LOGOUT]: async function ({ commit }) {
+  [UserActions.LOGOUT]: async function ({ commit }) {
     await removeJwt();
     await removeUser();
-    commit(userMutations.SET_LOGIN_USER, null);
+    commit(UserMutations.SET_LOGIN_USER, null);
   },
 
-  [userActions.CHECK_USER_STATUS]: async function ({ commit }) {
+  [UserActions.CHECK_USER_STATUS]: async function ({ commit }) {
     const user = (await getUser()) as User;
     if (!user) {
       return;
@@ -48,25 +48,25 @@ const actions: ActionTree<UsersState, RootState> = {
     if (!user.avatar) {
       user.avatar = "steve-jobs.jpeg";
     }
-    commit(userMutations.SET_LOGIN_USER, user);
+    commit(UserMutations.SET_LOGIN_USER, user);
   },
 
-  [userActions.LOAD_USERS]: async function ({ commit }) {
+  [UserActions.LOAD_USERS]: async function ({ commit }) {
     const response: UserCollection = (await httpRequest.get("/users")).data;
     const { users } = response;
-    commit(userMutations.SET_USERS, users);
+    commit(UserMutations.SET_USERS, users);
   },
 
-  [userActions.LOAD_USER_PROFILE]: async function ({ commit }, userId: number) {
+  [UserActions.LOAD_USER_PROFILE]: async function ({ commit }, userId: number) {
     const userProfile: User = (await httpRequest.get(`/users/${userId}`)).data;
-    commit(userMutations.SET_USER_PROFILE, userProfile);
+    commit(UserMutations.SET_USER_PROFILE, userProfile);
   },
 
-  [userActions.SIGNUP]: async function ({ commit }, userKeyInfo: UserKeyInfo) {
+  [UserActions.SIGNUP]: async function ({ commit }, userKeyInfo: UserKeyInfo) {
     try {
       await httpRequest.post("/users", userKeyInfo);
       commit(
-        `${modules.VIEWS}/${viewMutations.SHOW_ACCOUNT_SIGNUP_SUCCESS}`,
+        `${ModuleTypes.VIEWS}/${ViewMutations.SHOW_ACCOUNT_SIGNUP_SUCCESS}`,
         true,
         { root: true }
       );
@@ -75,12 +75,12 @@ const actions: ActionTree<UsersState, RootState> = {
     }
   },
 
-  [userActions.UPDATE_USER]: async function ({ commit }, user: User) {
+  [UserActions.UPDATE_USER]: async function ({ commit }, user: User) {
     try {
       const toUpdate = purifyData(user);
       await httpRequest.put("/users", toUpdate);
       await saveUser(toUpdate);
-      commit(userMutations.SET_LOGIN_USER, toUpdate);
+      commit(UserMutations.SET_LOGIN_USER, toUpdate);
     } catch (err) {
       console.error(err);
     }

@@ -1,6 +1,4 @@
-const keys = Object.freeze({
-  USER: "USER",
-  JWT: "JWT",
-});
-
-export default keys;
+export const enum IndexedDbKeys {
+  USER = "USER",
+  JWT = "JWT",
+}

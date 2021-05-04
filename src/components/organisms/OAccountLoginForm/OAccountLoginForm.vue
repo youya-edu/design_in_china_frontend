@@ -36,8 +36,8 @@
 import { defineComponent } from "vue";
 import { mapActions } from "vuex";
 import { UserKeyInfo, validateEmail } from "@/domain/user";
-import { modules } from "@/store/constants";
-import { userActions } from "@/store/user/constants";
+import { ModuleTypes } from "@/store/constants";
+import { UserActions } from "@/store/user/constants";
 import { AMessageLevel } from "@/components/atoms";
 import { MInputMessageLabel } from "@/components/molecules";
 import { lodash } from "@/utils/lib";
@@ -64,7 +64,7 @@ export default defineComponent({
     };
   },
   methods: {
-    ...mapActions(modules.USERS, { login: userActions.LOGIN }),
+    ...mapActions(ModuleTypes.USERS, { login: UserActions.LOGIN }),
     // eslint-disable-next-line
     checkEmail: lodash.debounce(async function (this: any) {
       if (this.userKeyInfo.email) {
