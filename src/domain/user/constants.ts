@@ -1,5 +1,4 @@
-import { noChangeStrEnum } from "@/utils";
-
-const keys = noChangeStrEnum("USER", "JWT");
-
-export default keys;
+export const enum IndexedDbKeys {
+  USER = "USER",
+  JWT = "JWT",
+}

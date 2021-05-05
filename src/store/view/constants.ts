@@ -1,15 +1,11 @@
-import { upperSnakeToCamelStrEnum } from "@/utils";
+export const enum ViewGetters {
+  SHOW_ACCOUNT_LOGIN = "showAccountLogin",
+  SHOW_ACCOUNT_SIGNUP = "showAccountSignup",
+  SHOW_ACCOUNT_SIGNUP_SUCCESS = "showAccountSignupSuccess",
+}
 
-const getters = upperSnakeToCamelStrEnum(
-  "SHOW_ACCOUNT_LOGIN",
-  "SHOW_ACCOUNT_SIGNUP",
-  "SHOW_ACCOUNT_SIGNUP_SUCCESS"
-);
-
-const mutations = upperSnakeToCamelStrEnum(
-  "SHOW_ACCOUNT_LOGIN",
-  "SHOW_ACCOUNT_SIGNUP",
-  "SHOW_ACCOUNT_SIGNUP_SUCCESS"
-);
-
-export { getters, mutations };
+export const enum ViewMutations {
+  SHOW_ACCOUNT_LOGIN = "showAccountLogin",
+  SHOW_ACCOUNT_SIGNUP = "showAccountSignup",
+  SHOW_ACCOUNT_SIGNUP_SUCCESS = "showAccountSignupSuccess",
+}

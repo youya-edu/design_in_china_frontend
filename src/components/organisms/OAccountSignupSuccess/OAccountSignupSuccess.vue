@@ -12,14 +12,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapMutations } from "vuex";
-import { modules } from "@/store/constants";
-import { mutations } from "@/store/view/constants";
+import { ModuleTypes } from "@/store/constants";
+import { ViewMutations } from "@/store/view/constants";
 
 export default defineComponent({
   methods: {
-    ...mapMutations(modules.VIEWS, {
-      showAccountSignup: mutations.SHOW_ACCOUNT_SIGNUP,
-      showAccountLogin: mutations.SHOW_ACCOUNT_LOGIN,
+    ...mapMutations(ModuleTypes.VIEWS, {
+      showAccountSignup: ViewMutations.SHOW_ACCOUNT_SIGNUP,
+      showAccountLogin: ViewMutations.SHOW_ACCOUNT_LOGIN,
     }),
     login() {
       this.showAccountSignup(false);

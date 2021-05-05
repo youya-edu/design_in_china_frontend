@@ -51,8 +51,8 @@ import {
   OAccountSignupSuccess,
 } from "@/components/organisms";
 import { mapGetters, mapMutations } from "vuex";
-import { modules } from "@/store/constants";
-import { mutations, getters } from "@/store/view/constants";
+import { ModuleTypes } from "@/store/constants";
+import { ViewMutations, ViewGetters } from "@/store/view/constants";
 
 export default defineComponent({
   components: {
@@ -67,9 +67,9 @@ export default defineComponent({
     };
   },
   methods: {
-    ...mapMutations(modules.VIEWS, {
-      showAccountSignup: mutations.SHOW_ACCOUNT_SIGNUP,
-      showAccountLogin: mutations.SHOW_ACCOUNT_LOGIN,
+    ...mapMutations(ModuleTypes.VIEWS, {
+      showAccountSignup: ViewMutations.SHOW_ACCOUNT_SIGNUP,
+      showAccountLogin: ViewMutations.SHOW_ACCOUNT_LOGIN,
     }),
     toggle() {
       this.showAccountSignup(false);
@@ -77,7 +77,7 @@ export default defineComponent({
     },
   },
   computed: {
-    ...mapGetters(modules.VIEWS, [getters.SHOW_ACCOUNT_SIGNUP_SUCCESS]),
+    ...mapGetters(ModuleTypes.VIEWS, [ViewGetters.SHOW_ACCOUNT_SIGNUP_SUCCESS]),
   },
 });
 </script>

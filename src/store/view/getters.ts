@@ -1,14 +1,15 @@
 import { GetterTree } from "vuex";
 import { RootState, ViewsState } from "@/store/types";
+import { ViewGetters } from "./constants";
 
 const getters: GetterTree<ViewsState, RootState> = {
-  showAccountLogin(state: ViewsState) {
+  [ViewGetters.SHOW_ACCOUNT_LOGIN](state: ViewsState) {
     return state.showAccountLogin;
   },
-  showAccountSignup(state: ViewsState) {
+  [ViewGetters.SHOW_ACCOUNT_SIGNUP](state: ViewsState) {
     return state.showAccountSignup;
   },
-  showAccountSignupSuccess(state: ViewsState) {
+  [ViewGetters.SHOW_ACCOUNT_SIGNUP_SUCCESS](state: ViewsState) {
     return state.showAccountSignupSuccess;
   },
 };

@@ -5,8 +5,8 @@
 <script>
 import { defineComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
-import { modules } from "@/store/constants";
-import { actions, getters } from "@/store/user/constants";
+import { ModuleTypes } from "@/store/constants";
+import { UserActions, UserGetters } from "@/store/user/constants";
 import { TUsers } from "@/components/templates";
 
 export default defineComponent({
@@ -15,10 +15,10 @@ export default defineComponent({
     this.loadUsers();
   },
   methods: {
-    ...mapActions(modules.USERS, [actions.LOAD_USERS]),
+    ...mapActions(ModuleTypes.USERS, [UserActions.LOAD_USERS]),
   },
   computed: {
-    ...mapGetters(modules.USERS, [getters.USERS]),
+    ...mapGetters(ModuleTypes.USERS, [UserGetters.USERS]),
   },
 });
 </script>

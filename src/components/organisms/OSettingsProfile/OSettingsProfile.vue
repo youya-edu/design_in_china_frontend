@@ -40,8 +40,8 @@ import {
   MAvatarButtonLabel,
 } from "@/components/molecules";
 import { mapActions } from "vuex";
-import { modules } from "@/store/constants";
-import { actions } from "@/store/user/constants";
+import { ModuleTypes } from "@/store/constants";
+import { UserActions } from "@/store/user/constants";
 import { getUser, loadAvatar, User } from "@/domain/user";
 
 export default defineComponent({
@@ -53,7 +53,7 @@ export default defineComponent({
   },
   methods: {
     loadAvatar,
-    ...mapActions(modules.USERS, [actions.UPDATE_USER]),
+    ...mapActions(ModuleTypes.USERS, [UserActions.UPDATE_USER]),
   },
   mounted() {
     getUser().then((user) => {
