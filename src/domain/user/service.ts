@@ -60,8 +60,8 @@ async function removeJwt(): Promise<boolean> {
 }
 
 const enum CheckExistenceType {
-  CHECK_EMAIL = "checkEmail",
-  CHECK_USERNAME = "checkUsername",
+  CHECK_EMAIL = "check_email",
+  CHECK_USERNAME = "check_username",
 }
 
 async function checkExistence(
