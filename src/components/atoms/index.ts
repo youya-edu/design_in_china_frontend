@@ -4,6 +4,7 @@ export * from "./AIconUser";
 export * from "./AIconShoppingBag";
 export * from "./AIconStar";
 export * from "./AIconBell";
+export * from "./AIconChevronDown";
 
 export * from "./AInput";
 export * from "./ASelect";

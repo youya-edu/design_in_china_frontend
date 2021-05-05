@@ -2,7 +2,7 @@
   <GTheNavigation />
   <GTheHeader />
   <main>
-    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <router-view :key="$route.path" v-slot="{ Component }">
         <transition name="fade" mode="out-in" appear>
           <component :is="Component" />

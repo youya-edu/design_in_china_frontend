@@ -3,3 +3,7 @@ export * from "./MInputGroup";
 export * from "./MInputMessageLabel";
 export * from "./MTextareaMessageLabel";
 export * from "./MAvatarButtonLabel";
+export * from "./MSelectMenuSortBy";
+
+export * from "./MCompositionCard";
+export * from "./MCompositionClassificationExpansion";
