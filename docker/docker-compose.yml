@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: ../../design_in_china_frontend/docker/frontend
+      dockerfile: .
+    ports:
+      - "3000:3000"
+    container_name: dic-frontend
+    volumes:
+      - ../../design_in_china_frontend:/app/frontend
