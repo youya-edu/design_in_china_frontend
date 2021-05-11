@@ -3,6 +3,7 @@ import { UsersState, RootState } from "@/store/types";
 import getters from "./getters";
 import actions from "./actions";
 import mutations from "./mutations";
+import { User } from "@/domain";
 
 const state: UsersState = {
   currentLoginUser: null,
@@ -17,3 +18,7 @@ export const users: Module<UsersState, RootState> = {
   actions,
   mutations,
 };
+
+export function getUsers(): User[] {
+  return state.users;
+}
