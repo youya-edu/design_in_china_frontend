@@ -14,4 +14,6 @@ export * from "./OAccountMenu";
 
 export * from "./OSettingsProfile";
 
-export * from "./OCompositionsContainer";
+export * from "./OCompositionsSidebar";
+export * from "./OCompositionsHeader";
+export * from "./OCompositionsMain";
