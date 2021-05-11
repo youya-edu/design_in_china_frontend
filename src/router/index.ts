@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import { PHome } from "@/components/pages/PHome";
+import { getUsers } from "@/store/user";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -13,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
     name: "Users",
     component: () =>
       import(
-        /* webpackChunkName: "users" */ "@/components/pages/PUsers/PUsers.vue"
+        /* webpackChunkName: "Users" */ "@/components/pages/PUsers/PUsers.vue"
       ),
     props: true,
   },
@@ -22,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [
     name: "Compositions",
     component: () =>
       import(
-        /* webpackChunkName: "compositions" */ "@/components/pages/PCompositions/PCompositions.vue"
+        /* webpackChunkName: "Compositions" */ "@/components/pages/PCompositions/PCompositions.vue"
       ),
     props: true,
   },
@@ -31,18 +32,37 @@ const routes: Array<RouteRecordRaw> = [
     name: "UserProfile",
     component: () =>
       import(
-        /* webpackChunkName: "user-detail" */ "@/components/pages/PUserProfile/PUserProfile.vue"
+        /* webpackChunkName: "UserProfile" */ "@/components/pages/PUserProfile/PUserProfile.vue"
       ),
     props: true,
+    beforeEnter: (to, from, next) => {
+      const exists = getUsers().find(
+        (user) => user.username === to.params.username
+      );
+      if (exists) {
+        next();
+      } else {
+        next({ name: "NotFound" });
+      }
+    },
   },
   {
     path: "/settings",
     name: "Settings",
     component: () =>
       import(
-        /* webpackChunkName: "settings" */ "@/components/pages/PSettings/PSettings.vue"
+        /* webpackChunkName: "Settings" */ "@/components/pages/PSettings/PSettings.vue"
       ),
     props: true,
+  },
+  {
+    path: "/404",
+    alias: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: () =>
+      import(
+        /* webpackChunkName: "NotFound" */ "@/components/pages/PNotFound/PNotFound.vue"
+      ),
   },
 ];
 
