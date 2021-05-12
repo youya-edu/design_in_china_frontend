@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import { PHome } from "@/components/pages/PHome";
-import { getUsers } from "@/store/user";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -34,17 +33,8 @@ const routes: Array<RouteRecordRaw> = [
       import(
         /* webpackChunkName: "UserProfile" */ "@/components/pages/PUserProfile/PUserProfile.vue"
       ),
+    alias: ["/:username"],
     props: true,
-    beforeEnter: (to, from, next) => {
-      const exists = getUsers().find(
-        (user) => user.username === to.params.username
-      );
-      if (exists) {
-        next();
-      } else {
-        next({ name: "NotFound" });
-      }
-    },
   },
   {
     path: "/settings",

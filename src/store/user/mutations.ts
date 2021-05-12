@@ -10,9 +10,6 @@ const mutations: MutationTree<UsersState> = {
   [UserMutations.SET_USERS](state: UsersState, users: User[]) {
     state.users = users;
   },
-  [UserMutations.SET_USER_PROFILE](state: UsersState, userProfile: User) {
-    state.userProfile = userProfile;
-  },
 };
 
 export default mutations;

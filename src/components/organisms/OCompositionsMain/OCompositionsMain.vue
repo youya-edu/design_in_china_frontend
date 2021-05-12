@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref, Ref } from "vue";
-import { fetchCompositions } from "@/api/compositions";
+import { fetchCompositions } from "@/api";
 import { Composition } from "@/domain";
 import { MCompositionCard } from "@/components/molecules";
 

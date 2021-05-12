@@ -9,9 +9,6 @@ const getters: GetterTree<UsersState, RootState> = {
   [UserGetters.USERS](state: UsersState) {
     return state.users;
   },
-  [UserGetters.USER_PROFILE](state: UsersState) {
-    return state.userProfile;
-  },
 };
 
 export default getters;
