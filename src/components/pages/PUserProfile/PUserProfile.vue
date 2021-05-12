@@ -4,29 +4,29 @@
 
 <script>
 import { defineComponent } from "vue";
-import { mapActions, mapGetters } from "vuex";
-import { ModuleTypes } from "@/store/constants";
-import { UserActions, UserGetters } from "@/store/user/constants";
 import { TUserProfile } from "@/components/templates";
+import { fetchUserByUsername } from "@/api";
 
 export default defineComponent({
   components: {
     TUserProfile,
   },
-  props: {
-    username: {
-      type: String,
-      required: true,
-    },
+  data() {
+    return {
+      userProfile: null,
+    };
   },
-  mounted() {
-    this.loadUserProfile(this.username);
-  },
-  methods: {
-    ...mapActions(ModuleTypes.USERS, [UserActions.LOAD_USER_PROFILE]),
-  },
-  computed: {
-    ...mapGetters(ModuleTypes.USERS, [UserGetters.USER_PROFILE]),
+  async beforeRouteEnter(to, from, next) {
+    // 根据传入的username去server获取User信息
+    const user = await fetchUserByUsername(to.params.username);
+    // 若存在，则继续
+    if (user !== null) {
+      next((vm) => (vm.userProfile = user));
+    }
+    // 否则，进入404
+    else {
+      next({ name: "NotFound" });
+    }
   },
 });
 </script>

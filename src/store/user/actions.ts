@@ -57,11 +57,6 @@ const actions: ActionTree<UsersState, RootState> = {
     commit(UserMutations.SET_USERS, users);
   },
 
-  [UserActions.LOAD_USER_PROFILE]: async function ({ commit }, userId: number) {
-    const userProfile: User = (await httpRequest.get(`/users/${userId}`)).data;
-    commit(UserMutations.SET_USER_PROFILE, userProfile);
-  },
-
   [UserActions.SIGNUP]: async function ({ commit }, userKeyInfo: UserKeyInfo) {
     try {
       await httpRequest.post("/users", userKeyInfo);

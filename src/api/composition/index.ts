@@ -4,7 +4,8 @@ import { httpRequest } from "@/utils/http";
 const fetchCompositions = async (): Promise<Composition[]> => {
   let compositions: Composition[] = [];
   try {
-    compositions = await (await httpRequest.get("/compositions")).data;
+    const response = await httpRequest.get("/compositions");
+    compositions = response.data;
   } catch (error) {
     console.error(error);
   }
