@@ -4,10 +4,12 @@ import getters from "./getters";
 import actions from "./actions";
 import mutations from "./mutations";
 
-const state: UsersState = {
-  currentLoginUser: null,
-  users: [],
-};
+function state(): UsersState {
+  return {
+    currentLoginUser: null,
+    users: [],
+  };
+}
 
 export const users: Module<UsersState, RootState> = {
   namespaced: true,

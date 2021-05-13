@@ -1,11 +1,13 @@
-import Vuex, { StoreOptions } from "vuex";
+import { createStore, StoreOptions } from "vuex";
 import { RootState } from "./types";
 import { users } from "./user";
 import { views } from "./view";
 
 const store: StoreOptions<RootState> = {
-  state: {
-    version: "1.0.0",
+  state() {
+    return {
+      version: "1.0.0",
+    };
   },
   modules: {
     users,
@@ -13,4 +15,4 @@ const store: StoreOptions<RootState> = {
   },
 };
 
-export default new Vuex.Store<RootState>(store);
+export default createStore<RootState>(store);
