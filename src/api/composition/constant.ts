@@ -1,5 +1,5 @@
-enum Api {
+enum API {
   COMPOSITIONS = "/compositions",
 }
 
-export default Api;
+export { API };

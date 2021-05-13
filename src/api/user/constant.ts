@@ -1,4 +1,4 @@
-enum Api {
+enum API {
   USERS = "/users",
   LOGIN = "/login",
   SIGNUP = "/signup",
@@ -6,4 +6,4 @@ enum Api {
   CHECK_USERNAME = "/signup/check_username",
 }
 
-export default Api;
+export { API };

@@ -5,25 +5,25 @@ import {
   UserCollection,
   JwtAuthenticationResponse,
 } from "@/domain";
-import Api from "./constant";
+import { API } from "./constant";
 
 const login = async (
   userKeyInfo: UserKeyInfo
 ): Promise<JwtAuthenticationResponse> => {
   const response: JwtAuthenticationResponse = (
-    await httpRequest.post(Api.LOGIN, userKeyInfo)
+    await httpRequest.post(API.LOGIN, userKeyInfo)
   ).data;
   return response;
 };
 
 const signup = async (userKeyInfo: UserKeyInfo): Promise<void> => {
-  await httpRequest.post(Api.USERS, userKeyInfo);
+  await httpRequest.post(API.USERS, userKeyInfo);
 };
 
 const fetchUserByUsername = async (username: string): Promise<User | null> => {
   let user: User | null = null;
   try {
-    const response = await httpRequest.get(`${Api.USERS}/${username}`);
+    const response = await httpRequest.get(`${API.USERS}/${username}`);
     user = response.data;
   } catch (error) {
     console.error(error);
@@ -32,11 +32,11 @@ const fetchUserByUsername = async (username: string): Promise<User | null> => {
 };
 
 const updateUser = async (toUpdate: User): Promise<void> => {
-  await httpRequest.put(Api.USERS, toUpdate);
+  await httpRequest.put(API.USERS, toUpdate);
 };
 
 const loadUsers = async (): Promise<UserCollection> => {
-  const userCollection: UserCollection = (await httpRequest.get(Api.USERS))
+  const userCollection: UserCollection = (await httpRequest.get(API.USERS))
     .data;
   return userCollection;
 };
@@ -55,13 +55,13 @@ async function checkExistence(
 }
 
 async function checkEmailExistence(userKeyInfo: UserKeyInfo): Promise<boolean> {
-  return await checkExistence(Api.CHECK_EMAIL, userKeyInfo);
+  return await checkExistence(API.CHECK_EMAIL, userKeyInfo);
 }
 
 async function checkUsernameExistence(
   userKeyInfo: UserKeyInfo
 ): Promise<boolean> {
-  return await checkExistence(Api.CHECK_USERNAME, userKeyInfo);
+  return await checkExistence(API.CHECK_USERNAME, userKeyInfo);
 }
 
 export {
