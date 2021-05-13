@@ -35,17 +35,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapActions } from "vuex";
-import {
-  UserKeyInfo,
-  validateEmail,
-  checkEmailExistence,
-  checkUsernameExistence,
-} from "@/domain/user";
+import { UserKeyInfo, validateEmail } from "@/domain/user";
 import { ModuleTypes } from "@/store/constants";
 import { UserActions } from "@/store/user/constants";
 import { AMessageLevel } from "@/components/atoms";
 import { MInputMessageLabel } from "@/components/molecules";
 import { lodash } from "@/utils/lib";
+import { checkEmailExistence, checkUsernameExistence } from "@/api";
 
 export default defineComponent({
   components: { MInputMessageLabel },

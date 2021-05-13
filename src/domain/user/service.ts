@@ -1,7 +1,6 @@
 import localforage from "localforage";
-import { User, UserKeyInfo } from "./types";
+import { User } from "./types";
 import { IndexedDbKeys } from "./constants";
-import { httpRequest } from "@/utils/http";
 
 type availableTypes = User | string;
 
@@ -59,34 +58,6 @@ async function removeJwt(): Promise<boolean> {
   return await remove(IndexedDbKeys.JWT);
 }
 
-const enum CheckExistenceType {
-  CHECK_EMAIL = "check_email",
-  CHECK_USERNAME = "check_username",
-}
-
-async function checkExistence(
-  path: string,
-  userKeyInfo: UserKeyInfo
-): Promise<boolean> {
-  try {
-    await httpRequest.post(`/signup/${path}`, userKeyInfo);
-    return false;
-  } catch (error) {
-    // 若后端返回422错误，则表明已存在
-    return true;
-  }
-}
-
-async function checkEmailExistence(userKeyInfo: UserKeyInfo): Promise<boolean> {
-  return await checkExistence(CheckExistenceType.CHECK_EMAIL, userKeyInfo);
-}
-
-async function checkUsernameExistence(
-  userKeyInfo: UserKeyInfo
-): Promise<boolean> {
-  return await checkExistence(CheckExistenceType.CHECK_USERNAME, userKeyInfo);
-}
-
 function validateEmail(email: string): boolean {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
@@ -96,20 +67,16 @@ function loadAvatar(path: string): string {
   return path && require(`@/assets/avatar/${path}`);
 }
 
-function clearUserData(): void {
-  removeJwt();
-  removeUser();
+async function clearUserData(): Promise<void> {
+  await removeJwt();
+  await removeUser();
 }
 
 export {
   saveUser,
   getUser,
-  removeUser,
   saveJwt,
   getJwt,
-  removeJwt,
-  checkEmailExistence,
-  checkUsernameExistence,
   validateEmail,
   loadAvatar,
   clearUserData,

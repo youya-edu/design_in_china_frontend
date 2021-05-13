@@ -4,39 +4,39 @@ import {
   User,
   UserKeyInfo,
   UserCollection,
-  JwtAuthenticationResponse,
-} from "@/domain/user";
-import { httpRequest } from "@/utils/http";
-import {
   getUser,
   saveUser,
-  removeUser,
   saveJwt,
-  removeJwt,
-} from "@/domain/user";
+  clearUserData,
+} from "@/domain";
 import { ModuleTypes } from "@/store/constants";
 import { UserMutations } from "./constants";
 import { ViewMutations } from "@/store/view/constants";
 import { purifyData } from "@/utils";
 import { UserActions } from "./constants";
+import { login, signup, updateUser, loadUsers } from "@/api";
 
 const actions: ActionTree<UsersState, RootState> = {
   [UserActions.LOGIN]: async function ({ commit }, userKeyInfo: UserKeyInfo) {
-    const response: JwtAuthenticationResponse = (
-      await httpRequest.post("/login", userKeyInfo)
-    ).data;
-    const { jwtToken, user } = response;
-    await saveJwt(jwtToken);
-    await saveUser(user);
-    commit(UserMutations.SET_LOGIN_USER, user);
-    commit(`${ModuleTypes.VIEWS}/${ViewMutations.SHOW_ACCOUNT_LOGIN}`, false, {
-      root: true,
-    });
+    try {
+      const { jwtToken, user } = await login(userKeyInfo);
+      await saveJwt(jwtToken);
+      await saveUser(user);
+      commit(UserMutations.SET_LOGIN_USER, user);
+      commit(
+        `${ModuleTypes.VIEWS}/${ViewMutations.SHOW_ACCOUNT_LOGIN}`,
+        false,
+        {
+          root: true,
+        }
+      );
+    } catch (err) {
+      console.error(err);
+    }
   },
 
   [UserActions.LOGOUT]: async function ({ commit }) {
-    await removeJwt();
-    await removeUser();
+    await clearUserData();
     commit(UserMutations.SET_LOGIN_USER, null);
   },
 
@@ -49,14 +49,14 @@ const actions: ActionTree<UsersState, RootState> = {
   },
 
   [UserActions.LOAD_USERS]: async function ({ commit }) {
-    const response: UserCollection = (await httpRequest.get("/users")).data;
+    const response: UserCollection = await loadUsers();
     const { users } = response;
     commit(UserMutations.SET_USERS, users);
   },
 
   [UserActions.SIGNUP]: async function ({ commit }, userKeyInfo: UserKeyInfo) {
     try {
-      await httpRequest.post("/users", userKeyInfo);
+      await signup(userKeyInfo);
       commit(
         `${ModuleTypes.VIEWS}/${ViewMutations.SHOW_ACCOUNT_SIGNUP_SUCCESS}`,
         true,
@@ -70,7 +70,7 @@ const actions: ActionTree<UsersState, RootState> = {
   [UserActions.UPDATE_USER]: async function ({ commit }, user: User) {
     try {
       const toUpdate = purifyData(user);
-      await httpRequest.put("/users", toUpdate);
+      await updateUser(toUpdate);
       await saveUser(toUpdate);
       commit(UserMutations.SET_LOGIN_USER, toUpdate);
     } catch (err) {
