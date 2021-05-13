@@ -96,6 +96,11 @@ function loadAvatar(path: string): string {
   return path && require(`@/assets/avatar/${path}`);
 }
 
+function clearUserData(): void {
+  removeJwt();
+  removeUser();
+}
+
 export {
   saveUser,
   getUser,
@@ -107,4 +112,5 @@ export {
   checkUsernameExistence,
   validateEmail,
   loadAvatar,
+  clearUserData,
 };

@@ -1,5 +1,10 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import { PHome } from "@/components/pages/PHome";
+import { isJwtExpired } from "@/utils/lib";
+import { clearUserData } from "@/domain";
+import store from "@/store";
+import { ModuleTypes } from "@/store/constants";
+import { UserActions } from "@/store/user/constants";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -61,4 +66,13 @@ const router = createRouter({
   routes,
 });
 
+router.beforeEach(async (to, from, next) => {
+  const jwtExpired = await isJwtExpired();
+  if (jwtExpired) {
+    clearUserData();
+  }
+  // need change state
+  store.dispatch(`${ModuleTypes.USERS}/${UserActions.CHECK_USER_STATUS}`);
+  next();
+});
 export default router;
