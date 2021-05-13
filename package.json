@@ -21,6 +21,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "jwt-decode": "^3.1.2",
     "localforage": "^1.9.0",
     "lodash": "^4.17.21",
     "vue": "^3.0.0",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.1.0",
     "@types/chai": "^4.2.11",
+    "@types/jwt-decode": "^3.1.0",
     "@types/lodash": "^4.14.168",
     "@types/masonry-layout": "^4.2.2",
     "@types/mocha": "^5.2.4",
