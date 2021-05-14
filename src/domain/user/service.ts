@@ -63,21 +63,9 @@ function validateEmail(email: string): boolean {
   return re.test(String(email).toLowerCase());
 }
 
-function loadAvatar(path: string): string {
-  return path && require(`@/assets/avatar/${path}`);
-}
-
 async function clearUserData(): Promise<void> {
   await removeJwt();
   await removeUser();
 }
 
-export {
-  saveUser,
-  getUser,
-  saveJwt,
-  getJwt,
-  validateEmail,
-  loadAvatar,
-  clearUserData,
-};
+export { saveUser, getUser, saveJwt, getJwt, validateEmail, clearUserData };

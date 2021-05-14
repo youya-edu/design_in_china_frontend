@@ -15,7 +15,11 @@
               {{ $t("avatar") }}
             </dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              <img class="w-60" :src="avatar" :alt="userProfile?.username" />
+              <img
+                class="w-60"
+                :src="userProfile?.avatar"
+                :alt="userProfile?.username"
+              />
             </dd>
           </div>
           <div
@@ -60,9 +64,6 @@ export default defineComponent({
   props: {
     userProfile: {
       type: Object as PropType<User>,
-    },
-    avatar: {
-      type: String,
     },
   },
 });

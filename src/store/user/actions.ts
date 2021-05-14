@@ -42,9 +42,6 @@ const actions: ActionTree<UsersState, RootState> = {
 
   [UserActions.CHECK_USER_STATUS]: async function ({ commit }) {
     const user = (await getUser()) as User;
-    if (user && !user.avatar) {
-      user.avatar = "steve-jobs.jpeg";
-    }
     commit(UserMutations.SET_LOGIN_USER, user);
   },
 

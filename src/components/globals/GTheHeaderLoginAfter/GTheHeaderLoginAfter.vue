@@ -6,6 +6,7 @@
     <OAccountMenu
       id="user-menu"
       :username="user.username"
+      :avatar="user.avatar"
       :show="showUserMenu"
       @click="showUserMenu = !showUserMenu"
     />
