@@ -49,7 +49,7 @@ export default defineComponent({
     },
   },
   methods: {
-    ...mapActions(ModuleTypes.USERS, [UserActions.LOGOUT]),
+    ...mapActions(ModuleTypes.USER, [UserActions.LOGOUT]),
   },
 });
 </script>

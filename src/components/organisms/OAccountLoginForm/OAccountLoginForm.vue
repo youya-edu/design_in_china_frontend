@@ -63,7 +63,7 @@ export default defineComponent({
     };
   },
   methods: {
-    ...mapActions(ModuleTypes.USERS, { login: UserActions.LOGIN }),
+    ...mapActions(ModuleTypes.USER, { login: UserActions.LOGIN }),
     // eslint-disable-next-line
     checkEmail: lodash.debounce(async function (this: any) {
       if (this.userKeyInfo.email) {

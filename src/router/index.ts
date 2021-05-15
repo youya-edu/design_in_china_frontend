@@ -66,7 +66,7 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
   const jwtExpired = await isJwtExpired();
   if (jwtExpired) {
-    store.dispatch(`${ModuleTypes.USERS}/${UserActions.LOGOUT}`);
+    store.dispatch(`${ModuleTypes.USER}/${UserActions.LOGOUT}`);
   }
   next();
 });

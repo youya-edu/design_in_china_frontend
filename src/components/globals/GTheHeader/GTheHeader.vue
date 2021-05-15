@@ -40,11 +40,11 @@ export default defineComponent({
     };
   },
   methods: {
-    ...mapActions(ModuleTypes.USERS, [UserActions.CHECK_USER_STATUS]),
+    ...mapActions(ModuleTypes.USER, [UserActions.CHECK_USER_STATUS]),
   },
   computed: {
-    ...mapGetters(ModuleTypes.USERS, { user: UserGetters.CURRENT_LOGIN_USER }),
-    ...mapGetters(ModuleTypes.VIEWS, [
+    ...mapGetters(ModuleTypes.USER, { user: UserGetters.CURRENT_LOGIN_USER }),
+    ...mapGetters(ModuleTypes.VIEW, [
       ViewGetters.SHOW_ACCOUNT_LOGIN,
       ViewGetters.SHOW_ACCOUNT_SIGNUP,
     ]),

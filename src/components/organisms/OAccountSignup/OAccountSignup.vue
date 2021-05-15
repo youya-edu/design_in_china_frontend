@@ -66,7 +66,7 @@ export default defineComponent({
     };
   },
   methods: {
-    ...mapMutations(ModuleTypes.VIEWS, {
+    ...mapMutations(ModuleTypes.VIEW, {
       showAccountSignup: ViewMutations.SHOW_ACCOUNT_SIGNUP,
       showAccountLogin: ViewMutations.SHOW_ACCOUNT_LOGIN,
     }),
@@ -76,7 +76,7 @@ export default defineComponent({
     },
   },
   computed: {
-    ...mapGetters(ModuleTypes.VIEWS, [ViewGetters.SHOW_ACCOUNT_SIGNUP_SUCCESS]),
+    ...mapGetters(ModuleTypes.VIEW, [ViewGetters.SHOW_ACCOUNT_SIGNUP_SUCCESS]),
   },
 });
 </script>

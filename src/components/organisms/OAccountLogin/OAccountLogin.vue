@@ -54,7 +54,7 @@ export default defineComponent({
     OAccountLoginIdp,
   },
   methods: {
-    ...mapMutations(ModuleTypes.VIEWS, {
+    ...mapMutations(ModuleTypes.VIEW, {
       showAccountLogin: ViewMutations.SHOW_ACCOUNT_LOGIN,
       showAccountSignup: ViewMutations.SHOW_ACCOUNT_SIGNUP,
       showAccountSignupSuccess: ViewMutations.SHOW_ACCOUNT_SIGNUP_SUCCESS,

@@ -16,7 +16,7 @@ import { ModuleTypes, ViewMutations } from "@/store";
 
 export default defineComponent({
   methods: {
-    ...mapMutations(ModuleTypes.VIEWS, {
+    ...mapMutations(ModuleTypes.VIEW, {
       showAccountSignup: ViewMutations.SHOW_ACCOUNT_SIGNUP,
       showAccountLogin: ViewMutations.SHOW_ACCOUNT_LOGIN,
     }),

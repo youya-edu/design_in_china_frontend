@@ -28,7 +28,7 @@ export default defineComponent({
     };
   },
   methods: {
-    ...mapActions(ModuleTypes.USERS, [UserActions.LOGOUT]),
+    ...mapActions(ModuleTypes.USER, [UserActions.LOGOUT]),
     closeUserMenu(e: Event) {
       const tgt = e.target;
       if (this.$el !== tgt && !this.$el.contains(tgt)) {
@@ -37,7 +37,7 @@ export default defineComponent({
     },
   },
   computed: {
-    ...mapGetters(ModuleTypes.USERS, {
+    ...mapGetters(ModuleTypes.USER, {
       user: UserGetters.CURRENT_LOGIN_USER,
     }),
   },

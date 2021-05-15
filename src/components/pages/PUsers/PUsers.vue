@@ -14,10 +14,10 @@ export default defineComponent({
     this.loadUsers();
   },
   methods: {
-    ...mapActions(ModuleTypes.USERS, [UserActions.LOAD_USERS]),
+    ...mapActions(ModuleTypes.USER, [UserActions.LOAD_USERS]),
   },
   computed: {
-    ...mapGetters(ModuleTypes.USERS, [UserGetters.USERS]),
+    ...mapGetters(ModuleTypes.USER, [UserGetters.USERS]),
   },
 });
 </script>

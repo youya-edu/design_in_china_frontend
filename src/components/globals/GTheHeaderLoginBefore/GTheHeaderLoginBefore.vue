@@ -31,7 +31,7 @@ export default defineComponent({
     };
   },
   methods: {
-    ...mapMutations(ModuleTypes.VIEWS, [
+    ...mapMutations(ModuleTypes.VIEW, [
       ViewMutations.SHOW_ACCOUNT_LOGIN,
       ViewMutations.SHOW_ACCOUNT_SIGNUP,
     ]),

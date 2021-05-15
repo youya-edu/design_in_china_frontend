@@ -51,7 +51,7 @@ export default defineComponent({
     };
   },
   methods: {
-    ...mapActions(ModuleTypes.USERS, [UserActions.UPDATE_USER]),
+    ...mapActions(ModuleTypes.USER, [UserActions.UPDATE_USER]),
   },
   mounted() {
     getUser().then((user) => {
