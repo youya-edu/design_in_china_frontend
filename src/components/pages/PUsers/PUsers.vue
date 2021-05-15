@@ -5,8 +5,7 @@
 <script>
 import { defineComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
-import { ModuleTypes } from "@/store/constants";
-import { UserActions, UserGetters } from "@/store/user/constants";
+import { ModuleTypes, UserActions, UserGetters } from "@/store";
 import { TUsers } from "@/components/templates";
 
 export default defineComponent({

@@ -40,8 +40,7 @@ import {
   MAvatarButtonLabel,
 } from "@/components/molecules";
 import { mapActions } from "vuex";
-import { ModuleTypes } from "@/store/constants";
-import { UserActions } from "@/store/user/constants";
+import { ModuleTypes, UserActions } from "@/store";
 import { getUser, User } from "@/domain/user";
 
 export default defineComponent({

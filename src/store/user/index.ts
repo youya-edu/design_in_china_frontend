@@ -1,8 +1,8 @@
 import { Module } from "vuex";
-import { UsersState, RootState } from "@/store/types";
 import getters from "./getters";
 import actions from "./actions";
 import mutations from "./mutations";
+import { UsersState, RootState } from "../types";
 
 function state(): UsersState {
   return {
@@ -18,3 +18,5 @@ export const users: Module<UsersState, RootState> = {
   actions,
   mutations,
 };
+
+export * from "./constants";

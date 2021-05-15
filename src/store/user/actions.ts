@@ -1,5 +1,11 @@
 import { ActionTree } from "vuex";
-import { UsersState, RootState } from "@/store/types";
+import { UsersState, RootState } from "../types";
+import { ModuleTypes } from "../constants";
+import { UserMutations } from "./constants";
+import { ViewMutations } from "../view/constants";
+import { UserActions } from "./constants";
+import { login, signup, updateUser, loadUsers } from "@/api";
+import { purifyData } from "@/utils";
 import {
   User,
   UserKeyInfo,
@@ -9,12 +15,6 @@ import {
   saveJwt,
   clearUserData,
 } from "@/domain";
-import { ModuleTypes } from "@/store/constants";
-import { UserMutations } from "./constants";
-import { ViewMutations } from "@/store/view/constants";
-import { purifyData } from "@/utils";
-import { UserActions } from "./constants";
-import { login, signup, updateUser, loadUsers } from "@/api";
 
 const actions: ActionTree<UsersState, RootState> = {
   [UserActions.LOGIN]: async function ({ commit }, userKeyInfo: UserKeyInfo) {

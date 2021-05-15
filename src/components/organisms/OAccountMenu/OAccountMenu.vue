@@ -33,8 +33,7 @@
 import { defineComponent } from "vue";
 import { AMenuItem, AButtonCircle } from "@/components/atoms";
 import { mapActions } from "vuex";
-import { ModuleTypes } from "@/store/constants";
-import { UserActions } from "@/store/user/constants";
+import { ModuleTypes, UserActions } from "@/store";
 
 export default defineComponent({
   components: { AMenuItem, AButtonCircle },

@@ -22,9 +22,7 @@ import {
 } from "@/components/globals";
 import { OAccountLogin, OAccountSignup } from "@/components/organisms";
 import { mapActions, mapGetters } from "vuex";
-import { ModuleTypes } from "@/store/constants";
-import { ViewGetters } from "@/store/view/constants";
-import { UserActions, UserGetters } from "@/store/user/constants";
+import { ModuleTypes, ViewGetters, UserActions, UserGetters } from "@/store";
 
 export default defineComponent({
   components: {

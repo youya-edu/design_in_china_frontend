@@ -1,5 +1,5 @@
 import { Module } from "vuex";
-import { RootState, ViewsState } from "@/store/types";
+import { RootState, ViewsState } from "../types";
 import getters from "./getters";
 import mutations from "./mutations";
 
@@ -17,3 +17,5 @@ export const views: Module<ViewsState, RootState> = {
   getters,
   mutations,
 };
+
+export * from "./constants";

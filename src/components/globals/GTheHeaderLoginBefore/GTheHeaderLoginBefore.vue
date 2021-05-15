@@ -17,8 +17,7 @@
 <script>
 import { defineComponent } from "vue";
 import { mapMutations } from "vuex";
-import { ModuleTypes } from "@/store/constants";
-import { ViewMutations } from "@/store/view/constants";
+import { ModuleTypes, ViewMutations } from "@/store";
 import { AIconUser, AIconShoppingBag } from "@/components/atoms";
 export default defineComponent({
   components: {
