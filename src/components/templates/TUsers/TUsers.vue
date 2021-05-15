@@ -9,7 +9,7 @@
               params: { username: user.username },
             }"
           >
-            <img :src="loadAvatar(user.avatar)" :alt="user.username" />
+            <img :src="user.avatar" :alt="user.username" />
           </router-link>
         </figure>
         <router-link
@@ -24,15 +24,12 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { loadAvatar, User } from "@/domain/user";
+import { User } from "@/domain/user";
 
 export default defineComponent({
   name: "Users",
   props: {
     users: { type: Object as PropType<User>, required: true },
-  },
-  methods: {
-    loadAvatar,
   },
 });
 </script>

@@ -3,11 +3,7 @@
     <AButtonCircle
       class="mt-1 transition duration-300 ease-in-out hover:opacity-70"
     >
-      <img
-        class="h-5 w-5 rounded-full"
-        src="@/assets/avatar/steve-jobs.jpeg"
-        alt="user avatar"
-      />
+      <img class="h-5 w-5 rounded-full" :src="avatar" alt="user avatar" />
     </AButtonCircle>
     <div
       class="z-40 origin-top-right absolute right-0 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none"
@@ -44,6 +40,9 @@ export default defineComponent({
   components: { AMenuItem, AButtonCircle },
   props: {
     username: {
+      type: String,
+    },
+    avatar: {
       type: String,
     },
     show: {

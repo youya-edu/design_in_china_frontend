@@ -14,7 +14,7 @@
                   label="描述"
                   v-model="user.description"
                 />
-                <MAvatarButtonLabel :avatar="loadAvatar(user.avatar)" />
+                <MAvatarButtonLabel :avatar="user.avatar" />
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@ import {
 import { mapActions } from "vuex";
 import { ModuleTypes } from "@/store/constants";
 import { UserActions } from "@/store/user/constants";
-import { getUser, loadAvatar, User } from "@/domain/user";
+import { getUser, User } from "@/domain/user";
 
 export default defineComponent({
   components: { MInputMessageLabel, MTextareaMessageLabel, MAvatarButtonLabel },
@@ -52,7 +52,6 @@ export default defineComponent({
     };
   },
   methods: {
-    loadAvatar,
     ...mapActions(ModuleTypes.USERS, [UserActions.UPDATE_USER]),
   },
   mounted() {
