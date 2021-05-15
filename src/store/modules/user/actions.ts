@@ -1,6 +1,6 @@
 import { ActionTree } from "vuex";
-import { UsersState, RootState } from "../types";
-import { ModuleTypes } from "../constants";
+import { UsersState, RootState } from "../../types";
+import { ModuleTypes } from "../../constants";
 import { UserMutations } from "./constants";
 import { ViewMutations } from "../view/constants";
 import { UserActions } from "./constants";

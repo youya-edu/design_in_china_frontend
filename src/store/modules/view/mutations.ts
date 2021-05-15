@@ -1,5 +1,5 @@
 import { MutationTree } from "vuex";
-import { ViewsState } from "../types";
+import { ViewsState } from "../../types";
 import { ViewMutations } from "./constants";
 
 const mutations: MutationTree<ViewsState> = {
