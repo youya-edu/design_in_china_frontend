@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { MCompositionClassificationExpansion } from "@/components/molecules";
+import { MCompositionClassificationExpansion } from "@/components";
 
 export default defineComponent({
   components: {

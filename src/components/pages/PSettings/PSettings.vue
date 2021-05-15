@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { OSettingsProfile } from "@/components/organisms";
+import { OSettingsProfile } from "@/components";
 
 export default defineComponent({
   components: {

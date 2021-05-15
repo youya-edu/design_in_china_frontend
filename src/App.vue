@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { GTheNavigation, GTheHeader } from "@/components/globals";
+import { GTheNavigation, GTheHeader } from "@/components";
 
 export default defineComponent({
   components: {

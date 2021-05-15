@@ -18,7 +18,7 @@
 import { defineComponent } from "vue";
 import { mapMutations } from "vuex";
 import { ModuleTypes, ViewMutations } from "@/store";
-import { AIconUser, AIconShoppingBag } from "@/components/atoms";
+import { AIconUser, AIconShoppingBag } from "@/components";
 export default defineComponent({
   components: {
     AIconUser,

@@ -16,11 +16,9 @@
 
 <script>
 import { defineComponent } from "vue";
-import {
-  GTheHeaderLoginBefore,
-  GTheHeaderLoginAfter,
-} from "@/components/globals";
-import { OAccountLogin, OAccountSignup } from "@/components/organisms";
+import { GTheHeaderLoginBefore } from "../GTheHeaderLoginBefore";
+import { GTheHeaderLoginAfter } from "../GTheHeaderLoginAfter";
+import { OAccountLogin, OAccountSignup } from "@/components";
 import { mapActions, mapGetters } from "vuex";
 import { ModuleTypes, ViewGetters, UserActions, UserGetters } from "@/store";
 

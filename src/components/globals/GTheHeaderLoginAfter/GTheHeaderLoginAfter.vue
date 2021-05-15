@@ -17,8 +17,12 @@
 import { defineComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
 import { ModuleTypes, UserActions, UserGetters } from "@/store";
-import { AIconShoppingBag, AIconStar, AIconBell } from "@/components/atoms";
-import { OAccountMenu } from "@/components/organisms";
+import {
+  AIconShoppingBag,
+  AIconStar,
+  AIconBell,
+  OAccountMenu,
+} from "@/components";
 
 export default defineComponent({
   components: { AIconStar, AIconShoppingBag, AIconBell, OAccountMenu },

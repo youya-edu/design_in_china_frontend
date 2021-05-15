@@ -37,8 +37,7 @@ import { defineComponent } from "vue";
 import { mapActions } from "vuex";
 import { UserKeyInfo, validateEmail } from "@/domain";
 import { ModuleTypes, UserActions } from "@/store";
-import { AMessageLevel } from "@/components/atoms";
-import { MInputMessageLabel } from "@/components/molecules";
+import { AMessageLevel, MInputMessageLabel } from "@/components";
 import { lodash } from "@/utils/lib";
 import { checkEmailExistence, checkUsernameExistence } from "@/api";
 

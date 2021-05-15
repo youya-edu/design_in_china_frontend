@@ -44,12 +44,10 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import {
-  OAccountSideDescription,
-  OAccountSignupForm,
-  OAccountLoginIdp,
-  OAccountSignupSuccess,
-} from "@/components/organisms";
+import { OAccountSideDescription } from "../OAccountSideDescription";
+import { OAccountSignupForm } from "../OAccountSignupForm";
+import { OAccountLoginIdp } from "../OAccountLoginIdp";
+import { OAccountSignupSuccess } from "../OAccountSignupSuccess";
 import { mapGetters, mapMutations } from "vuex";
 import { ModuleTypes, ViewMutations, ViewGetters } from "@/store";
 

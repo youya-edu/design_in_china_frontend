@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { AMenuItem, AButtonCircle } from "@/components/atoms";
+import { AMenuItem, AButtonCircle } from "@/components";
 import { mapActions } from "vuex";
 import { ModuleTypes, UserActions } from "@/store";
 
