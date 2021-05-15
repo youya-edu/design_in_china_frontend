@@ -4,7 +4,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import { THome } from "@/components/templates";
+import { THome } from "@/components";
 
 export default defineComponent({
   components: {

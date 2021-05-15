@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { AIconGoogle } from "@/components/atoms";
+import { AIconGoogle } from "@/components";
 
 export default defineComponent({
   components: {

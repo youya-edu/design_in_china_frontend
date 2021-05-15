@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { MSelectMenuSortBy } from "@/components/molecules";
+import { MSelectMenuSortBy } from "@/components";
 
 export default defineComponent({
   components: {

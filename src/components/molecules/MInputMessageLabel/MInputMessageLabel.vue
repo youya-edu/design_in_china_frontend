@@ -19,12 +19,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import {
-  AInput,
-  AMessage,
-  AMessageType,
-  AMessageLevel,
-} from "@/components/atoms";
+import { AInput, AMessage, AMessageType, AMessageLevel } from "@/components";
 
 export default defineComponent({
   components: { AInput, AMessage },

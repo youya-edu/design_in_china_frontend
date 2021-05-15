@@ -1,1 +1,1 @@
-export { default as TSettings } from "./TSettings.vue";
+export { default as PSettings } from "./PSettings.vue";

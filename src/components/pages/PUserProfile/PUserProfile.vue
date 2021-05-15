@@ -4,7 +4,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import { TUserProfile } from "@/components/templates";
+import { TUserProfile } from "@/components";
 import { fetchUserByUsername } from "@/api";
 
 export default defineComponent({

@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { AInput, AInputType } from "@/components/atoms";
+import { AInput, AInputType } from "@/components";
 
 export default defineComponent({
   components: { AInput },

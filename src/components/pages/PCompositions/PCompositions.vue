@@ -3,7 +3,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { TCompositions } from "@/components/templates";
+import { TCompositions } from "@/components";
 
 export default defineComponent({
   components: {

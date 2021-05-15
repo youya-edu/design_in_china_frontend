@@ -16,7 +16,7 @@ import {
   OCompositionsSidebar,
   OCompositionsHeader,
   OCompositionsMain,
-} from "@/components/organisms";
+} from "@/components";
 
 export default defineComponent({
   components: {

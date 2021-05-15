@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { AIconChevronDown } from "@/components/atoms";
+import { AIconChevronDown } from "@/components";
 
 export default defineComponent({
   components: {

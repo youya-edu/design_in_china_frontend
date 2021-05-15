@@ -39,11 +39,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import {
-  OAccountSideDescription,
-  OAccountLoginForm,
-  OAccountLoginIdp,
-} from "@/components/organisms";
+import { OAccountSideDescription } from "../OAccountSideDescription";
+import { OAccountLoginForm } from "../OAccountLoginForm";
+import { OAccountLoginIdp } from "../OAccountLoginIdp";
 import { mapMutations } from "vuex";
 import { ModuleTypes, ViewMutations } from "@/store";
 

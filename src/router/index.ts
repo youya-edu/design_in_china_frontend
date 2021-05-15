@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import { PHome } from "@/components/pages/PHome";
+import { PHome } from "@/components";
 import { isJwtExpired } from "@/utils/lib";
 import store, { ModuleTypes, UserActions } from "@/store";
 
