@@ -1,7 +1,7 @@
 import { createStore, StoreOptions } from "vuex";
 import { RootState } from "./types";
-import { users } from "./user";
-import { views } from "./view";
+import { users } from "./modules/user";
+import { views } from "./modules/view";
 
 const store: StoreOptions<RootState> = {
   state() {
@@ -17,7 +17,7 @@ const store: StoreOptions<RootState> = {
 
 export default createStore<RootState>(store);
 
-export * from "./user";
-export * from "./view";
+export * from "./modules/user";
+export * from "./modules/view";
 export * from "./constants";
 export * from "./types";

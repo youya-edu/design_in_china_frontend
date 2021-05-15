@@ -1,6 +1,6 @@
 import { MutationTree } from "vuex";
 import { UserMutations } from "./constants";
-import { UsersState } from "../types";
+import { UsersState } from "../../types";
 import { User } from "@/domain/user";
 
 const mutations: MutationTree<UsersState> = {
