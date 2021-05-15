@@ -41,7 +41,7 @@ import {
 } from "@/components/molecules";
 import { mapActions } from "vuex";
 import { ModuleTypes, UserActions } from "@/store";
-import { getUser, User } from "@/domain/user";
+import { getUser, User } from "@/domain";
 
 export default defineComponent({
   components: { MInputMessageLabel, MTextareaMessageLabel, MAvatarButtonLabel },
