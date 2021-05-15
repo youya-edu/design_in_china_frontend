@@ -51,8 +51,7 @@ import {
   OAccountSignupSuccess,
 } from "@/components/organisms";
 import { mapGetters, mapMutations } from "vuex";
-import { ModuleTypes } from "@/store/constants";
-import { ViewMutations, ViewGetters } from "@/store/view/constants";
+import { ModuleTypes, ViewMutations, ViewGetters } from "@/store";
 
 export default defineComponent({
   components: {

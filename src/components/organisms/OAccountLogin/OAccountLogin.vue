@@ -45,8 +45,7 @@ import {
   OAccountLoginIdp,
 } from "@/components/organisms";
 import { mapMutations } from "vuex";
-import { ModuleTypes } from "@/store/constants";
-import { ViewMutations } from "@/store/view/constants";
+import { ModuleTypes, ViewMutations } from "@/store";
 
 export default defineComponent({
   components: {

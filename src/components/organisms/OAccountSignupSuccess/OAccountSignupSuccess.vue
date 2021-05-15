@@ -12,8 +12,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapMutations } from "vuex";
-import { ModuleTypes } from "@/store/constants";
-import { ViewMutations } from "@/store/view/constants";
+import { ModuleTypes, ViewMutations } from "@/store";
 
 export default defineComponent({
   methods: {

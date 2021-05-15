@@ -1,9 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import { PHome } from "@/components/pages/PHome";
 import { isJwtExpired } from "@/utils/lib";
-import store from "@/store";
-import { ModuleTypes } from "@/store/constants";
-import { UserActions } from "@/store/user/constants";
+import store, { ModuleTypes, UserActions } from "@/store";
 
 const routes: Array<RouteRecordRaw> = [
   {

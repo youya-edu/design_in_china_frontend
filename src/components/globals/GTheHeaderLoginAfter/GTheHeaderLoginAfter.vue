@@ -16,8 +16,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
-import { ModuleTypes } from "@/store/constants";
-import { UserActions, UserGetters } from "@/store/user/constants";
+import { ModuleTypes, UserActions, UserGetters } from "@/store";
 import { AIconShoppingBag, AIconStar, AIconBell } from "@/components/atoms";
 import { OAccountMenu } from "@/components/organisms";
 

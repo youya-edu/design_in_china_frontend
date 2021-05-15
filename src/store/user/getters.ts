@@ -1,5 +1,5 @@
 import { GetterTree } from "vuex";
-import { UsersState, RootState } from "@/store/types";
+import { UsersState, RootState } from "../types";
 import { UserGetters } from "./constants";
 
 const getters: GetterTree<UsersState, RootState> = {
