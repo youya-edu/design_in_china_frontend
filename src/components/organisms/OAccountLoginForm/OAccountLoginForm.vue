@@ -35,7 +35,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapActions } from "vuex";
-import { UserKeyInfo, validateEmail } from "@/domain/user";
+import { UserKeyInfo, validateEmail } from "@/domain";
 import { ModuleTypes, UserActions } from "@/store";
 import { AMessageLevel } from "@/components/atoms";
 import { MInputMessageLabel } from "@/components/molecules";
