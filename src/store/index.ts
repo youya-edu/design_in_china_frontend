@@ -1,7 +1,7 @@
 import { createStore, StoreOptions } from "vuex";
 import { RootState } from "./types";
-import { users } from "./modules/user";
-import { views } from "./modules/view";
+import { user } from "./modules/user";
+import { view } from "./modules/view";
 
 const store: StoreOptions<RootState> = {
   state() {
@@ -10,8 +10,8 @@ const store: StoreOptions<RootState> = {
     };
   },
   modules: {
-    users,
-    views,
+    user,
+    view,
   },
 };
 

@@ -23,13 +23,9 @@ const actions: ActionTree<UsersState, RootState> = {
       await saveJwt(jwtToken);
       await saveUser(user);
       commit(UserMutations.SET_LOGIN_USER, user);
-      commit(
-        `${ModuleTypes.VIEWS}/${ViewMutations.SHOW_ACCOUNT_LOGIN}`,
-        false,
-        {
-          root: true,
-        }
-      );
+      commit(`${ModuleTypes.VIEW}/${ViewMutations.SHOW_ACCOUNT_LOGIN}`, false, {
+        root: true,
+      });
     } catch (err) {
       console.error(err);
     }
@@ -55,7 +51,7 @@ const actions: ActionTree<UsersState, RootState> = {
     try {
       await signup(userKeyInfo);
       commit(
-        `${ModuleTypes.VIEWS}/${ViewMutations.SHOW_ACCOUNT_SIGNUP_SUCCESS}`,
+        `${ModuleTypes.VIEW}/${ViewMutations.SHOW_ACCOUNT_SIGNUP_SUCCESS}`,
         true,
         { root: true }
       );

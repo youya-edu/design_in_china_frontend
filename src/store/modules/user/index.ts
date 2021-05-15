@@ -11,7 +11,7 @@ function state(): UsersState {
   };
 }
 
-export const users: Module<UsersState, RootState> = {
+export const user: Module<UsersState, RootState> = {
   namespaced: true,
   state,
   getters,

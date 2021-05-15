@@ -11,7 +11,7 @@ function state(): ViewsState {
   };
 }
 
-export const views: Module<ViewsState, RootState> = {
+export const view: Module<ViewsState, RootState> = {
   namespaced: true,
   state,
   getters,

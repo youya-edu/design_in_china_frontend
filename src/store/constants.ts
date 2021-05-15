@@ -1,4 +1,4 @@
 export const enum ModuleTypes {
-  USERS = "users",
-  VIEWS = "views",
+  USER = "user",
+  VIEW = "view",
 }
