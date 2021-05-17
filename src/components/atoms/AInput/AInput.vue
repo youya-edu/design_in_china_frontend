@@ -5,7 +5,7 @@
     :value="modelValue"
     @input="$emit('update:modelValue', $event.target.value)"
     :class="[hasError ? errorClass : normalClass]"
-    class="appearance-none h-8 w-full rounded px-3 text-sm focus:outline-none"
+    class="appearance-none h-8 w-full px-3 text-sm focus:outline-none"
   />
 </template>
 

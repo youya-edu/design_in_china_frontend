@@ -9,7 +9,7 @@
     </span>
     <a
       href="#"
-      class="flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-800 rounded-md group hover:bg-gray-800 focus:outline-none"
+      class="flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-800 group hover:bg-gray-800 focus:outline-none"
     >
       <span> <AIconGoogle /> </span>
       <span class="text-sm font-medium text-gray-800 group-hover:text-white">{{

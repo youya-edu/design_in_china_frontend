@@ -25,7 +25,7 @@
   <div>
     <button
       @click="tryLogin()"
-      class="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-gray-700 rounded-md shadow hover:bg-gray-800 focus:outline-none focus:ring-blue-200 focus:ring-4"
+      class="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-gray-700 shadow hover:bg-gray-800 focus:outline-none focus:ring-blue-200 focus:ring-4"
     >
       {{ $t("login") }}
     </button>
@@ -74,6 +74,7 @@ export default defineComponent({
     async tryLogin() {
       try {
         await this.login(this.userKeyInfo);
+        this.$router.back();
       } catch (error) {
         this.loginFailedMessage.show = true;
       }
