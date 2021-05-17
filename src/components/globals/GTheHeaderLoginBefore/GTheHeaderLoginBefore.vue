@@ -1,11 +1,11 @@
 <template>
   <div class="flex items-center justify-around w-30">
     <AIconShoppingBag class="mr-1" />
-    <button :class="buttonClass" @click="showAccountLogin(true)">
-      <div class="flex items-center">
+    <button :class="buttonClass">
+      <router-link :to="{ name: 'Login' }" class="flex items-center">
         <AIconUser />
         {{ $t("login") }}
-      </div>
+      </router-link>
     </button>
     /
     <button :class="buttonClass" @click="showAccountSignup(true)">

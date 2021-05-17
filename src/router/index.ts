@@ -11,6 +11,15 @@ const routes: Array<RouteRecordRaw> = [
     props: true,
   },
   {
+    path: "/login",
+    name: "Login",
+    component: () =>
+      import(
+        /* webpackChunkName: "Users" */ "@/components/pages/PLogin/PLogin.vue"
+      ),
+    props: true,
+  },
+  {
     path: "/users",
     name: "Users",
     component: () =>

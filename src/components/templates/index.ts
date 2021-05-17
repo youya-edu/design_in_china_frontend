@@ -4,3 +4,4 @@ export * from "./THome";
 export * from "./TUserProfile";
 export * from "./TUsers";
 export * from "./TSettings";
+export * from "./TLogin";
