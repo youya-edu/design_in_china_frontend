@@ -1,5 +1,5 @@
 <template>
-  <div class="p-5 pb-10 bg-white w-2/5">
+  <div class="m-auto p-5 pb-10 bg-white w-2/5">
     <h3 class="text-left mr-auto my-5 text-2xl font-semibold text-gray-700">
       {{ $t("login_your_account") }}
     </h3>

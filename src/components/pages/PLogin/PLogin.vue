@@ -1,5 +1,5 @@
 <template>
-  <TLogin class="m-auto w-2/5" />
+  <TLogin />
 </template>
 
 <script lang="ts">
