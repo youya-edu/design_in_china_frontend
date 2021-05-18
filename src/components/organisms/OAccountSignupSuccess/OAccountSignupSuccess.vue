@@ -9,22 +9,3 @@
     </router-link>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from "vue";
-import { mapMutations } from "vuex";
-import { ModuleTypes, ViewMutations } from "@/store";
-
-export default defineComponent({
-  methods: {
-    ...mapMutations(ModuleTypes.VIEW, {
-      showAccountSignup: ViewMutations.SHOW_ACCOUNT_SIGNUP,
-      showAccountLogin: ViewMutations.SHOW_ACCOUNT_LOGIN,
-    }),
-    login() {
-      this.showAccountSignup(false);
-      this.showAccountLogin(true);
-    },
-  },
-});
-</script>
