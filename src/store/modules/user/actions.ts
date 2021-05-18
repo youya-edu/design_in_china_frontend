@@ -17,18 +17,19 @@ import {
 } from "@/domain";
 
 const actions: ActionTree<UsersState, RootState> = {
+  /**
+   * 2 cases:
+   * 1. successfully login and change state
+   * 2. failed to login and throw 401 exception
+   */
   [UserActions.LOGIN]: async function ({ commit }, userKeyInfo: UserKeyInfo) {
-    try {
-      const { jwtToken, user } = await login(userKeyInfo);
-      await saveJwt(jwtToken);
-      await saveUser(user);
-      commit(UserMutations.SET_LOGIN_USER, user);
-      commit(`${ModuleTypes.VIEW}/${ViewMutations.SHOW_ACCOUNT_LOGIN}`, false, {
-        root: true,
-      });
-    } catch (err) {
-      console.error(err);
-    }
+    const { jwtToken, user } = await login(userKeyInfo);
+    await saveJwt(jwtToken);
+    await saveUser(user);
+    commit(UserMutations.SET_LOGIN_USER, user);
+    commit(`${ModuleTypes.VIEW}/${ViewMutations.SHOW_ACCOUNT_LOGIN}`, false, {
+      root: true,
+    });
   },
 
   [UserActions.LOGOUT]: async function ({ commit }) {
