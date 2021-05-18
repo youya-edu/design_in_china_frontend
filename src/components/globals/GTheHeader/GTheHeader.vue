@@ -10,24 +10,19 @@
       </div>
     </div>
   </nav>
-  <OAccountLogin v-if="showAccountLogin" />
-  <OAccountSignup v-if="showAccountSignup" />
 </template>
 
 <script>
 import { defineComponent } from "vue";
 import { GTheHeaderLoginBefore } from "../GTheHeaderLoginBefore";
 import { GTheHeaderLoginAfter } from "../GTheHeaderLoginAfter";
-import { OAccountLogin, OAccountSignup } from "@/components";
 import { mapActions, mapGetters } from "vuex";
-import { ModuleTypes, ViewGetters, UserActions, UserGetters } from "@/store";
+import { ModuleTypes, UserActions, UserGetters } from "@/store";
 
 export default defineComponent({
   components: {
     GTheHeaderLoginBefore,
     GTheHeaderLoginAfter,
-    OAccountLogin,
-    OAccountSignup,
   },
   data() {
     return {
@@ -42,10 +37,6 @@ export default defineComponent({
   },
   computed: {
     ...mapGetters(ModuleTypes.USER, { user: UserGetters.CURRENT_LOGIN_USER }),
-    ...mapGetters(ModuleTypes.VIEW, [
-      ViewGetters.SHOW_ACCOUNT_LOGIN,
-      ViewGetters.SHOW_ACCOUNT_SIGNUP,
-    ]),
   },
   created() {
     this.checkUserStatus();

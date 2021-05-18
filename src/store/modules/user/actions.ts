@@ -27,9 +27,6 @@ const actions: ActionTree<UsersState, RootState> = {
     await saveJwt(jwtToken);
     await saveUser(user);
     commit(UserMutations.SET_LOGIN_USER, user);
-    commit(`${ModuleTypes.VIEW}/${ViewMutations.SHOW_ACCOUNT_LOGIN}`, false, {
-      root: true,
-    });
   },
 
   [UserActions.LOGOUT]: async function ({ commit }) {
