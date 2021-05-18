@@ -20,6 +20,15 @@ const routes: Array<RouteRecordRaw> = [
     props: true,
   },
   {
+    path: "/signup",
+    name: "Signup",
+    component: () =>
+      import(
+        /* webpackChunkName: "Signup" */ "@/components/pages/PSignup/PSignup.vue"
+      ),
+    props: true,
+  },
+  {
     path: "/users",
     name: "Users",
     component: () =>

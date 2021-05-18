@@ -23,7 +23,7 @@
     />
     <button
       @click="signup(userKeyInfo)"
-      class="w-full px-4 py-2 mt-6 rounded-md text-lg font-semibold text-white transition-colors duration-300 shadow"
+      class="w-full px-4 py-2 mt-6 text-lg font-semibold text-white transition-colors duration-300 shadow"
       :disabled="!allValid"
       :class="[allValid ? buttonEnabled : buttonDisabled]"
     >

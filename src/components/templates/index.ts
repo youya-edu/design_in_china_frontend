@@ -5,3 +5,4 @@ export * from "./TUserProfile";
 export * from "./TUsers";
 export * from "./TSettings";
 export * from "./TLogin";
+export * from "./TSignup";

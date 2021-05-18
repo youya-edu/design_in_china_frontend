@@ -8,8 +8,10 @@
       </router-link>
     </button>
     /
-    <button :class="buttonClass" @click="showAccountSignup(true)">
-      {{ $t("sign_up") }}
+    <button :class="buttonClass">
+      <router-link :to="{ name: 'Signup' }" class="flex items-center">
+        {{ $t("sign_up") }}
+      </router-link>
     </button>
   </div>
 </template>
