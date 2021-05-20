@@ -2,17 +2,18 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import { PHome } from "@/components";
 import { isJwtExpired } from "@/utils/lib";
 import store, { ModuleTypes, UserActions } from "@/store";
+import { RouteName, RedirectBlackList } from "./constant";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "Home",
+    name: RouteName.HOME,
     component: PHome,
     props: true,
   },
   {
     path: "/login",
-    name: "Login",
+    name: RouteName.LOGIN,
     component: () =>
       import(
         /* webpackChunkName: "Login" */ "@/components/pages/PLogin/PLogin.vue"
@@ -21,7 +22,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/signup",
-    name: "Signup",
+    name: RouteName.SIGNUP,
     component: () =>
       import(
         /* webpackChunkName: "Signup" */ "@/components/pages/PSignup/PSignup.vue"
@@ -30,7 +31,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/users",
-    name: "Users",
+    name: RouteName.USERS,
     component: () =>
       import(
         /* webpackChunkName: "Users" */ "@/components/pages/PUsers/PUsers.vue"
@@ -39,7 +40,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/compositions",
-    name: "Compositions",
+    name: RouteName.COMPOSITIONS,
     component: () =>
       import(
         /* webpackChunkName: "Compositions" */ "@/components/pages/PCompositions/PCompositions.vue"
@@ -48,7 +49,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/users/:username",
-    name: "UserProfile",
+    name: RouteName.USER_PROFILE,
     component: () =>
       import(
         /* webpackChunkName: "UserProfile" */ "@/components/pages/PUserProfile/PUserProfile.vue"
@@ -58,17 +59,20 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/settings",
-    name: "Settings",
+    name: RouteName.SETTINGS,
     component: () =>
       import(
         /* webpackChunkName: "Settings" */ "@/components/pages/PSettings/PSettings.vue"
       ),
     props: true,
+    meta: {
+      requireAuth: true,
+    },
   },
   {
     path: "/404",
     alias: "/:pathMatch(.*)*",
-    name: "NotFound",
+    name: RouteName.NOT_FOUND,
     component: () =>
       import(
         /* webpackChunkName: "NotFound" */ "@/components/pages/PNotFound/PNotFound.vue"
@@ -82,10 +86,29 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-  const jwtExpired = await isJwtExpired();
-  if (jwtExpired) {
-    store.dispatch(`${ModuleTypes.USER}/${UserActions.LOGOUT}`);
+  if (to.name === RouteName.LOGIN) {
+    if (to.query.redirect) {
+      next();
+    } else {
+      const fromName = from.name as string;
+      if (!fromName || RedirectBlackList.includes(fromName)) {
+        to.query.redirect = "/";
+      } else {
+        to.query.redirect = from.fullPath;
+      }
+      next();
+    }
+  } else if (to.matched.some((route) => route.meta.requireAuth)) {
+    const jwtExpired = await isJwtExpired();
+    if (jwtExpired) {
+      store.dispatch(`${ModuleTypes.USER}/${UserActions.LOGOUT}`);
+      next({ name: RouteName.LOGIN, query: { redirect: to.fullPath } });
+    } else {
+      next();
+    }
+  } else {
+    next();
   }
-  next();
 });
 export default router;
+export * from "./constant";

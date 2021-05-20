@@ -74,7 +74,8 @@ export default defineComponent({
     async tryLogin() {
       try {
         await this.login(this.userKeyInfo);
-        this.$router.back();
+        const redirectPath = this.$route.query.redirect as string;
+        this.$router.push(redirectPath);
       } catch (error) {
         this.loginFailedMessage.show = true;
       }
