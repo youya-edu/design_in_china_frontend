@@ -1,6 +1,8 @@
 <template>
   <div class="ml-6 flex items-center space-x-3">
-    <AIconShoppingBag />
+    <router-link :to="{ name: 'Cart' }">
+      <AIconCart />
+    </router-link>
     <AIconStar />
     <AIconBell />
     <OAccountMenu
@@ -17,15 +19,10 @@
 import { defineComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
 import { ModuleTypes, UserActions, UserGetters } from "@/store";
-import {
-  AIconShoppingBag,
-  AIconStar,
-  AIconBell,
-  OAccountMenu,
-} from "@/components";
+import { AIconCart, AIconStar, AIconBell, OAccountMenu } from "@/components";
 
 export default defineComponent({
-  components: { AIconStar, AIconShoppingBag, AIconBell, OAccountMenu },
+  components: { AIconCart, AIconStar, AIconBell, OAccountMenu },
   data() {
     return {
       showUserMenu: false,

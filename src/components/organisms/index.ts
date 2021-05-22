@@ -14,3 +14,7 @@ export * from "./OSettingsProfile";
 export * from "./OCompositionsSidebar";
 export * from "./OCompositionsHeader";
 export * from "./OCompositionsMain";
+
+export * from "./OCartItem";
+export * from "./OCartItemsContainer";
+export * from "./OCartPaymentArea";

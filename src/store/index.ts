@@ -2,6 +2,7 @@ import { createStore, StoreOptions } from "vuex";
 import { RootState } from "./types";
 import { user } from "./modules/user";
 import { view } from "./modules/view";
+import { cart } from "./modules/cart";
 
 const store: StoreOptions<RootState> = {
   state() {
@@ -11,6 +12,7 @@ const store: StoreOptions<RootState> = {
   },
   modules: {
     user,
+    cart,
     view,
   },
 };
@@ -18,6 +20,7 @@ const store: StoreOptions<RootState> = {
 export default createStore<RootState>(store);
 
 export * from "./modules/user";
+export * from "./modules/cart";
 export * from "./modules/view";
 export * from "./constants";
 export * from "./types";

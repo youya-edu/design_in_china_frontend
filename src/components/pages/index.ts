@@ -6,3 +6,4 @@ export * from "./PSettings";
 export * from "./PUserProfile";
 export * from "./PUsers";
 export * from "./PLogin";
+export * from "./PCart";
