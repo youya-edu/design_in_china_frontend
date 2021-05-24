@@ -4,7 +4,6 @@ import { CartState } from "../../types";
 import { CartItem } from "@/domain";
 
 const mutations: MutationTree<CartState> = {
-  // eslint-disable-next-line
   [CartMutations.CHANGE_QUANTITY](state: CartState, item: CartItem) {
     const idx = state.cartItems.findIndex((el) => el.id === item.id);
     state.cartItems[idx] = item;
