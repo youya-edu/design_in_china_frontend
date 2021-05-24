@@ -7,10 +7,12 @@ const getters: GetterTree<CartState, RootState> = {
     return state.cartItems;
   },
   [CartGetters.SELECTED_ITEMS_QUANTITY](state: CartState) {
-    return state.selectedItemsQuantity;
+    return state.cartItems.reduce((sum, item) => sum + item.quantity, 0);
   },
   [CartGetters.TOTAL_PRICE](state: CartState) {
-    return state.totalPrice;
+    return state.cartItems
+      .reduce((sum, item) => sum + item.price * item.quantity, 0)
+      .toFixed(2);
   },
 };
 

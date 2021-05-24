@@ -10,4 +10,4 @@ export * from "./MCompositionCard";
 export * from "./MCompositionClassificationExpansion";
 
 export * from "./MCartItemInfo";
-export * from "./MCartItemExtra";
+export * from "./MCartItemAction";

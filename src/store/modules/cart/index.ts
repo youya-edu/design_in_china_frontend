@@ -7,8 +7,6 @@ import { CartState, RootState } from "../../types";
 function state(): CartState {
   return {
     cartItems: [],
-    selectedItemsQuantity: 0,
-    totalPrice: 0,
   };
 }
 

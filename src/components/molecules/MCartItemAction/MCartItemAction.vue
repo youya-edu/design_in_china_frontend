@@ -27,11 +27,16 @@ export default defineComponent({
   methods: {
     ...mapMutations(ModuleTypes.CART, {
       changeQuantity: CartMutations.CHANGE_QUANTITY,
-      setTotalPrice: CartMutations.SET_TOTAL_PRICE,
-      setSelectedItemsQuantity: CartMutations.SET_SELECTED_ITEMS_QUANTITY,
     }),
     quantityChanged(newQuantity: number) {
-      this.changeQuantity({ newQuantity: newQuantity, item: this.item });
+      this.changeQuantity(
+        Object.assign(
+          {
+            quantity: newQuantity,
+          },
+          this.item
+        )
+      );
     },
   },
 });

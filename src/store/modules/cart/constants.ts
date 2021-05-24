@@ -1,8 +1,6 @@
 export const enum CartMutations {
   SET_CART_ITEMS = "setCartItems",
   REMOVE_ITEM = "removeItem",
-  SET_SELECTED_ITEMS_QUANTITY = "setSelectedItemsQuantity",
-  SET_TOTAL_PRICE = "setTotalPrice",
   CHANGE_QUANTITY = "changeQuantity",
 }
 

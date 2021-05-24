@@ -17,6 +17,4 @@ export interface ViewsState {
 
 export interface CartState {
   cartItems: CartItem[];
-  selectedItemsQuantity: number;
-  totalPrice: number;
 }
