@@ -36,6 +36,6 @@ export default defineComponent({
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 60px;
+  column-gap: 60px;
 }
 </style>

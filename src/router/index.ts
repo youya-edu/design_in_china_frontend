@@ -70,6 +70,18 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    path: "/cart",
+    name: RouteName.CART,
+    component: () =>
+      import(
+        /* webpackChunkName: "Cart" */ "@/components/pages/PCart/PCart.vue"
+      ),
+    props: true,
+    meta: {
+      requireAuth: true,
+    },
+  },
+  {
     path: "/404",
     alias: "/:pathMatch(.*)*",
     name: RouteName.NOT_FOUND,

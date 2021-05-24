@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-around w-30">
-    <AIconShoppingBag class="mr-1" />
+    <AIconCart class="mr-1" />
     <button :class="buttonClass">
       <router-link :to="{ name: 'Login' }" class="flex items-center">
         <AIconUser />
@@ -20,11 +20,11 @@
 import { defineComponent } from "vue";
 import { mapMutations } from "vuex";
 import { ModuleTypes, ViewMutations } from "@/store";
-import { AIconUser, AIconShoppingBag } from "@/components";
+import { AIconUser, AIconCart } from "@/components";
 export default defineComponent({
   components: {
     AIconUser,
-    AIconShoppingBag,
+    AIconCart,
   },
   data() {
     return {

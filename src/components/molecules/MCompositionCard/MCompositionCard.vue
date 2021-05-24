@@ -2,7 +2,7 @@
   <div class="mb-10 flex flex-col">
     <div class="mb-2">
       <img
-        :src="require(`@/assets/img/composition/${composition.image}`)"
+        :src="composition.image"
         :alt="composition.description"
         class="cursor-pointer hover:opacity-40"
       />

@@ -6,6 +6,7 @@ export enum RouteName {
   USER_PROFILE = "UserProfile",
   COMPOSITIONS = "Compositions",
   SETTINGS = "Settings",
+  CART = "Cart",
   NOT_FOUND = "NotFound",
 }
 
