@@ -98,28 +98,34 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-  if (to.name === RouteName.LOGIN) {
-    if (to.query.redirect) {
+  const isLoginReq = to.name === RouteName.LOGIN;
+  if (isLoginReq) {
+    const noJump = to.query.redirect; //to.query.redirect是文字列吗？还是boolean？
+    if (noJump) {
       next();
     } else {
-      const fromName = from.name as string;
-      if (!fromName || RedirectBlackList.includes(fromName)) {
-        to.query.redirect = "/";
-      } else {
+      const fromName = from.name as string; //为什么是fromName？不应该是toName吗？
+      const isJumpable = !fromName || RedirectBlackList.includes(fromName);
+      if (isJumpable) {
         to.query.redirect = from.fullPath;
+      } else {
+        to.query.redirect = "/";
       }
       next();
     }
-  } else if (to.matched.some((route) => route.meta.requireAuth)) {
-    const jwtExpired = await isJwtExpired();
-    if (jwtExpired) {
-      store.dispatch(`${ModuleTypes.USER}/${UserActions.LOGOUT}`);
-      next({ name: RouteName.LOGIN, query: { redirect: to.fullPath } });
-    } else {
-      next();
-    }
   } else {
-    next();
+    const needAuth = to.matched.some((route) => route.meta.requireAuth);
+    if (!needAuth) {
+      next();
+    } else {
+      const jwtExpired = await isJwtExpired();
+      if (!jwtExpired) {
+        next();
+      } else {
+        store.dispatch(`${ModuleTypes.USER}/${UserActions.LOGOUT}`);
+        next({ name: RouteName.LOGIN, query: { redirect: to.fullPath } });
+      }
+    }
   }
 });
 export default router;
