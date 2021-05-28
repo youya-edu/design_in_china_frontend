@@ -100,24 +100,24 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
   const isLoginReq = to.name === RouteName.LOGIN;
   if (isLoginReq) {
-    const noJump = to.query.redirect; //to.query.redirect是文字列吗？还是boolean？
-    if (noJump) {
-      next();
-    } else {
-      const fromName = from.name as string; //为什么是fromName？不应该是toName吗？
-      const isJumpable = !fromName || RedirectBlackList.includes(fromName);
-      if (isJumpable) {
-        to.query.redirect = from.fullPath;
-      } else {
+    const noRedirectParameter = !to.query.redirect;
+    if (noRedirectParameter) {
+      //如果有重定向则不做任何修改，直接执行重定向内容
+      const fromName = from.name as string;
+      const shouldGoBackHome =
+        !fromName || RedirectBlackList.includes(fromName);
+      if (shouldGoBackHome) {
         to.query.redirect = "/";
+      } else {
+        to.query.redirect = from.fullPath;
       }
-      next();
     }
+    next();
   } else {
-    const needAuth = to.matched.some((route) => route.meta.requireAuth);
-    if (!needAuth) {
-      next();
-    } else {
+    const needAuthendication = to.matched.some(
+      (route) => route.meta.requireAuth
+    );
+    if (needAuthendication) {
       const jwtExpired = await isJwtExpired();
       if (!jwtExpired) {
         next();
@@ -125,6 +125,8 @@ router.beforeEach(async (to, from, next) => {
         store.dispatch(`${ModuleTypes.USER}/${UserActions.LOGOUT}`);
         next({ name: RouteName.LOGIN, query: { redirect: to.fullPath } });
       }
+    } else {
+      next();
     }
   }
 });
