@@ -101,8 +101,8 @@ router.beforeEach(async (to, from, next) => {
   const isLoginReq = to.name === RouteName.LOGIN;
   if (isLoginReq) {
     const noRedirectParameter = !to.query.redirect;
+    //如果有重定向则不做任何修改，直接执行重定向内容
     if (noRedirectParameter) {
-      //如果有重定向则不做任何修改，直接执行重定向内容
       const fromName = from.name as string;
       const shouldGoBackHome =
         !fromName || RedirectBlackList.includes(fromName);
