@@ -1,15 +1,15 @@
 <template>
-  <TUsers :users="users" />
+  <TDesigners :users="users" />
 </template>
 
 <script>
 import { defineComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
 import { ModuleTypes, UserActions, UserGetters } from "@/store";
-import { TUsers } from "@/components";
+import { TDesigners } from "@/components";
 
 export default defineComponent({
-  components: { TUsers },
+  components: { TDesigners },
   mounted() {
     this.loadUsers();
   },

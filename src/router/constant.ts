@@ -2,7 +2,7 @@ export enum RouteName {
   HOME = "Home",
   LOGIN = "Login",
   SIGNUP = "Signup",
-  USERS = "Users",
+  DESIGNERS = "Designers",
   USER_PROFILE = "UserProfile",
   COMPOSITIONS = "Compositions",
   SETTINGS = "Settings",

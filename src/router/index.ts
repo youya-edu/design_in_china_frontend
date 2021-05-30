@@ -30,11 +30,11 @@ const routes: Array<RouteRecordRaw> = [
     props: true,
   },
   {
-    path: "/users",
-    name: RouteName.USERS,
+    path: "/designers",
+    name: RouteName.DESIGNERS,
     component: () =>
       import(
-        /* webpackChunkName: "Users" */ "@/components/pages/PUsers/PUsers.vue"
+        /* webpackChunkName: "Designers" */ "@/components/pages/PDesigners/PDesigners.vue"
       ),
     props: true,
   },

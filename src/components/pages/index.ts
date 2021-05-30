@@ -4,6 +4,6 @@ export * from "./PHome";
 export * from "./PNotFound";
 export * from "./PSettings";
 export * from "./PUserProfile";
-export * from "./PUsers";
+export * from "./PDesigners";
 export * from "./PLogin";
 export * from "./PCart";

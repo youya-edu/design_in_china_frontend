@@ -27,7 +27,6 @@ import { defineComponent, PropType } from "vue";
 import { User } from "@/domain";
 
 export default defineComponent({
-  name: "Users",
   props: {
     users: { type: Object as PropType<User>, required: true },
   },
