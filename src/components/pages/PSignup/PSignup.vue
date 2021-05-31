@@ -20,7 +20,7 @@ export default defineComponent({
   computed: {
     ...mapGetters(ModuleTypes.VIEW, [ViewGetters.SHOW_ACCOUNT_SIGNUP_SUCCESS]),
   },
-  mounted() {
+  created() {
     this.setAccountSignupSuccess(false);
   },
 });

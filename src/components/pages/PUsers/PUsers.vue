@@ -10,7 +10,7 @@ import { TUsers } from "@/components";
 
 export default defineComponent({
   components: { TUsers },
-  mounted() {
+  created() {
     this.loadUsers();
   },
   methods: {
