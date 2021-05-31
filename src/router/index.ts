@@ -98,28 +98,36 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-  if (to.name === RouteName.LOGIN) {
-    if (to.query.redirect) {
-      next();
-    } else {
+  const isLoginReq = to.name === RouteName.LOGIN;
+  if (isLoginReq) {
+    const noRedirectParameter = !to.query.redirect;
+    //如果有重定向则不做任何修改，直接执行重定向内容
+    if (noRedirectParameter) {
       const fromName = from.name as string;
-      if (!fromName || RedirectBlackList.includes(fromName)) {
+      const shouldGoBackHome =
+        !fromName || RedirectBlackList.includes(fromName);
+      if (shouldGoBackHome) {
         to.query.redirect = "/";
       } else {
         to.query.redirect = from.fullPath;
       }
-      next();
     }
-  } else if (to.matched.some((route) => route.meta.requireAuth)) {
-    const jwtExpired = await isJwtExpired();
-    if (jwtExpired) {
-      store.dispatch(`${ModuleTypes.USER}/${UserActions.LOGOUT}`);
-      next({ name: RouteName.LOGIN, query: { redirect: to.fullPath } });
+    next();
+  } else {
+    const needAuthendication = to.matched.some(
+      (route) => route.meta.requireAuth
+    );
+    if (needAuthendication) {
+      const jwtExpired = await isJwtExpired();
+      if (!jwtExpired) {
+        next();
+      } else {
+        store.dispatch(`${ModuleTypes.USER}/${UserActions.LOGOUT}`);
+        next({ name: RouteName.LOGIN, query: { redirect: to.fullPath } });
+      }
     } else {
       next();
     }
-  } else {
-    next();
   }
 });
 export default router;
