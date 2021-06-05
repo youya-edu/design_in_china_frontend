@@ -22,7 +22,7 @@ export default defineComponent({
   components: {
     OCartItem,
   },
-  mounted() {
+  created() {
     const store = useStore();
     store.dispatch(`${ModuleTypes.CART}/${CartActions.LOAD_CART}`);
   },

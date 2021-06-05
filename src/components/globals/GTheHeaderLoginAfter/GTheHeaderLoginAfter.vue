@@ -42,10 +42,10 @@ export default defineComponent({
       user: UserGetters.CURRENT_LOGIN_USER,
     }),
   },
-  mounted() {
+  created() {
     document.addEventListener("click", this.closeUserMenu);
   },
-  beforeUnmount() {
+  unmounted() {
     document.removeEventListener("click", this.closeUserMenu);
   },
 });
