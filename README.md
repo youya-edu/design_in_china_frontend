@@ -10,12 +10,13 @@
 
 ## branch 命名规则
 
-- feature/aaa
-- bugfix/bbb
-- test/ccc
-- cicd/ddd
-- doc/eee
-- other/fff
+- feature/xxx
+- improve/xxx
+- bugfix/xxx
+- test/xxx
+- cicd/xxx
+- doc/xxx
+- other/xxx
 
 采用文件目录法命名 branch，这样就可以在 UI 界面里方便的查看所有的 branch 及其层级结构。
 
