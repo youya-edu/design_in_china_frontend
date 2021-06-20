@@ -1,27 +1,27 @@
 <template>
-  <TUserProfile :userProfile="userProfile" />
+  <TDesignerProfile :designerProfile="designerProfile" />
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import { TUserProfile } from "@/components";
+import { TDesignerProfile } from "@/components";
 import { fetchUserByUsername } from "@/api";
 
 export default defineComponent({
   components: {
-    TUserProfile,
+    TDesignerProfile,
   },
   data() {
     return {
-      userProfile: null,
+      designerProfile: null,
     };
   },
   async beforeRouteEnter(to, from, next) {
-    // 根据传入的username去server获取User信息
+    // 根据params中的username去server获取User信息
     const user = await fetchUserByUsername(to.params.username);
     // 若存在，则继续
     if (user !== null) {
-      next((vm) => (vm.userProfile = user));
+      next((vm) => (vm.designerProfile = user));
     }
     // 否则，进入404
     else {

@@ -35,9 +35,14 @@ const updateUser = async (toUpdate: User): Promise<void> => {
   await httpRequest.put(API.USERS, toUpdate);
 };
 
-const loadUsers = async (): Promise<UserCollection> => {
-  const userCollection: UserCollection = (await httpRequest.get(API.USERS))
-    .data;
+const loadDesigners = async (): Promise<UserCollection> => {
+  const userCollection: UserCollection = (
+    await httpRequest.get(API.USERS, {
+      params: {
+        type: "designer",
+      },
+    })
+  ).data;
   return userCollection;
 };
 
@@ -69,7 +74,7 @@ export {
   signup,
   fetchUserByUsername,
   updateUser,
-  loadUsers,
+  loadDesigners,
   checkEmailExistence,
   checkUsernameExistence,
 };

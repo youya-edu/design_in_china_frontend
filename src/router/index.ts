@@ -30,12 +30,23 @@ const routes: Array<RouteRecordRaw> = [
     props: true,
   },
   {
-    path: "/users",
-    name: RouteName.USERS,
+    path: "/designers",
+    name: RouteName.DESIGNERS,
     component: () =>
       import(
-        /* webpackChunkName: "Users" */ "@/components/pages/PUsers/PUsers.vue"
+        /* webpackChunkName: "Designers" */ "@/components/pages/PDesigners/PDesigners.vue"
       ),
+    props: true,
+  },
+
+  {
+    path: "/designers/:username",
+    name: RouteName.DESIGNER_PROFILE,
+    component: () =>
+      import(
+        /* webpackChunkName: "DesignerProfile" */ "@/components/pages/PDesignerProfile/PDesignerProfile.vue"
+      ),
+    alias: ["/:username"],
     props: true,
   },
   {
@@ -45,16 +56,6 @@ const routes: Array<RouteRecordRaw> = [
       import(
         /* webpackChunkName: "Compositions" */ "@/components/pages/PCompositions/PCompositions.vue"
       ),
-    props: true,
-  },
-  {
-    path: "/users/:username",
-    name: RouteName.USER_PROFILE,
-    component: () =>
-      import(
-        /* webpackChunkName: "UserProfile" */ "@/components/pages/PUserProfile/PUserProfile.vue"
-      ),
-    alias: ["/:username"],
     props: true,
   },
   {

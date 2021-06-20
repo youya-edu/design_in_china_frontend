@@ -22,6 +22,7 @@
 
 <script>
 import { defineComponent } from "vue";
+import { RouteName } from "@/router";
 
 export default defineComponent({
   data() {
@@ -34,7 +35,12 @@ export default defineComponent({
           i18nKey: "composition",
           isActive: false,
         },
-        { id: 2, path: "Users", i18nKey: "designer", isActive: false },
+        {
+          id: 2,
+          path: RouteName.DESIGNERS,
+          i18nKey: "designer",
+          isActive: false,
+        },
       ],
       linkClass: "hover:bg-gray-300 hover:border-gray-300",
       linkActiveClass: "border-gray-400 text-gray-900",

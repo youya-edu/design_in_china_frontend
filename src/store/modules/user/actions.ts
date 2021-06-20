@@ -4,7 +4,7 @@ import { ModuleTypes } from "../../constants";
 import { UserMutations } from "./constants";
 import { ViewMutations } from "../view/constants";
 import { UserActions } from "./constants";
-import { login, signup, updateUser, loadUsers } from "@/api";
+import { login, signup, updateUser, loadDesigners } from "@/api";
 import { purifyData } from "@/utils";
 import {
   User,
@@ -39,10 +39,10 @@ const actions: ActionTree<UsersState, RootState> = {
     commit(UserMutations.SET_LOGIN_USER, user);
   },
 
-  [UserActions.LOAD_USERS]: async function ({ commit }) {
-    const response: UserCollection = await loadUsers();
+  [UserActions.LOAD_DESIGNERS]: async function ({ commit }) {
+    const response: UserCollection = await loadDesigners();
     const { users } = response;
-    commit(UserMutations.SET_USERS, users);
+    commit(UserMutations.SET_DESIGNERS, users);
   },
 
   [UserActions.SIGNUP]: async function ({ commit }, userKeyInfo: UserKeyInfo) {
