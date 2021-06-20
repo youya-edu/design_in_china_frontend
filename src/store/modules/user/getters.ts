@@ -6,7 +6,7 @@ const getters: GetterTree<UsersState, RootState> = {
   [UserGetters.CURRENT_LOGIN_USER](state: UsersState) {
     return state.currentLoginUser;
   },
-  [UserGetters.USERS](state: UsersState) {
+  [UserGetters.DESIGNERS](state: UsersState) {
     return state.users;
   },
 };

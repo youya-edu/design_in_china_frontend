@@ -15,11 +15,7 @@
               {{ $t("avatar") }}
             </dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              <img
-                class="w-60"
-                :src="userProfile?.avatar"
-                :alt="userProfile?.username"
-              />
+              <img class="w-60" :src="user.avatar" :alt="user.username" />
             </dd>
           </div>
           <div
@@ -29,7 +25,7 @@
               {{ $t("username") }}
             </dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {{ userProfile?.username }}
+              {{ user.username }}
             </dd>
           </div>
           <div
@@ -37,7 +33,7 @@
           >
             <dt class="text-sm font-medium text-gray-500">{{ $t("email") }}</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {{ userProfile?.email }}
+              {{ user.email }}
             </dd>
           </div>
           <div
@@ -47,7 +43,7 @@
               {{ $t("description") }}
             </dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              {{ userProfile?.description }}
+              {{ user.description }}
             </dd>
           </div>
         </dl>
@@ -59,11 +55,16 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { User } from "@/domain";
-
 export default defineComponent({
   props: {
-    userProfile: {
+    designerProfile: {
       type: Object as PropType<User>,
+    },
+  },
+  computed: {
+    // eslint-disable-next-line
+    user(): any {
+      return this.designerProfile ? this.designerProfile : {};
     },
   },
 });
