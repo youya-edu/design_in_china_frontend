@@ -1,7 +1,7 @@
 <template>
   <div class="compositions-container">
     <MCompositionCard
-      v-for="composition in compositions"
+      v-for="composition in compositionCollection.compositions"
       :key="composition.id"
       :composition="composition"
     />
@@ -11,18 +11,21 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref, Ref } from "vue";
 import { fetchCompositions } from "@/api";
-import { Composition } from "@/domain";
+import { CompositionCollection } from "@/domain";
 import { MCompositionCard } from "@/components";
 
 export default defineComponent({
   setup() {
-    const compositions: Ref<Composition[]> = ref([]);
+    const compositionCollection: Ref<CompositionCollection> = ref({
+      compostions: [],
+      totalSize: 0,
+    });
     const getCompositions = async () => {
-      compositions.value = (await fetchCompositions()) as Composition[];
+      compositionCollection.value = (await fetchCompositions()) as CompositionCollection;
     };
     onMounted(getCompositions);
     return {
-      compositions,
+      compositionCollection,
     };
   },
   components: {
