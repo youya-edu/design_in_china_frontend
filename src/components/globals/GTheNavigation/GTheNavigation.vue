@@ -28,10 +28,10 @@ export default defineComponent({
   data() {
     return {
       links: [
-        { id: 0, path: "Home", i18nKey: "home", isActive: false },
+        { id: 0, path: RouteName.HOME, i18nKey: "home", isActive: false },
         {
           id: 1,
-          path: "Compositions",
+          path: RouteName.COMPOSITIONS,
           i18nKey: "composition",
           isActive: false,
         },
