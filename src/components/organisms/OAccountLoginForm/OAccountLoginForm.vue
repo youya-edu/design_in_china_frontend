@@ -23,12 +23,12 @@
     </div>
   </div>
   <div>
-    <button
+    <AButtonSquare
       @click="tryLogin()"
-      class="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-gray-700 shadow hover:bg-gray-800 focus:outline-none focus:ring-blue-200 focus:ring-4"
+      class="text-white bg-gray-700 hover:bg-gray-800"
     >
       {{ $t("login") }}
-    </button>
+    </AButtonSquare>
   </div>
 </template>
 
@@ -37,11 +37,11 @@ import { defineComponent } from "vue";
 import { mapActions } from "vuex";
 import { UserKeyInfo, validateEmail } from "@/domain";
 import { ModuleTypes, UserActions } from "@/store";
-import { AMessageLevel, MInputMessageLabel } from "@/components";
+import { AButtonSquare, AMessageLevel, MInputMessageLabel } from "@/components";
 import { lodash } from "@/utils/lib";
 
 export default defineComponent({
-  components: { MInputMessageLabel },
+  components: { AButtonSquare, MInputMessageLabel },
   data() {
     return {
       userKeyInfo: {
