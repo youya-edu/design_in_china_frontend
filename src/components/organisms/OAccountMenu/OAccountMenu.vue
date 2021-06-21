@@ -12,7 +12,7 @@
     >
       <div class="py-1">
         <router-link
-          :to="{ name: 'UserProfile', params: { username: username } }"
+          :to="{ name: 'DesignerProfile', params: { username: username } }"
         >
           <AMenuItem> Your profile </AMenuItem>
         </router-link>
