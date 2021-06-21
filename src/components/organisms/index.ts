@@ -14,6 +14,9 @@ export * from "./OSettingsProfile";
 export * from "./OCompositionsSidebar";
 export * from "./OCompositionsHeader";
 export * from "./OCompositionsMain";
+export * from "./OCompositionDetailImage";
+export * from "./OCompositionDetailInfo";
+export * from "./OCompositionDetailAction";
 
 export * from "./OCartItemAction";
 export * from "./OCartItem";
