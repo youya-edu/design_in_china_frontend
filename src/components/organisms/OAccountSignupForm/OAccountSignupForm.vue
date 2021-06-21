@@ -21,14 +21,14 @@
       :placeholder="$t('password')"
       v-model="userKeyInfo.password"
     />
-    <button
+    <AButtonSquare
       @click="signup(userKeyInfo)"
-      class="w-full px-4 py-2 mt-6 text-lg font-semibold text-white transition-colors duration-300 shadow"
+      class="mt-6 text-white"
       :disabled="!allValid"
       :class="[allValid ? buttonEnabled : buttonDisabled]"
     >
       {{ $t("sign_up") }}
-    </button>
+    </AButtonSquare>
   </div>
 </template>
 
@@ -37,12 +37,12 @@ import { defineComponent } from "vue";
 import { mapActions } from "vuex";
 import { UserKeyInfo, validateEmail } from "@/domain";
 import { ModuleTypes, UserActions } from "@/store";
-import { AMessageLevel, MInputMessageLabel } from "@/components";
+import { AButtonSquare, AMessageLevel, MInputMessageLabel } from "@/components";
 import { lodash } from "@/utils/lib";
 import { checkEmailExistence, checkUsernameExistence } from "@/api";
 
 export default defineComponent({
-  components: { MInputMessageLabel },
+  components: { AButtonSquare, MInputMessageLabel },
   data() {
     return {
       userKeyInfo: {
@@ -66,7 +66,7 @@ export default defineComponent({
           content: "用户名已被注册",
         },
       },
-      buttonEnabled: "bg-gray-700 hover:bg-gray-800 focus:outline-none",
+      buttonEnabled: "bg-gray-700 hover:bg-gray-800",
       buttonDisabled: "bg-gray-300",
     };
   },
