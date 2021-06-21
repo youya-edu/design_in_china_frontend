@@ -5,19 +5,22 @@
       <span class="mx-2 text-gray-400">|</span>
       <button class="hover:underline">加入收藏夹</button>
     </div>
-    <MSelectMenu class="text-left" @quantity-changed="quantityChanged" />
+    <MCartItemActionSelectMenu
+      class="text-left"
+      @quantity-changed="quantityChanged"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { MSelectMenu } from "../MSelectMenu";
+import { MCartItemActionSelectMenu } from "@/components";
 import { CartItem } from "@/domain";
 import { mapMutations } from "vuex";
 import { CartMutations, ModuleTypes } from "@/store";
 
 export default defineComponent({
-  components: { MSelectMenu },
+  components: { MCartItemActionSelectMenu },
   props: {
     item: {
       type: Object as PropType<CartItem>,

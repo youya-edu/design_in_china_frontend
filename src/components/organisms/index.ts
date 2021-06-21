@@ -15,6 +15,7 @@ export * from "./OCompositionsSidebar";
 export * from "./OCompositionsHeader";
 export * from "./OCompositionsMain";
 
+export * from "./OCartItemAction";
 export * from "./OCartItem";
 export * from "./OCartItemsContainer";
 export * from "./OCartPaymentArea";
