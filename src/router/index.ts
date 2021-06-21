@@ -59,6 +59,15 @@ const routes: Array<RouteRecordRaw> = [
     props: true,
   },
   {
+    path: "/compositions/:id",
+    name: RouteName.COMPOSITION_DETAIL,
+    component: () =>
+      import(
+        /* webpackChunkName: "CompositionDetail" */ "@/components/pages/PCompositionDetail/PCompositionDetail.vue"
+      ),
+    props: true,
+  },
+  {
     path: "/settings",
     name: RouteName.SETTINGS,
     component: () =>
