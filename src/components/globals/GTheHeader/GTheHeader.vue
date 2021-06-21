@@ -1,9 +1,12 @@
 <template>
   <nav>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
       <div class="flex items-center justify-between h-24">
-        <div class="text-xl">DESIGN IN CHINA</div>
-        <div class="flex">
+        <div class="w-1/4">
+          <OSelectI18n class="w-1/3" />
+        </div>
+        <div class="text-5xl">DESIGN IN CHINA</div>
+        <div class="w-1/4 flex justify-end">
           <GTheHeaderLoginBefore v-if="user === null" />
           <GTheHeaderLoginAfter v-else />
         </div>
@@ -16,6 +19,7 @@
 import { defineComponent } from "vue";
 import { GTheHeaderLoginBefore } from "../GTheHeaderLoginBefore";
 import { GTheHeaderLoginAfter } from "../GTheHeaderLoginAfter";
+import { OSelectI18n } from "@/components";
 import { mapActions, mapGetters } from "vuex";
 import { ModuleTypes, UserActions, UserGetters } from "@/store";
 
@@ -23,6 +27,7 @@ export default defineComponent({
   components: {
     GTheHeaderLoginBefore,
     GTheHeaderLoginAfter,
+    OSelectI18n,
   },
   data() {
     return {
