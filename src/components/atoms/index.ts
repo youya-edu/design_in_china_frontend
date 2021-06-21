@@ -10,5 +10,6 @@ export * from "./AIconCheck";
 export * from "./AInput";
 export * from "./ASelect";
 export * from "./AButtonCircle";
+export * from "./AButtonSquare";
 export * from "./AMenuItem";
 export * from "./AMessage";

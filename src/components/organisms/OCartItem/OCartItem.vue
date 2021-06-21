@@ -4,19 +4,20 @@
       <input type="checkbox" checked />
     </div>
     <MCartItemInfo :item="item" class="w-3/5 h-full" />
-    <MCartItemAction :item="item" />
+    <OCartItemAction :item="item" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { MCartItemInfo, MCartItemAction } from "@/components";
+import { MCartItemInfo } from "@/components";
+import { OCartItemAction } from "../OCartItemAction";
 import { CartItem } from "@/domain";
 
 export default defineComponent({
   components: {
     MCartItemInfo,
-    MCartItemAction,
+    OCartItemAction,
   },
   props: {
     item: Object as PropType<CartItem>,
