@@ -22,3 +22,8 @@ export * from "./OCartItemAction";
 export * from "./OCartItem";
 export * from "./OCartItemsContainer";
 export * from "./OCartPaymentArea";
+
+export * from "./ODesignerCardInfo";
+export * from "./ODesignerCardCompositions";
+export * from "./ODesignerCard";
+export * from "./ODesignerCardsContainer";

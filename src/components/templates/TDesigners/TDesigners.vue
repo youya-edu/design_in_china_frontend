@@ -1,11 +1,17 @@
 <template>
-  <div class="designers-gallery"></div>
+  <div class="designers-gallery">
+    <ODesignerCardsContainer :designers="designers" />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { User } from "@/domain";
+import { ODesignerCardsContainer } from "@/components";
 export default defineComponent({
+  components: {
+    ODesignerCardsContainer,
+  },
   props: {
     designers: { type: Object as PropType<User[]>, required: true },
   },
