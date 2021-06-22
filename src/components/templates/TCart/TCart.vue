@@ -1,7 +1,10 @@
 <template>
-  <div id="cart">
-    <OCartItemsContainer class="h-full" />
-    <OCartPaymentArea class="h-96" />
+  <div class="flex flex-col">
+    <div class="text-xl text-left mb-3">购物车</div>
+    <div id="cart">
+      <OCartItemsContainer class="h-full" />
+      <OCartPaymentArea class="h-96" />
+    </div>
   </div>
 </template>
 
