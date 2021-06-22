@@ -3,7 +3,9 @@
     <router-link :to="{ name: 'Cart' }">
       <AIconCart />
     </router-link>
-    <AIconStar />
+    <router-link :to="{ name: 'Wishlist' }">
+      <AIconStar />
+    </router-link>
     <AIconBell />
     <OAccountMenu
       id="user-menu"

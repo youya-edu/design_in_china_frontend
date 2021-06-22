@@ -80,6 +80,18 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    path: "/wishlist",
+    name: RouteName.WISHLIST,
+    component: () =>
+      import(
+        /* webpackChunkName: "Wishlist" */ "@/components/pages/PWishlist/PWishlist.vue"
+      ),
+    props: true,
+    meta: {
+      requireAuth: true,
+    },
+  },
+  {
     path: "/cart",
     name: RouteName.CART,
     component: () =>

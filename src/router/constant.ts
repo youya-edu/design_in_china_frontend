@@ -8,6 +8,7 @@ export enum RouteName {
   COMPOSITION_DETAIL = "CompositionDetail",
   SETTINGS = "Settings",
   CART = "Cart",
+  WISHLIST = "Wishlist",
   NOT_FOUND = "NotFound",
 }
 
