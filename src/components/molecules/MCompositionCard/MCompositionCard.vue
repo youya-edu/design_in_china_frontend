@@ -8,6 +8,7 @@
           :src="composition.image"
           :alt="composition.description"
           class="cursor-pointer hover:opacity-40"
+          loading="lazy"
         />
       </div>
     </router-link>
