@@ -1,7 +1,7 @@
 <template>
   <div class="cart-item-info p-2 items-center">
     <div class="text-sm font-medium text-gray-700">
-      <img :src="item.image" alt="item image" class="w-full" />
+      <img :src="item.image" alt="item image" class="w-full" loading="lazy" />
     </div>
     <div class="text-left">
       <div>

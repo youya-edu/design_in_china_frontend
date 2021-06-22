@@ -15,7 +15,12 @@
               {{ $t("avatar") }}
             </dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              <img class="w-60" :src="user.avatar" :alt="user.username" />
+              <img
+                class="w-60"
+                :src="user.avatar"
+                :alt="user.username"
+                loading="lazy"
+              />
             </dd>
           </div>
           <div
