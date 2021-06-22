@@ -6,7 +6,7 @@
         v-for="item in items"
         :key="item.id"
         :item="item"
-        class="w-full shadow h-60"
+        class="w-full h-60"
       />
     </div>
   </div>
