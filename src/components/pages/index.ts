@@ -8,3 +8,4 @@ export * from "./PDesignerProfile";
 export * from "./PDesigners";
 export * from "./PLogin";
 export * from "./PCart";
+export * from "./PWishlist";

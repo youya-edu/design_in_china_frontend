@@ -8,3 +8,4 @@ export * from "./TSettings";
 export * from "./TLogin";
 export * from "./TSignup";
 export * from "./TCart";
+export * from "./TWishlist";
