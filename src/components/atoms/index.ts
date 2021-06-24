@@ -5,6 +5,8 @@ export * from "./AIconCart";
 export * from "./AIconStar";
 export * from "./AIconBell";
 export * from "./AIconChevronDown";
+export * from "./AIconChevronLeft";
+export * from "./AIconChevronRight";
 export * from "./AIconCheck";
 
 export * from "./AInput";

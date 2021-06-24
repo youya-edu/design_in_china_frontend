@@ -10,3 +10,5 @@ export * from "./MCompositionCard";
 export * from "./MCompositionClassificationExpansion";
 
 export * from "./MCartItemInfo";
+
+export * from "./MPaginationBar";
