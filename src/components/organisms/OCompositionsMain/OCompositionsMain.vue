@@ -1,10 +1,13 @@
 <template>
-  <div class="compositions-container">
-    <MCompositionCard
-      v-for="composition in compositionCollection.compositions"
-      :key="composition.id"
-      :composition="composition"
-    />
+  <div>
+    <div class="compositions-container">
+      <MCompositionCard
+        v-for="composition in compositionCollection.compositions"
+        :key="composition.id"
+        :composition="composition"
+      />
+    </div>
+    <MPaginationBar />
   </div>
 </template>
 
@@ -12,7 +15,7 @@
 import { defineComponent, onMounted, ref, Ref } from "vue";
 import { fetchCompositions } from "@/api";
 import { CompositionCollection } from "@/domain";
-import { MCompositionCard } from "@/components";
+import { MCompositionCard, MPaginationBar } from "@/components";
 
 export default defineComponent({
   setup() {
@@ -30,6 +33,7 @@ export default defineComponent({
   },
   components: {
     MCompositionCard,
+    MPaginationBar,
   },
 });
 </script>
