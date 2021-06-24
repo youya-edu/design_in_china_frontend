@@ -2,13 +2,20 @@ import { Composition, CompositionCollection } from "@/domain";
 import { httpRequest } from "@/utils/http";
 import { API } from "./constant";
 
-const fetchCompositions = async (): Promise<CompositionCollection> => {
+const fetchCompositions = async (
+  pageNumber = 1
+): Promise<CompositionCollection> => {
   let compositionCollection: CompositionCollection = {
     compostions: [],
     totalSize: 0,
   };
+  console.log(pageNumber);
   try {
-    const response = await httpRequest.get(API.COMPOSITIONS);
+    const response = await httpRequest.get(API.COMPOSITIONS, {
+      params: {
+        page: pageNumber,
+      },
+    });
     compositionCollection = response.data;
   } catch (error) {
     console.error(error);

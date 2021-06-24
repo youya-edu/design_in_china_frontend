@@ -7,7 +7,7 @@
         :composition="composition"
       />
     </div>
-    <MPaginationBar />
+    <MPaginationBar @pageSelected="pageSelected" />
   </div>
 </template>
 
@@ -34,6 +34,13 @@ export default defineComponent({
   components: {
     MCompositionCard,
     MPaginationBar,
+  },
+  methods: {
+    async pageSelected(pageNumber: number) {
+      this.compositionCollection = (await fetchCompositions(
+        pageNumber
+      )) as CompositionCollection;
+    },
   },
 });
 </script>

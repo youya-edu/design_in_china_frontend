@@ -58,15 +58,15 @@ export default defineComponent({
     };
   },
   methods: {
-    selectPage(pageSelected: string) {
-      this.selectedPage = parseInt(pageSelected);
+    selectPage(pageSelected: number) {
+      this.selectedPage = Number(pageSelected);
       this.$emit("pageSelected", this.selectedPage);
     },
     goToPrevious() {
-      this.selectedPage = Math.max(this.selectedPage - 1, 1);
+      this.selectPage(Math.max(this.selectedPage - 1, 1));
     },
     goToNext() {
-      this.selectedPage = Math.min(this.selectedPage + 1, this.lastPage);
+      this.selectPage(Math.min(this.selectedPage + 1, this.lastPage));
     },
   },
   emits: ["pageSelected"],
