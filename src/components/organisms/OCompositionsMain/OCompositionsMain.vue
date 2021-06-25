@@ -7,7 +7,10 @@
         :composition="composition"
       />
     </div>
-    <MPaginationBar @pageSelected="pageSelected" />
+    <MPaginationBar
+      @pageSelected="pageSelected"
+      :totalSize="compositionCollection.totalSize"
+    />
   </div>
 </template>
 
