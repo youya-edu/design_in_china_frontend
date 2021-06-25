@@ -6,7 +6,6 @@ export interface RootState {
 
 export interface UsersState {
   currentLoginUser: User | null;
-  users: User[];
 }
 
 export interface ViewsState {

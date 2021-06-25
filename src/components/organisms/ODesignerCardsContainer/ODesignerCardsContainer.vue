@@ -18,7 +18,11 @@ export default defineComponent({
     ODesignerCard,
   },
   props: {
-    designers: { type: Object as PropType<User[]>, required: true },
+    designers: {
+      type: Object as PropType<User[]>,
+      required: true,
+      default: [],
+    },
   },
 });
 </script>
