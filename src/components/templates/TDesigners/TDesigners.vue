@@ -1,19 +1,33 @@
 <template>
   <div class="designers-gallery">
-    <ODesignerCardsContainer :designers="designers" />
+    <ODesignerCardsContainer :designers="designerCollection.users" />
+    <MPaginationBar
+      :totalSize="designerCollection.totalSize"
+      @pageSelected="pageSelected"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { User } from "@/domain";
-import { ODesignerCardsContainer } from "@/components";
+import { UserCollection } from "@/domain";
+import { MPaginationBar, ODesignerCardsContainer } from "@/components";
 export default defineComponent({
   components: {
+    MPaginationBar,
     ODesignerCardsContainer,
   },
   props: {
-    designers: { type: Object as PropType<User[]>, required: true },
+    designerCollection: {
+      type: Object as PropType<UserCollection>,
+      required: true,
+    },
+  },
+  emits: ["pageSelected"],
+  methods: {
+    pageSelected(pageNumber: number) {
+      this.$emit("pageSelected", pageNumber);
+    },
   },
 });
 </script>

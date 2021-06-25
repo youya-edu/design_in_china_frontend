@@ -35,11 +35,12 @@ const updateUser = async (toUpdate: User): Promise<void> => {
   await httpRequest.put(API.USERS, toUpdate);
 };
 
-const loadDesigners = async (): Promise<UserCollection> => {
+const loadDesigners = async (pageNumber = 1): Promise<UserCollection> => {
   const userCollection: UserCollection = (
     await httpRequest.get(API.USERS, {
       params: {
         type: "designer",
+        page: pageNumber,
       },
     })
   ).data;

@@ -4,12 +4,11 @@ import { ModuleTypes } from "../../constants";
 import { UserMutations } from "./constants";
 import { ViewMutations } from "../view/constants";
 import { UserActions } from "./constants";
-import { login, signup, updateUser, loadDesigners } from "@/api";
+import { login, signup, updateUser } from "@/api";
 import { purifyData } from "@/utils";
 import {
   User,
   UserKeyInfo,
-  UserCollection,
   getUser,
   saveUser,
   saveJwt,
@@ -37,12 +36,6 @@ const actions: ActionTree<UsersState, RootState> = {
   [UserActions.CHECK_USER_STATUS]: async function ({ commit }) {
     const user = (await getUser()) as User;
     commit(UserMutations.SET_LOGIN_USER, user);
-  },
-
-  [UserActions.LOAD_DESIGNERS]: async function ({ commit }) {
-    const response: UserCollection = await loadDesigners();
-    const { users } = response;
-    commit(UserMutations.SET_DESIGNERS, users);
   },
 
   [UserActions.SIGNUP]: async function ({ commit }, userKeyInfo: UserKeyInfo) {

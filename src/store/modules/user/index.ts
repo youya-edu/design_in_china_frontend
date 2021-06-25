@@ -7,7 +7,6 @@ import { UsersState, RootState } from "../../types";
 function state(): UsersState {
   return {
     currentLoginUser: null,
-    users: [],
   };
 }
 

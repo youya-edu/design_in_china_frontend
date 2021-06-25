@@ -1,26 +1,28 @@
 <template>
-  <TDesigners :designers="designers" />
+  <TDesigners
+    :designerCollection="designerCollection"
+    @pageSelected="pageSelected"
+  />
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import { mapActions, mapGetters } from "vuex";
-import { ModuleTypes, UserActions, UserGetters } from "@/store";
 import { TDesigners } from "@/components";
+import { loadDesigners } from "@/api";
 export default defineComponent({
   components: { TDesigners },
-  created() {
-    this.loadDesigners();
+  data() {
+    return {
+      designerCollection: [],
+    };
+  },
+  async created() {
+    await this.pageSelected(1);
   },
   methods: {
-    ...mapActions(ModuleTypes.USER, {
-      loadDesigners: UserActions.LOAD_DESIGNERS,
-    }),
-  },
-  computed: {
-    ...mapGetters(ModuleTypes.USER, {
-      designers: UserGetters.DESIGNERS,
-    }),
+    async pageSelected(pageNumber) {
+      this.designerCollection = await loadDesigners(pageNumber);
+    },
   },
 });
 </script>
