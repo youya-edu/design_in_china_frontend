@@ -11,6 +11,9 @@ const mutations: MutationTree<CartState> = {
   [CartMutations.SET_CART_ITEMS](state: CartState, items: CartItem[]) {
     state.cartItems = items;
   },
+  [CartMutations.SET_CART_PAGE](state: CartState, page: number) {
+    state.cartPage = page;
+  },
 };
 
 export default mutations;
