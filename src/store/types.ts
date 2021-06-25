@@ -16,4 +16,5 @@ export interface ViewsState {
 
 export interface CartState {
   cartItems: CartItem[];
+  cartPage: number;
 }

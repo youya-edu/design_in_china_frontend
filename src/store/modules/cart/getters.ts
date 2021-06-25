@@ -4,7 +4,13 @@ import { CartGetters } from "./constants";
 
 const getters: GetterTree<CartState, RootState> = {
   [CartGetters.CART_ITEMS](state: CartState) {
-    return state.cartItems;
+    return state.cartItems.slice(
+      (state.cartPage - 1) * 20,
+      state.cartPage * 20
+    );
+  },
+  [CartGetters.TOTAL_SIZE](state: CartState) {
+    return state.cartItems.length;
   },
   [CartGetters.SELECTED_ITEMS_QUANTITY](state: CartState) {
     return state.cartItems.reduce((sum, item) => sum + item.quantity, 0);

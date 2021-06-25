@@ -16,14 +16,14 @@
     <div class="flex justify-between">
       <div>消费税</div>
       <div>
-        <b>{{ totalPrice * 0.1 }}</b>
+        <b>{{ (totalPrice * 0.1).toFixed(2) }}</b>
       </div>
     </div>
     <hr />
     <div class="flex justify-between">
       <div>共计</div>
       <div>
-        <b>{{ totalPrice * 1.1 }}</b>
+        <b>{{ (totalPrice * 1.1).toFixed(2) }}</b>
       </div>
     </div>
   </div>

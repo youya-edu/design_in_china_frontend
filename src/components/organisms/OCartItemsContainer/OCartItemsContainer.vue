@@ -8,27 +8,32 @@
         :item="item"
         class="w-full h-60"
       />
+      <MPaginationBar @pageSelected="setCartPage" :totalSize="totalSize" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapGetters, useStore } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
+import { MPaginationBar } from "@/components";
 import { OCartItem } from "../OCartItem";
-import { ModuleTypes, CartActions, CartGetters } from "@/store";
+import { ModuleTypes, CartGetters, CartMutations } from "@/store";
 
 export default defineComponent({
   components: {
+    MPaginationBar,
     OCartItem,
   },
-  created() {
-    const store = useStore();
-    store.dispatch(`${ModuleTypes.CART}/${CartActions.LOAD_CART}`);
+  methods: {
+    ...mapMutations(ModuleTypes.CART, {
+      setCartPage: CartMutations.SET_CART_PAGE,
+    }),
   },
   computed: {
     ...mapGetters(ModuleTypes.CART, {
       items: CartGetters.CART_ITEMS,
+      totalSize: CartGetters.TOTAL_SIZE,
     }),
   },
 });

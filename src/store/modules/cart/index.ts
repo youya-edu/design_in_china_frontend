@@ -7,6 +7,7 @@ import { CartState, RootState } from "../../types";
 function state(): CartState {
   return {
     cartItems: [],
+    cartPage: 1,
   };
 }
 
